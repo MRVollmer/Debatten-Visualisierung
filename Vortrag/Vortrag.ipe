@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.6">
-<info created="D:20090429144355" modified="D:20150216020317" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150216191709" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -218,13 +218,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
-<textsize name="small" value="\small"/>
-<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
+<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
+<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -2153,13 +2153,13 @@ h
 <textsize name="largebf" value="\bf\large"/>
 <textstretch name="normal" value="2.45"/>
 <textstretch name="large" value="2.45"/>
-<textstretch name="small" value="2.2"/>
-<textstretch name="tiny" value="2.8"/>
 <textstretch name="Large" value="2.2"/>
 <textstretch name="LARGE" value="2.2"/>
 <textstretch name="huge" value="2.2"/>
 <textstretch name="Huge" value="2.2"/>
+<textstretch name="small" value="2.2"/>
 <textstretch name="footnote" value="2"/>
+<textstretch name="tiny" value="2.8"/>
 <textstretch name="verytiny" value="2.3"/>
 <textstretch name="largebf" value="2.45"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
@@ -3229,30 +3229,31 @@ h
 160 128 m
 135.396 128 l
 </path>
-<path matrix="1 0 0 1 336 0" stroke="red" arrow="normal/tiny">
-176 352 m
-176 336 l
-256 336 l
-256 320 l
+<path stroke="red" arrow="normal/tiny">
+514.367 351.985 m
+514.367 338.623 l
+592.089 338.623 l
+592 320 l
 </path>
-<path matrix="1 0 0 1 336 0" stroke="red" arrow="normal/tiny">
-176 336 m
-144 336 l
-144 304 l
-176 304 l
-176 288 l
+<path stroke="red" arrow="normal/tiny">
+510.812 351.495 m
+510.812 336.049 l
+480 336 l
+480 304 l
+512 304 l
+512 288 l
 </path>
 <path matrix="1 0 0 1 336 0" stroke="red" arrow="normal/tiny">
 112 240 m
 112 208 l
 </path>
-<path matrix="1 0 0 1 336 0" stroke="seagreen" arrow="normal/tiny">
-176 240 m
-176 144 l
-144 144 l
-144 112 l
-224 112 l
-224 96 l
+<path stroke="seagreen" arrow="normal/tiny">
+496 240 m
+496 144 l
+468.673 144.08 l
+468.673 118.827 l
+560.002 118.827 l
+560 96 l
 </path>
 <path matrix="1 0 0 1 336 0" stroke="red" arrow="normal/tiny">
 256 272 m
@@ -3260,13 +3261,13 @@ h
 240 112 l
 240 96 l
 </path>
-<path matrix="1 0 0 1 336 0" stroke="seagreen" arrow="normal/tiny">
-160 352 m
-160 336 l
-128 336 l
-128 304 l
-96 304 l
-96 288 l
+<path stroke="seagreen" arrow="normal/tiny">
+496 352 m
+495.93 343.193 l
+463.934 343.193 l
+464 304 l
+432 304 l
+432 288 l
 </path>
 <path matrix="1 0 0 1 336 0" stroke="seagreen" arrow="normal/tiny">
 240 272 m
