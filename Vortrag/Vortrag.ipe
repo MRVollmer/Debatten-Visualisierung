@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20090429144355" modified="D:20150217104508" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150217111118" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -218,13 +218,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -2153,13 +2153,13 @@ h
 <textsize name="largebf" value="\bf\large"/>
 <textstretch name="normal" value="2.45"/>
 <textstretch name="large" value="2.45"/>
+<textstretch name="small" value="2.2"/>
+<textstretch name="tiny" value="2.8"/>
 <textstretch name="Large" value="2.2"/>
 <textstretch name="LARGE" value="2.2"/>
 <textstretch name="huge" value="2.2"/>
 <textstretch name="Huge" value="2.2"/>
-<textstretch name="small" value="2.2"/>
 <textstretch name="footnote" value="2"/>
-<textstretch name="tiny" value="2.8"/>
 <textstretch name="verytiny" value="2.3"/>
 <textstretch name="largebf" value="2.45"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
@@ -2301,66 +2301,144 @@ h
 <text matrix="1 0 0 1 151 -29.5" transformations="translations" pos="608 -16" stroke="white" type="label" width="105.167" height="13.244" depth="0.176" halign="right" valign="center" size="small">\bf www.kit.edu</text>
 <text matrix="1 0 0 1 8 8" transformations="translations" pos="0 240" stroke="white" type="minipage" width="688" height="20.3196" depth="6.356" valign="top" size="tiny">\textsc{Institut für theoretische Informatik $\cdot$  Diplom Inform. Andreas Gemsa, Dr. Ignaz Rutter}\\
 \textsc{Institut für Philosophie $\cdot$  Jun.-Prof. Dr. habil. Gregor Betz}</text>
-<text matrix="1 0 0 1 -108 -12" transformations="translations" pos="124 104" stroke="darkred" type="minipage" width="468" height="43.7497" depth="31.605" valign="top">Todo: Titel finden, Namen vervollständigen (Edit $\rightarrow$ Document Properties)
-am besten nach Nachname/Vorname sortiert</text>
 <text matrix="1 0 0 1 51 -317" pos="213 427" stroke="black" type="label" width="153.512" height="13.0086" depth="3.806" valign="baseline" size="small">\bf \today</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 0}</text>
 </page>
 <page title="Motivation">
 <layer name="alpha"/>
-<view layers="alpha" active="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="beta"/>
+<view layers="alpha pagenumbers_page beta gamma" active="gamma"/>
+<view layers="alpha pagenumbers_page beta gamma delta" active="delta"/>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 <text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="18.9483" depth="6.762" valign="top" style="itemize">\item Visualisierung von Debatten durch Argumentkarten
 </text>
-<text matrix="1 0 0 1 0 -64" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="53.976" depth="41.8705" valign="top" style="itemize">\item Wieso Gruppen?
+<text layer="beta" matrix="1 0 0 1 0 -64" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="53.976" depth="41.8705" valign="top" style="itemize">\item Wieso Gruppen?
 \begin{itemize}
 \item Zusammenfassen von inhaltlich zusammengehörigen Knoten
 \item Heraustellen wichtiger Strukturen (Argumentationsketten)
 \end{itemize}</text>
-<text matrix="1 0 0 1 0 -192" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="53.8314" depth="41.699" valign="top" style="itemize">\item Anforderderungn an Layouts mit Gruppen?
+<text layer="gamma" matrix="1 0 0 1 0 -192" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="51.6778" depth="39.543" valign="top" style="itemize">\item Wünschenswertes an Layouts mit Gruppen?
 \begin{itemize}
 \item Gruppen visuell repräsentiert
-\item Kanten zwischen Gruppen bündel
+\item Übersichtlichkeit
 \end{itemize}
 </text>
-<text matrix="1 0 0 1 0 -320" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="66.1378" depth="54.047" valign="top" style="itemize">\item Weitere wünschenswerte Features
+<text layer="delta" matrix="1 0 0 1 0 -320" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="66.1378" depth="54.047" valign="top" style="itemize">\item Weitere wünschenswerte Features
 \begin{itemize}
 \item Gruppen ein- und aufklappbar
-\item Auf- und zuklappen von Gruppen verändert Graphstruktur bzw. relative Positionen nicht allzusehr
+\item Auf- und zuklappen von Gruppen verändert Graphstruktur nicht allzusehr
 \end{itemize}
 </text>
-</page>
-<page title="Motivation">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="138.748" depth="126.812" valign="top" style="itemize">\item Warum Gruppen in Graphen?
-\begin{itemize}
-\item Zusammenfassen von inhaltlich zusammengehörigen Knoten
-\item Heraustellen wichtiger Strukturen (Argumentationsketten)
-\end{itemize}
-\vspace*{0.5 cm}
-\item Wie Gruppen Layouten?
-\begin{itemize}
-\item Gruppen zusammen und &quot;einklappbar&quot;
-\item Auf- und zuklappen von Gruppen sollte Graphstruktur bzw. relative Positionen nicht allzusehr verändern
-\end{itemize}
-</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 </page>
 <page title="Problemabstraktion">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="107.959" depth="95.9665" valign="top" style="itemize">\item Knoten als Rechtecke mit individueller aber fester Größe
-\begin{itemize}
-\item Vernachlässige tatsächlichen Inhalt für das Layout
-\end{itemize}
-\item Kanten zwischen Knoten
-\begin{itemize}
-\item Vernachlässige Kantenrichtung und Kantenfarbe (bei unserem Lösungsansatz)
-\end{itemize}
-\item Gruppenzugehörigkeiten (rechtseindeutig, transitiv)</text>
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="16.8046" depth="4.606" valign="top" style="itemize">\item Knoten als Rechtecke mit individueller aber fester Größe
+</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
+<text layer="alpha" matrix="1 0 0 1 0 -140" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="19.0561" depth="6.8355" valign="top" style="itemize">\item Kanten zwischen Knoten ungerichtet und einfarbig</text>
+<text matrix="1 0 0 1 0 -288" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="19.1272" depth="6.909" valign="top" style="itemize">
+\item Gruppenzugehörigkeiten (rechtseindeutig, transitiv)</text>
+<path matrix="1 0 0 1 80 8" stroke="black" fill="KITblue70">
+128 384 m
+128 320 l
+192 320 l
+192 384 l
+h
+</path>
+<path matrix="1 0 0 1 80 8" stroke="black">
+128 368 m
+192 368 l
+</path>
+<text matrix="1 0 0 1 80 20" transformations="translations" pos="128 368" stroke="black" type="minipage" width="64" height="11.7152" depth="0" valign="top" size="tiny">42. Hallo</text>
+<text matrix="1 0 0 1 80 4" transformations="translations" pos="128 368" stroke="black" type="minipage" width="64" height="28.4536" depth="14.504" valign="top" size="tiny">Dies ist ein Argument mit Text.</text>
+<path matrix="1 0 0 1 80 8" stroke="black" arrow="normal/normal">
+208 352 m
+288 352 l
+</path>
+<path matrix="1 0 0 1 256 8" stroke="black" fill="KITblue70">
+128 384 m
+128 320 l
+192 320 l
+192 384 l
+h
+</path>
+<path matrix="1 0 0 1 176 168" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 168 128" stroke="KITgreen" arrow="normal/normal">
+96 96 m
+72 112 l
+</path>
+<path matrix="1 0 0 1 208 144" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 168 128" stroke="KITred" arrow="normal/normal">
+64 72 m
+88 88 l
+</path>
+<path matrix="1 0 0 1 168 128" stroke="KITred" arrow="normal/normal">
+56 80 m
+60 104 l
+</path>
+<path matrix="1 0 0 1 168 128" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 352 168" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+96 96 m
+72 112 l
+</path>
+<path matrix="1 0 0 1 384 144" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+64 72 m
+88 88 l
+</path>
+<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+56 80 m
+60 104 l
+</path>
+<path matrix="1 0 0 1 344 128" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 80 -128" stroke="black" arrow="normal/normal">
+208 352 m
+288 352 l
+</path>
 </page>
 <page title="Ansatz - Uniform Kräftebasierend">
 <layer name="delta"/>
@@ -2471,7 +2549,7 @@ am besten nach Nachname/Vorname sortiert</text>
 32 0 0 32 432 128 e
 </path>
 <use layer="gamma" matrix="1 0 0 1 272 0" name="mark/disk(sx)" pos="208 128" size="tiny" stroke="black"/>
-<text layer="delta" transformations="translations" pos="0 432" stroke="black" type="minipage" width="432" height="82.0382" depth="69.9965" valign="top" style="itemize">\item Ein Kräftebasiertes Layout für alle Knoten
+<text layer="delta" transformations="translations" pos="0 432" stroke="black" type="minipage" width="432" height="82.0383" depth="69.9965" valign="top" style="itemize">\item Ein Kräftebasiertes Layout für alle Knoten
 \item Geschlossene Gruppen und zusammengelegte Kanten werden entsprechend gewichtet</text>
 <text layer="gamma" transformations="translations" pos="0 272" stroke="black" type="minipage" width="432" height="95.4643" depth="83.447" valign="top" style="itemize">\item Knoten einer geöffneten Gruppen werden normal in das Kräftebasierte Layout eingebunden
 \begin{itemize}
@@ -2689,7 +2767,7 @@ h
 <text matrix="1 0 0 1 -16 16" transformations="translations" pos="16 416" stroke="black" type="minipage" width="368" height="66.3779" depth="54.2675" valign="top" style="itemize">\item Gruppen erhalten jeweils 2 feste Ports
 \begin{itemize}\item die ggf. noch in grün und rot aufgeteilt werden
 \end{itemize}</text>
-<text layer="beta" matrix="1 0 0 1 -384 -144" transformations="translations" pos="384 432" stroke="black" type="minipage" width="368" height="141.676" depth="129.777" valign="top" style="itemize">\item Eigenschaften von Orthogonal mit Ports
+<text layer="beta" matrix="1 0 0 1 -384 -144" transformations="translations" pos="384 432" stroke="black" type="minipage" width="368" height="141.676" depth="129.776" valign="top" style="itemize">\item Eigenschaften von Orthogonal mit Ports
 \begin{itemize}
 \item Starke Anforderungen an struktur des Graphen (bspw. keine Zykel)
 \item Potenziell sehr starke vertikale Ausdehnung
@@ -4124,7 +4202,7 @@ Wie wird $\gamma$ bestimmt</notes>
 Größe
 
 Portverhalten</text>
-<text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="164.841" depth="153.003" valign="top" style="item">Lösungsansatz:
+<text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="164.841" depth="153.002" valign="top" style="item">Lösungsansatz:
 \begin{itemize}
 \item Algorithmus:
 \begin{enumerate}
