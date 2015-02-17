@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.6">
-<info created="D:20090429144355" modified="D:20150217130344" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150217131049" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -2401,7 +2401,7 @@ h
 64 80 l
 h
 </path>
-<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+<path matrix="1 0 0 1 344 128" stroke="KITblack70">
 96 96 m
 72 112 l
 </path>
@@ -2412,11 +2412,11 @@ h
 64 80 l
 h
 </path>
-<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+<path matrix="1 0 0 1 344 128" stroke="KITblack70">
 64 72 m
 88 88 l
 </path>
-<path matrix="1 0 0 1 344 128" stroke="KITblack70" arrow="normal/normal">
+<path matrix="1 0 0 1 344 128" stroke="KITblack70">
 56 80 m
 60 104 l
 </path>
