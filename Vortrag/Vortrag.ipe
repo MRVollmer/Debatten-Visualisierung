@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20090429144355" modified="D:20150217111118" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<ipe version="70005" creator="Ipe 7.1.6">
+<info created="D:20090429144355" modified="D:20150217110612" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -2334,11 +2334,13 @@ h
 \item Auf- und zuklappen von Gruppen verändert Graphstruktur nicht allzusehr
 \end{itemize}
 </text>
+
 </page>
 <page title="Problemabstraktion">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
+
 <text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="16.8046" depth="4.606" valign="top" style="itemize">\item Knoten als Rechtecke mit individueller aber fester Größe
 </text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
@@ -2439,6 +2441,7 @@ h
 208 352 m
 288 352 l
 </path>
+
 </page>
 <page title="Ansatz - Uniform Kräftebasierend">
 <layer name="delta"/>
@@ -2588,7 +2591,7 @@ h
 576 0
 448 0 u
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
 </page>
 <page title="Ansatz - Orthongonal mit Ports">
 <layer name="alpha"/>
@@ -2773,7 +2776,7 @@ h
 \item Potenziell sehr starke vertikale Ausdehnung
 \item Kann Struktur des Graphen gut verdeutlichen
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
 </page>
 <page title="Lösungsansatz: Kräftebasiert mit Kapselung">
 <layer name="alpha"/>
@@ -2801,7 +2804,7 @@ Anker und neue Größenberechnung, ..</text>
 \begin{itemize}
 \item rekursiv wird das übergeordnete Layout neu berechnet (erneut Kräftebasiert, aber unter Einbeziehung der Anker)
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
 </page>
 <page title="Schematischer Ablauf unseres Algorithmus">
 <layer name="Basic_Graph"/>
@@ -3179,7 +3182,7 @@ h
 320 240 m
 336 208 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
 </page>
 <page title="Vergleich unserers Ansatzes">
 <layer name="alpha"/>
@@ -3200,7 +3203,7 @@ h
 \item Kompakteres Layout
 \item Fokus des Layouts liegt mehr auf Gruppenbeziehungen als der Gesamtstruktur
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
 </page>
 <page title="Algorithmus Teil 1 &quot;bottom-up&quot;">
 <layer name="alpha"/>
@@ -3464,7 +3467,7 @@ h
 120 136 m
 120 64 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
 </page>
 <page title="Algorithmus Teil 2 &quot;top-down&quot;">
 <layer name="alpha"/>
@@ -3675,7 +3678,7 @@ h
 </path>
 <text matrix="1 0 0 1 308 104" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.1836" depth="19.012" valign="top" style="center">4. Wiederhole\\ iterativ pro Stufe</text>
 <text layer="beta" matrix="1 0 0 1 60 -148" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.4335" depth="19.257" valign="top" style="center">2. Ports für\\ Gruppen festlegen</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
 </page>
 <page title="Layout von Gruppen">
 <layer name="alpha"/>
@@ -3974,7 +3977,7 @@ h
 
 \end{itemize}
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
 </page>
 <page title="Layoutanpassung bei Interaktion">
 <notes>Öffene Frage:
@@ -3992,9 +3995,9 @@ Wie wird $\gamma$ bestimmt</notes>
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <view layers="alpha beta pagenumbers_page" active="alpha"/>
 <view layers="pagenumbers_page gamma iota zeta" active="iota"/>
-<view layers="pagenumbers_page gamma iota epsilon" active="epsilon"/>
-<view layers="pagenumbers_page gamma iota epsilon eta" active="eta"/>
-<view layers="pagenumbers_page gamma theta eta delta" active="theta"/>
+<view layers="pagenumbers_page iota epsilon" active="epsilon"/>
+<view layers="pagenumbers_page iota epsilon eta" active="eta"/>
+<view layers="pagenumbers_page theta eta delta" active="theta"/>
 <path layer="iota" matrix="1 0 0 1 -55.408 9.72228" stroke="black" fill="KITblue50">
 32 0 0 32 512 304 e
 </path>
@@ -4084,17 +4087,6 @@ h
 <path matrix="1 0 0 1 -132.908 -140.686" stroke="black" fill="KITblue50">
 32 0 0 32 512 304 e
 </path>
-<path layer="zeta" matrix="1 0 0 1 -251.856 13.9282" stroke="black" fill="KITyellow70">
-32 0 0 32 512 304 e
-</path>
-<path matrix="0.98114 0 0 0.97793 7.85146 7.88204" stroke="black" fill="KITblue50" rarrow="normal/normal">
-331.801 212.715 m
-272.836 287.617 l
-</path>
-<path matrix="0.965402 0 0 0.816993 14.6226 58.1773" stroke="black" fill="KITblue50" rarrow="normal/normal">
-422.64 317.897 m
-288.773 317.897 l
-</path>
 <group layer="epsilon" matrix="-1.81159 0.0561038 -0.056296 -1.80541 748.576 863.455">
 <path matrix="1 0 0 1 81.3942 215.366" stroke="black" fill="KITyellow70">
 36 32 -32 36 176 100 e
@@ -4181,10 +4173,32 @@ h
 398.909 187.676 m
 451.359 271.932 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
 <path layer="iota" stroke="black" arrow="normal/normal">
 377.701 214.94 m
 435.876 289.005 l
+</path>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+<group layer="gamma">
+<path matrix="-0.965731 -0.259547 0.259547 -0.965731 400.014 458.253" stroke="black" fill="KITyellow70">
+36 32 -32 36 176 100 e
+</path>
+<path matrix="-0.965731 -0.259547 0.259547 -0.965731 445.089 598.768" stroke="KITred" pen="fat">
+208 232 m
+48.6621 0 0 -48.6621 256 224 213.28 247.302 a
+</path>
+<path matrix="-0.965731 -0.259547 0.259547 -0.965731 445.089 598.768" stroke="KITred" pen="fat">
+224 260 m
+48.1664 0 0 -48.1664 256 224 239.539 269.266 a
+</path>
+</group>
+<path stroke="black" arrow="normal/normal">
+291.059 279.927 m
+336.032 214.643 l
+</path>
+<path matrix="-0.999999 0.00108254 -0.00108254 -0.999999 729.707 623.293" stroke="black" rarrow="normal/normal">
+304.841 311.844 m
+424.529 311.844 l
+424.529 311.844 l
 </path>
 </page>
 <page title="Layoutanpassung bei Interaktion">
@@ -4212,19 +4226,19 @@ Portverhalten</text>
 \item Anwendung des kräftebasierten Algorithmus
 \end{enumerate}
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
 </page>
 <page title="Zusammenfassung">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 14}</text>
 </page>
 <page title="Backup-Slides">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 14}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 15}</text>
 </page>
 <page title="Algorithmus zum bestimmen von $\beta$">
 <layer name="alpha"/>
@@ -4248,6 +4262,6 @@ Portverhalten</text>
 \end{itemize}
 \end{itemize}
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 15}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 16}</text>
 </page>
 </ipe>
