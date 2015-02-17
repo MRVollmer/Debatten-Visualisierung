@@ -2316,7 +2316,7 @@ h
 <view layers="alpha pagenumbers_page beta" active="beta"/>
 <view layers="alpha pagenumbers_page beta gamma" active="gamma"/>
 <view layers="alpha pagenumbers_page beta gamma delta" active="delta"/>
-<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" valign="top" style="itemize">\item Visualisierung von Debatten durch Argumentkarten
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="18.9483" depth="6.762" valign="top" style="itemize">\item Visualisierung von Debatten durch Argumentkarten
 </text>
 <text layer="beta" matrix="1 0 0 1 0 -64" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" valign="top" style="itemize">\item Wieso Gruppen?
 \begin{itemize}
@@ -2335,7 +2335,7 @@ h
 \item Auf- und zuklappen von Gruppen verändert Graphstruktur nicht allzusehr
 \end{itemize}
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 1}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 </page>
 <page title="Problemabstraktion">
 <layer name="alpha"/>
@@ -2343,8 +2343,8 @@ h
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" valign="top" style="itemize">\item Knoten als Rechtecke mit individueller aber fester Größe
 </text>
-<text matrix="1 0 0 1 0 -140" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" valign="top" style="itemize">\item Kanten zwischen Knoten ungerichtet und einfarbig</text>
-<text matrix="1 0 0 1 0 -288" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" valign="top" style="itemize">
+<text matrix="1 0 0 1 0 -140" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="19.0561" depth="6.8355" valign="top" style="itemize">\item Kanten zwischen Knoten ungerichtet und einfarbig</text>
+<text matrix="1 0 0 1 0 -288" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="19.1272" depth="6.909" valign="top" style="itemize">
 \item Gruppenzugehörigkeiten (rechtseindeutig, transitiv)</text>
 <path matrix="1 0 0 1 80 8" stroke="black" fill="KITblue70">
 128 384 m
@@ -2440,7 +2440,7 @@ h
 208 352 m
 288 352 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 2}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
 </page>
 <page title="Ansatz - Uniform Kräftebasierend">
 <layer name="delta"/>
@@ -2590,7 +2590,7 @@ h
 576 0
 448 0 u
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
 </page>
 <page title="Ansatz - Orthongonal mit Ports">
 <layer name="alpha"/>
@@ -2775,7 +2775,7 @@ h
 \item Potenziell sehr starke vertikale Ausdehnung
 \item Kann Struktur des Graphen gut verdeutlichen
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 4}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
 </page>
 <page title="Lösungsansatz: Kräftebasiert mit Kapselung">
 <layer name="alpha"/>
@@ -2803,7 +2803,23 @@ Anker und neue Größenberechnung, ..</text>
 \begin{itemize}
 \item rekursiv wird das übergeordnete Layout neu berechnet (erneut Kräftebasiert, aber unter Einbeziehung der Anker)
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 5}</text>
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="208.75" depth="197.029" valign="top" style="itemize">\item Grundidee: Trennung von Internem und externem Gruppenlayout
+\item Schema
+\begin{enumerate}
+\item Layout mit Gruppen als je ein Element mit approximierter Größe
+\item Festsetzen der Gruppenports
+\item Berechnung der Gruppenlayouts mit Ports
+\item Festsetzung von Ankern in jedem Layout
+\end{enumerate}
+\begin{itemize}
+\vspace*{0.5 cm}
+\item Gruppen öffnen bzw. schließen
+\begin{enumerate}
+\item[1] Ersetze den approximierten Knoten durch das vorberechnete Layout bzw. andersrum
+\item[2] Berechne iterativ darüberliegende Kräftelayouts neu (mit Ankern)
+\end{enumerate}
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
 </page>
 <page title="Schematischer Ablauf unseres Algorithmus">
 <layer name="Basic_Graph"/>
@@ -3675,9 +3691,9 @@ h
 292 248 m
 138.438 0 0 -138.438 401.099 162.78 516 240 a
 </path>
-<text matrix="1 0 0 1 308 104" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" valign="top" style="center">4. Wiederhole\\ iterativ pro Stufe</text>
-<text layer="beta" matrix="1 0 0 1 60 -148" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" valign="top" style="center">2. Ports für\\ Gruppen festlegen</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" halign="center" valign="top" size="verytiny">{\bf 9}</text>
+<text matrix="1 0 0 1 308 104" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.1836" depth="19.012" valign="top" style="center">4. Wiederhole\\ iterativ pro Stufe</text>
+<text layer="beta" matrix="1 0 0 1 60 -148" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.4335" depth="19.257" valign="top" style="center">2. Ports für\\ Gruppen festlegen</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
 </page>
 <page title="Layout von Gruppen">
 <layer name="alpha"/>
