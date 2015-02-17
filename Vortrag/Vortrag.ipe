@@ -3111,6 +3111,32 @@ decorator ipelet.  You can even define your own box types.
 \item Kaum zusätzliche Komplexität
 \item Verschiedene Gruppen können vermischen bzw. einzelne Gruppen geteilt werden
 \end{itemize}</text>
+<path layer="alpha" stroke="black" fill="KITgreen50">
+80 0 0 80 128 96 e
+</path>
+<path stroke="black" fill="KITyellow70">
+32 0 0 32 304 96 e
+</path>
+<path stroke="black" fill="KITyellow70" pen="heavier">
+352 96 m
+400 96 l
+</path>
+<path stroke="black" fill="KITyellow70" pen="heavier">
+400 96 m
+384 80 l
+</path>
+<path stroke="black" fill="KITyellow70" pen="heavier">
+400 96 m
+384 112 l
+</path>
+<path stroke="black" fill="KITgreen50" pen="heavier">
+416 96
+448 192
+576 192
+736 96
+576 0
+448 0 u
+</path>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
 </page>
 <page title="Ansatz - Orthongonal mit Ports">
