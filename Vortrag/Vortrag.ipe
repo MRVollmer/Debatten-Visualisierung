@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70005" creator="Ipe 7.1.6">
-<info created="D:20090429144355" modified="D:20150217030859" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<ipe version="70005" creator="Ipe 7.1.4">
+<info created="D:20090429144355" modified="D:20150217095845" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -3088,7 +3088,7 @@ h
 <view layers="alpha pagenumbers_page beta" active="beta"/>
 <text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="368" height="175.418" depth="163.587" valign="top" style="itemize">\item Vergleich zu Uniform Kräfte
 \begin{itemize}
-\item Layout eher durch Semntaik als Struktur
+\item Layout eher durch Semantik als Struktur
 \item Interne Gruppenlayouts unabhängig von Zuständen der anderen Gruppen
 \item Höhere Komplexität
 \item Verschiedene Gruppen überschneiden sich nicht und einzelne Gruppen werden nicht geteilt
@@ -3882,9 +3882,9 @@ Wie wird $\gamma$ bestimmt</notes>
 <layer name="beta"/>
 <layer name="pagenumbers_page" edit="no"/>
 <layer name="gamma"/>
-<view layers="alpha pagenumbers_page" active="beta"/>
-<view layers="alpha beta pagenumbers_page" active="beta"/>
-<text layer="alpha" matrix="0.846074 0 0 1 2.46281 0" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="21.1705" depth="8.9425" valign="top" style="item">Ziel: Anpassung des Layouts beim Öffnen einer Gruppe</text>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha beta pagenumbers_page" active="alpha"/>
+<text layer="alpha" matrix="0.846074 0 0 1 2.46281 4" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="21.1705" depth="8.9425" valign="top" style="item">Ziel: Anpassung des Layouts beim Öffnen einer Gruppe</text>
 <text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="181.55" depth="169.761" valign="top" style="item">Lösungsansatz:
 \begin{itemize}
 \item Inizialles Layouts $\rightarrow$ Positionen der Gruppen als Anker (Grundanker)
