@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20090429144355" modified="D:20150217095845" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150217104806" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -2305,6 +2305,29 @@ h
 am besten nach Nachname/Vorname sortiert</text>
 <text matrix="1 0 0 1 51 -317" pos="213 427" stroke="black" type="label" width="153.512" height="13.0086" depth="3.806" valign="baseline" size="small">\bf \today</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 0}</text>
+</page>
+<page title="Motivation">
+<layer name="alpha"/>
+<view layers="alpha" active="alpha"/>
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="18.9483" depth="6.762" valign="top" style="itemize">\item Visualisierung von Debatten durch Argumentkarten
+</text>
+<text matrix="1 0 0 1 0 -64" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="53.976" depth="41.8705" valign="top" style="itemize">\item Wieso Gruppen?
+\begin{itemize}
+\item Zusammenfassen von inhaltlich zusammengehörigen Knoten
+\item Heraustellen wichtiger Strukturen (Argumentationsketten)
+\end{itemize}</text>
+<text matrix="1 0 0 1 0 -192" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="53.8314" depth="41.699" valign="top" style="itemize">\item Anforderderungn an Layouts mit Gruppen?
+\begin{itemize}
+\item Gruppen visuell repräsentiert
+\item Kanten zwischen Gruppen bündel
+\end{itemize}
+</text>
+<text matrix="1 0 0 1 0 -320" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="66.1378" depth="54.047" valign="top" style="itemize">\item Weitere wünschenswerte Features
+\begin{itemize}
+\item Gruppen ein- und aufklappbar
+\item Auf- und zuklappen von Gruppen verändert Graphstruktur bzw. relative Positionen nicht allzusehr
+\end{itemize}
+</text>
 </page>
 <page title="Motivation">
 <layer name="alpha"/>
