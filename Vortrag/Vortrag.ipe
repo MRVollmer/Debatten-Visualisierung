@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20090429144355" modified="D:20150217095845" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<ipe version="70005" creator="Ipe 7.1.6">
+<info created="D:20090429144355" modified="D:20150217104508" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -218,13 +218,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
-<textsize name="small" value="\small"/>
-<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
+<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
+<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -2153,13 +2153,13 @@ h
 <textsize name="largebf" value="\bf\large"/>
 <textstretch name="normal" value="2.45"/>
 <textstretch name="large" value="2.45"/>
-<textstretch name="small" value="2.2"/>
-<textstretch name="tiny" value="2.8"/>
 <textstretch name="Large" value="2.2"/>
 <textstretch name="LARGE" value="2.2"/>
 <textstretch name="huge" value="2.2"/>
 <textstretch name="Huge" value="2.2"/>
+<textstretch name="small" value="2.2"/>
 <textstretch name="footnote" value="2"/>
+<textstretch name="tiny" value="2.8"/>
 <textstretch name="verytiny" value="2.3"/>
 <textstretch name="largebf" value="2.45"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
@@ -2448,7 +2448,7 @@ am besten nach Nachname/Vorname sortiert</text>
 32 0 0 32 432 128 e
 </path>
 <use layer="gamma" matrix="1 0 0 1 272 0" name="mark/disk(sx)" pos="208 128" size="tiny" stroke="black"/>
-<text layer="delta" transformations="translations" pos="0 432" stroke="black" type="minipage" width="432" height="82.0383" depth="69.9965" valign="top" style="itemize">\item Ein Kräftebasiertes Layout für alle Knoten
+<text layer="delta" transformations="translations" pos="0 432" stroke="black" type="minipage" width="432" height="82.0382" depth="69.9965" valign="top" style="itemize">\item Ein Kräftebasiertes Layout für alle Knoten
 \item Geschlossene Gruppen und zusammengelegte Kanten werden entsprechend gewichtet</text>
 <text layer="gamma" transformations="translations" pos="0 272" stroke="black" type="minipage" width="432" height="95.4643" depth="83.447" valign="top" style="itemize">\item Knoten einer geöffneten Gruppen werden normal in das Kräftebasierte Layout eingebunden
 \begin{itemize}
@@ -2666,7 +2666,7 @@ h
 <text matrix="1 0 0 1 -16 16" transformations="translations" pos="16 416" stroke="black" type="minipage" width="368" height="66.3779" depth="54.2675" valign="top" style="itemize">\item Gruppen erhalten jeweils 2 feste Ports
 \begin{itemize}\item die ggf. noch in grün und rot aufgeteilt werden
 \end{itemize}</text>
-<text layer="beta" matrix="1 0 0 1 -384 -144" transformations="translations" pos="384 432" stroke="black" type="minipage" width="368" height="141.676" depth="129.776" valign="top" style="itemize">\item Eigenschaften von Orthogonal mit Ports
+<text layer="beta" matrix="1 0 0 1 -384 -144" transformations="translations" pos="384 432" stroke="black" type="minipage" width="368" height="141.676" depth="129.777" valign="top" style="itemize">\item Eigenschaften von Orthogonal mit Ports
 \begin{itemize}
 \item Starke Anforderungen an struktur des Graphen (bspw. keine Zykel)
 \item Potenziell sehr starke vertikale Ausdehnung
@@ -3882,8 +3882,89 @@ Wie wird $\gamma$ bestimmt</notes>
 <layer name="beta"/>
 <layer name="pagenumbers_page" edit="no"/>
 <layer name="gamma"/>
+<layer name="iota"/>
+<layer name="epsilon"/>
+<layer name="zeta"/>
+<layer name="theta"/>
+<layer name="eta"/>
+<layer name="delta"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <view layers="alpha beta pagenumbers_page" active="alpha"/>
+<view layers="pagenumbers_page gamma iota zeta" active="iota"/>
+<view layers="pagenumbers_page gamma iota epsilon" active="epsilon"/>
+<view layers="pagenumbers_page gamma iota epsilon eta" active="eta"/>
+<view layers="pagenumbers_page gamma theta eta delta" active="theta"/>
+<path layer="iota" matrix="1 0 0 1 -55.408 9.72228" stroke="black" fill="KITblue50">
+32 0 0 32 512 304 e
+</path>
+<path matrix="1 0 0 1 -155.408 -113.686" stroke="black" fill="KITblue50">
+32 0 0 32 512 304 e
+</path>
+<path layer="theta" stroke="black" fill="KITpalegreen70" arrow="normal/normal">
+295.681 246.823 m
+355.386 186.002 l
+</path>
+<group matrix="-1.81159 0.0561038 -0.056296 -1.80541 735.827 879.392">
+<path matrix="1 0 0 1 81.3942 215.366" stroke="black" fill="KITyellow70">
+36 32 -32 36 176 100 e
+</path>
+<path matrix="1 0 0 1 1.39418 91.3663" stroke="KITred" pen="fat">
+208 232 m
+48.6621 0 0 -48.6621 256 224 213.28 247.302 a
+</path>
+<path matrix="1 0 0 1 1.39418 91.3663" stroke="KITred" pen="fat">
+224 260 m
+48.1664 0 0 -48.1664 256 224 239.539 269.266 a
+</path>
+<path matrix="1 0 0 1 -350.606 159.366" stroke="KITblack70" arrow="normal/normal">
+592 176 m
+584 196 l
+</path>
+<path matrix="1 0 0 1 -350.606 159.366" stroke="KITblack70" arrow="normal/normal">
+584 168 m
+564 172 l
+</path>
+<path matrix="1 0 0 1 185.394 255.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+192 124 m
+168 112 l
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+192 88 m
+168 104 l
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+156 80 m
+160 104 l
+</path>
+<path matrix="1 0 0 1 181.394 215.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 225.394 227.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 225.394 267.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+</group>
 <text layer="alpha" matrix="0.846074 0 0 1 2.46281 4" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="21.1705" depth="8.9425" valign="top" style="item">Ziel: Anpassung des Layouts beim Öffnen einer Gruppe</text>
 <text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="181.55" depth="169.761" valign="top" style="item">Lösungsansatz:
 \begin{itemize}
@@ -3896,12 +3977,114 @@ Wie wird $\gamma$ bestimmt</notes>
 \item Überschreiten die Anker Kanten eine Länge $\gamma$, wird das Ergebnis von 1. - 3. verworfen und neu berechnet, mit dem Anker im Zentrum der Gruppe
 \end{enumerate}
 \end{itemize}</text>
-<text layer="gamma" matrix="1 0 0 1 544 16" transformations="translations" pos="-224 432" stroke="black" type="label" width="405.5" height="16.5522" depth="0.3675" valign="baseline">Anker - Grundanker
-
-Größe
-
-Portverhalten</text>
+<path layer="delta" matrix="1 0 0 1 -49.8176 -0.815831" stroke="black" fill="KITblue50">
+32 0 0 32 512 304 e
+</path>
+<path matrix="1 0 0 1 -132.908 -140.686" stroke="black" fill="KITblue50">
+32 0 0 32 512 304 e
+</path>
+<path layer="zeta" matrix="1 0 0 1 -251.856 13.9282" stroke="black" fill="KITyellow70">
+32 0 0 32 512 304 e
+</path>
+<path matrix="0.98114 0 0 0.97793 7.85146 7.88204" stroke="black" fill="KITblue50" rarrow="normal/normal">
+331.801 212.715 m
+272.836 287.617 l
+</path>
+<path matrix="0.965402 0 0 0.816993 14.6226 58.1773" stroke="black" fill="KITblue50" rarrow="normal/normal">
+422.64 317.897 m
+288.773 317.897 l
+</path>
+<group layer="epsilon" matrix="-1.81159 0.0561038 -0.056296 -1.80541 748.576 863.455">
+<path matrix="1 0 0 1 81.3942 215.366" stroke="black" fill="KITyellow70">
+36 32 -32 36 176 100 e
+</path>
+<path matrix="1 0 0 1 1.39418 91.3663" stroke="KITred" pen="fat">
+208 232 m
+48.6621 0 0 -48.6621 256 224 213.28 247.302 a
+</path>
+<path matrix="1 0 0 1 1.39418 91.3663" stroke="KITred" pen="fat">
+224 260 m
+48.1664 0 0 -48.1664 256 224 239.539 269.266 a
+</path>
+<path matrix="1 0 0 1 -350.606 159.366" stroke="KITblack70" arrow="normal/normal">
+592 176 m
+584 196 l
+</path>
+<path matrix="1 0 0 1 -350.606 159.366" stroke="KITblack70" arrow="normal/normal">
+584 168 m
+564 172 l
+</path>
+<path matrix="1 0 0 1 185.394 255.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+192 124 m
+168 112 l
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+192 88 m
+168 104 l
+</path>
+<path matrix="1 0 0 1 81.3942 215.366" stroke="KITblack70" arrow="normal/normal">
+156 80 m
+160 104 l
+</path>
+<path matrix="1 0 0 1 181.394 215.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 225.394 227.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+<path matrix="1 0 0 1 225.394 267.366" stroke="black" fill="KITcyanblue">
+48 80 m
+48 64 l
+64 64 l
+64 80 l
+h
+</path>
+</group>
+<path matrix="0.997925 -0.0643796 0.0643796 0.997925 -16.5305 25.3619" stroke="black" fill="KITblue50" rarrow="normal/normal">
+421.047 317.897 m
+347.738 274.868 l
+</path>
+<path stroke="black" fill="KITblue50" arrow="normal/normal">
+307.897 230.245 m
+330.208 211.121 l
+</path>
+<path layer="eta" matrix="1 0 0 1 8.58126 -1.22589" stroke="black" fill="KITpalegreen70">
+13.0314 0 0 13.0314 446.422 318.989 e
+</path>
+<path matrix="1 0 0 1 -182.659 -13.9749" stroke="black" fill="KITpalegreen70">
+13.0314 0 0 13.0314 446.422 318.989 e
+</path>
+<path matrix="1 0 0 1 -88.6326 -128.719" stroke="black" fill="KITpalegreen70">
+13.0314 0 0 13.0314 446.422 318.989 e
+</path>
+<path layer="theta" stroke="black" fill="KITpalegreen70" arrow="normal/normal">
+334.74 291.461 m
+429.598 299.273 l
+</path>
+<path stroke="black" fill="KITpalegreen70" arrow="normal/normal">
+398.909 187.676 m
+451.359 271.932 l
+</path>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
+<path layer="iota" stroke="black" arrow="normal/normal">
+377.701 214.94 m
+435.876 289.005 l
+</path>
 </page>
 <page title="Layoutanpassung bei Interaktion">
 <notes>Öffene Frage:
@@ -3918,7 +4101,7 @@ Wie wird $\gamma$ bestimmt</notes>
 Größe
 
 Portverhalten</text>
-<text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="164.841" depth="153.002" valign="top" style="item">Lösungsansatz:
+<text layer="beta" matrix="0.999911 0.0133285 -0.0133285 0.999911 5.40014 -44.8689" transformations="translations" pos="16 416" stroke="black" type="minipage" width="704" height="164.841" depth="153.003" valign="top" style="item">Lösungsansatz:
 \begin{itemize}
 \item Algorithmus:
 \begin{enumerate}
