@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20090429144355" modified="D:20150217112657" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150217113524" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -3485,11 +3485,11 @@ h
 64 80 l
 h
 </path>
-<path matrix="1 0 0 1 -68 -96" stroke="KITblack70">
+<path matrix="1 0 0 1 -68 -96" stroke="KITblack70" arrow="normal/normal">
 152 260 m
 212 316 l
 </path>
-<path matrix="1 0 0 1 -68 -96" stroke="KITblack70">
+<path matrix="1 0 0 1 -68 -96" stroke="KITblack70" arrow="normal/normal">
 136 356 m
 212 324 l
 </path>
@@ -3500,25 +3500,25 @@ h
 64 80 l
 h
 </path>
-<path matrix="1 0 0 1 -244 -88" stroke="KITblack70">
+<path matrix="1 0 0 1 -244 -88" stroke="KITblack70" arrow="normal/normal">
 496 272 m
 404 316 l
 </path>
-<path matrix="1 0 0 1 0 -36" stroke="KITblack70">
+<path matrix="1 0 0 1 0 -36" stroke="KITblack70" arrow="normal/normal">
 192 368 m
 152 272 l
 </path>
 <path matrix="1 0 0 1 0 -36" stroke="black" fill="KITred50">
 64 4 -4 64 188 360 e
 </path>
-<path matrix="1 0 0 1 0 -36" stroke="KITblack70">
+<path matrix="1 0 0 1 0 -36" stroke="KITblack70" arrow="normal/normal">
 256 220 m
 212 300 l
 </path>
 <path matrix="1 0 0 1 80 88" stroke="black" fill="KITyellow70">
 36 32 -32 36 176 100 e
 </path>
-<path matrix="1 0 0 1 -68 -96" stroke="KITblack70">
+<path matrix="1 0 0 1 -68 -96" stroke="KITblack70" arrow="normal/normal">
 148 260 m
 128 348 l
 </path>
