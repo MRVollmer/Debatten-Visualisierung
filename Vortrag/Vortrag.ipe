@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.6">
-<info created="D:20090429144355" modified="D:20150216191709" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
+<info created="D:20090429144355" modified="D:20150217030859" title="Kräftebasierter Ansatz für Layouts mit Gruppen" author="Jonathan Klawitter, Michael Vollmer, Mira, Sebastian Cacean, Sven Scheu, Cristian Voigt"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -218,13 +218,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -2153,13 +2153,13 @@ h
 <textsize name="largebf" value="\bf\large"/>
 <textstretch name="normal" value="2.45"/>
 <textstretch name="large" value="2.45"/>
+<textstretch name="small" value="2.2"/>
+<textstretch name="tiny" value="2.8"/>
 <textstretch name="Large" value="2.2"/>
 <textstretch name="LARGE" value="2.2"/>
 <textstretch name="huge" value="2.2"/>
 <textstretch name="Huge" value="2.2"/>
-<textstretch name="small" value="2.2"/>
 <textstretch name="footnote" value="2"/>
-<textstretch name="tiny" value="2.8"/>
 <textstretch name="verytiny" value="2.3"/>
 <textstretch name="largebf" value="2.45"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
@@ -2306,702 +2306,38 @@ am besten nach Nachname/Vorname sortiert</text>
 <text matrix="1 0 0 1 51 -317" pos="213 427" stroke="black" type="label" width="153.512" height="13.0086" depth="3.806" valign="baseline" size="small">\bf \today</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 0}</text>
 </page>
-<page title="Beispielseite">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<layer name="beta"/>
-<layer name="gamma"/>
-<layer name="delta"/>
-<view layers="alpha" active="alpha"/>
-<text layer="alpha" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="38.073" depth="25.921" valign="top">\begin{itemize}
-\item Stichpunkt 1
-\item Stichpunkt 2
-\end{itemize}</text>
-<text layer="beta" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="16.8977" depth="4.704" valign="top">\begin{itemize}
-\item {\bf Unbeschränktes Wachstumsmodell}
-\end{itemize}</text>
-<path stroke="black" fill="gold">
-48 400 m
-48 336 l
-80 336 l
-80 400 l
-h
-</path>
-<path stroke="black" fill="gold">
-112 400 m
-112 368 l
-144 368 l
-144 400 l
-h
-</path>
-<path stroke="black" fill="gold">
-176 400 m
-176 336 l
-208 336 l
-208 400 l
-h
-</path>
-<path stroke="black">
-80 352 m
-80 352 l
-176 352 l
-176 352 l
-h
-</path>
-<path stroke="black">
-144 384 m
-144 384 l
-176 384 l
-176 384 l
-h
-</path>
-<path stroke="black">
-80 384 m
-80 384 l
-112 384 l
-112 384 l
-h
-</path>
-<text matrix="1 0 0 1 0 -128" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="18.9116" depth="6.6885" valign="top">\begin{itemize}
-\item {\bf Kandinsky Modell}
-\end{itemize}</text>
-<path stroke="black" fill="gold">
-48 272 m
-48 240 l
-80 240 l
-80 272 l
-h
-</path>
-<path stroke="black" fill="gold">
-112 272 m
-112 240 l
-144 240 l
-144 272 l
-h
-</path>
-<path stroke="black" fill="gold">
-176 272 m
-176 240 l
-208 240 l
-208 272 l
-h
-</path>
-<path stroke="black">
-80 256 m
-112 256 l
-</path>
-<path stroke="black">
-144 256 m
-176 256 l
-</path>
-<path stroke="black">
-80 248 m
-96 248 l
-96 232 l
-160 232 l
-160 248 l
-176 248 l
-176 248 l
-</path>
-<text matrix="1 0 0 1 0 -232" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="18.9116" depth="6.6885" valign="top">\begin{itemize}
-\item {\bf Proportionales Wachstumsmodell}
-\end{itemize}</text>
-<path stroke="black" fill="gold">
-48 160 m
-48 96 l
-80 96 l
-80 160 l
-h
-</path>
-<path stroke="black" fill="gold">
-112 160 m
-112 128 l
-144 128 l
-144 160 l
-h
-</path>
-<path stroke="black" fill="gold">
-176 160 m
-176 128 l
-208 128 l
-208 160 l
-h
-</path>
-<path stroke="black">
-80 144 m
-112 144 l
-</path>
-<path stroke="black">
-144 144 m
-176 144 l
-</path>
-<path stroke="black">
-80 112 m
-192 112 l
-192 128 l
-</path>
-<text layer="gamma" matrix="1 0 0 1 0 -112" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="119.148" depth="107.163" valign="top">\begin{itemize}
-\item {\bf Kandinsky Modell}
-\begin{itemize}
-\item Aufspalltung des Rasters in grobe und feine Raster Linien.
-\item Knoten werden auf den groben Linen plaziert.
-\item Kanten werden auf den feinen Linen plaziert.
-\item Durch die Plazierung der Kanten auf den feinen Linien kann es zu sehr vielen Kantenknicken kommen.
-\item Am besten geeigenet für Zeichnungen mit einheitlicher Knotengröße.
-\end{itemize}
-\end{itemize}</text>
-<text layer="delta" matrix="1 0 0 1 0 -352" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="37.0293" depth="24.8675" valign="top">\begin{itemize}
-\item {\bf Proportionales Wachstums Modell}
-\begin{itemize}
-\item Größe der Box nur so groß das alle Kanten Platz finden.
-\end{itemize}
-\end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
-</page>
-<page title="Beispielzeichnung">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<layer name="beta"/>
-<layer name="gamma"/>
-<layer name="delta"/>
-<layer name="epsilon"/>
-<layer name="zeta"/>
-<layer name="eta"/>
-<view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-64 384 m
-64 320 l
-96 320 l
-96 384 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-112 272 m
-112 224 l
-144 224 l
-144 272 l
-h
-</path>
-<path matrix="1 0 0 1 0 -16" stroke="black" fill="gold">
-64 128 m
-64 64 l
-96 64 l
-96 128 l
-h
-</path>
-<path matrix="1 0 0 1 -32 16" stroke="black" fill="gold">
-256 32 m
-256 0 l
-320 0 l
-320 32 l
-h
-</path>
-<path matrix="1 0 0 1 16 16" stroke="black" fill="gold">
-384 32 m
-384 0 l
-432 0 l
-432 32 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-448 304 m
-448 272 l
-496 272 l
-496 304 l
-h
-</path>
-<path stroke="black" fill="gold">
-112 176 m
-112 112 l
-144 112 l
-144 176 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-176 224 m
-176 176 l
-224 176 l
-224 224 l
-h
-</path>
-<path matrix="1 0 0 1 -16 32" stroke="black" fill="gold">
-272 176 m
-272 128 l
-304 128 l
-304 176 l
-h
-</path>
-<path matrix="1 0 0 1 0 48" stroke="black" fill="gold">
-320 112 m
-320 80 l
-368 80 l
-368 112 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-400 176 m
-400 144 l
-448 144 l
-448 176 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-80 320 m
-80 304 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 64 m
-208 64 l
-208 176 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-144 128 m
-192 128 l
-192 176 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-128 224 m
-128 144 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 48 m
-464 48 l
-464 272 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 368 m
-464 368 l
-464 304 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 336 m
-272 336 l
-272 176 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 288 m
-448 288 l
-</path>
-<path matrix="1 0 0 1 0 16" stroke="black">
-96 272 m
-112 272 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-368 272 m
-368 240 l
-400 240 l
-400 272 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-288 160 m
-400 160 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-288 144 m
-384 144 l
-384 240 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-224 192 m
-336 192 l
-336 128 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-144 256 m
-368 256 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-352 128 m
-352 240 l
-144 240 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-432 176 m
-432 256 l
-400 256 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-416 176 m
-416 208 l
-224 208 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-144 112 m
-320 112 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black" fill="gold">
-64 304 m
-64 240 l
-96 240 l
-96 304 l
-h
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-80 80 m
-80 240 l
-80 240 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-416 16 m
-416 112 l
-368 112 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-432 16 m
-432 144 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-448 0 m
-480 0 l
-480 272 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-288 0 m
-400 0 l
-400 0 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-96 32 m
-240 32 l
-240 16 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-256 16 m
-256 96 l
-144 96 l
-</path>
-<path matrix="1 0 0 1 0 32" stroke="black">
-272 16 m
-272 128 l
-</path>
-<text layer="beta" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="57.1757" depth="45.08" valign="top">\begin{itemize}
-\item Anschlusspunkte der Kanten.
-\item Festlegung der Knotengrößen.
-\item Zusätzliche Knicke können notwendig sein.
-\end{itemize}</text>
-<text layer="zeta" matrix="1 0 0 1 0 -128" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="104.605" depth="92.5855" valign="top">\begin{itemize}
-\item Besondere Behandlung von Speizialfällen:
-\begin{itemize}
-\item Nur ein Knoten in einer Rasterzeile.
-\item Hamiltonpfade.
-\item Nicht Überlappende Bäume.
-\end{itemize}
-\item Einordnung in diese Spezialfälle sollte heuristisch erfolgen, da die überprüfung teilweise $\mathcal{NP}$-vollständig ist.
-\end{itemize}</text>
-<path layer="gamma" matrix="1 0 0 1 -32 64" stroke="black" fill="gold">
-112 272 m
-112 224 l
-144 224 l
-144 272 l
-h
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black" fill="gold">
-448 304 m
-448 272 l
-496 272 l
-496 304 l
-h
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black">
-80 320 m
-80 304 l
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black" pen="fat">
-96 288 m
-448 288 l
-</path>
-<path matrix="1 0 0 1 -32 48" stroke="black" pen="fat">
-96 272 m
-112 272 l
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black" fill="gold">
-368 272 m
-368 240 l
-400 240 l
-400 272 l
-h
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black" pen="fat">
-144 256 m
-368 256 l
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black">
-432 176 m
-432 256 l
-400 256 l
-</path>
-<path matrix="1 0 0 1 -32 64" stroke="black" fill="gold">
-64 304 m
-64 240 l
-96 240 l
-96 304 l
-h
-</path>
-<path matrix="1 0 0 1 -96 80" stroke="black">
-448 224 m
-448 160 l
-</path>
-<path matrix="1 0 0 1 -112 80" stroke="black">
-544 256 m
-544 160 l
-</path>
-<path matrix="1 0 0 1 -96 80" stroke="black">
-192 208 m
-192 160 l
-</path>
-<path matrix="1 0 0 1 -96 80" stroke="black">
-144 224 m
-144 160 l
-</path>
-<path matrix="1 0 0 1 -80 96" stroke="black">
-192 208 m
-400 208 l
-400 144 l
-</path>
-<text pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="18.8871" depth="6.6885" valign="top">\begin{itemize}
-\item Beispiel Hamiltonpfad
-\end{itemize}</text>
-<text layer="eta" matrix="1 0 0 1 0 -224" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="18.8185" depth="6.5905" valign="top">\begin{itemize}
-\item Beispiel nicht überlappende Bäume
-\end{itemize}</text>
-<path layer="alpha" stroke="black">
-96 384 m
-384 384 l
-384 304 l
-</path>
-<group layer="eta">
-<path matrix="1 0 0 1 0 -16" stroke="black" fill="gold">
-256 128 m
-256 64 l
-288 64 l
-288 128 l
-h
-</path>
-<path matrix="1 0 0 1 48 -16" stroke="black" fill="gold">
-320 128 m
-320 96 l
-352 96 l
-352 128 l
-h
-</path>
-<path matrix="1 0 0 1 32 -16" stroke="black" fill="gold">
-160 128 m
-160 96 l
-192 96 l
-192 128 l
-h
-</path>
-<path matrix="1 0 0 1 16 -16" stroke="black" fill="gold">
-80 96 m
-80 64 l
-112 64 l
-112 96 l
-h
-</path>
-<path stroke="black" arrow="normal/normal">
-368 96 m
-288 96 l
-</path>
-<path stroke="black" arrow="normal/normal">
-224 96 m
-256 96 l
-</path>
-<path stroke="black" arrow="normal/normal">
-128 64 m
-256 64 l
-</path>
-<path stroke="black" arrow="normal/normal">
-288 64 m
-432 64 l
-</path>
-<path fill="KITyellow70">
-64 128 m
-64 48 l
-96 48 l
-96 128 l
-h
-</path>
-<path fill="KITyellow70">
-192 160 m
-192 128 l
-288 128 l
-288 160 l
-h
-</path>
-<path fill="KITyellow70">
-192 128 m
-192 112 l
-224 112 l
-224 128 l
-h
-</path>
-<path fill="KITyellow70">
-304 160 m
-304 112 l
-400 112 l
-400 160 l
-h
-</path>
-<path fill="KITyellow70">
-400 160 m
-400 80 l
-432 80 l
-432 160 l
-h
-</path>
-<path fill="KITyellow70">
-192 160 m
-192 80 l
-176 80 l
-176 160 l
-h
-</path>
-<path fill="KITyellow70">
-96 128 m
-96 80 l
-160 80 l
-160 128 l
-h
-</path>
-<path fill="KITyellow70">
-64 160 m
-64 128 l
-160 128 l
-160 160 l
-h
-</path>
-<path stroke="black">
-96 48 m
-64 48 l
-64 160 l
-160 160 l
-160 80 l
-128 80 l
-</path>
-<path stroke="black">
-192 80 m
-176 80 l
-176 160 l
-288 160 l
-288 128 l
-224 128 l
-224 112 l
-</path>
-<path stroke="black">
-368 112 m
-304 112 l
-304 160 l
-432 160 l
-432 80 l
-400 80 l
-400 80 l
-</path>
-</group>
-<path layer="delta" matrix="1 0 0 1 -96 80" stroke="black">
-544 256 m
-544 160 l
-</path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
-</page>
-<page title="Edit page title [strg] + [p]">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<view layers="alpha" active="alpha"/>
-<text layer="alpha" transformations="translations" pos="32 416" stroke="black" type="label" width="317.16" height="16.2215" depth="4.998" valign="baseline">Dann [strg]+[L] zum kompilieren</text>
-<text transformations="translations" pos="80 320" stroke="black" type="minipage" width="464" height="31.4335" depth="19.257" valign="top">Drücke [s] für Auswahlmaus, klick mich an und öffne Edit Window mit [strg] + [e]</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
-</page>
-<page title="Slide Title">
-<layer name="alpha"/>
-<layer name="beta"/>
-<layer name="gamma"/>
-<layer name="delta"/>
-<layer name="pagenumbers_page" edit="no"/>
-<view layers="alpha" active="alpha"/>
-<view layers="alpha beta" active="beta"/>
-<view layers="alpha gamma" active="gamma"/>
-<view layers="alpha" active="delta"/>
-<group layer="beta">
-<path stroke="black" fill="KITblue15">
-0 104 m
-728 104 l
-8 0 0 -8 728 96 736 96 a
-736 37.5006 l
-8 37.5006 l
-8 0 0 -8 8 45.5006 0 45.5006 a
-h
-</path>
-</group>
-<text layer="alpha" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="141.135" depth="129.213" valign="top">Settings that can be changed in the document properties\\
-(Edit$\rightarrow$Document properties or press Ctrl+Shift+P):
-\begin{itemize}
-\item change the color of the item bullets:
-  \begin{itemize}
-  \item change definition of \textbackslash{itemcolor} (for example to
-    KITgreen)
-  \end{itemize}
-\item change name and title in the footer:
-  \begin{itemize}
-  \item change definition of commands \textbackslash{}name and
-    \textbackslash{}prestitle
-  \end{itemize}
-\item change the language:
-  \begin{itemize}
-  \item comment or uncomment the command \textbackslash{german}
-  \end{itemize}
-\end{itemize}</text>
-<group layer="gamma" matrix="1 0 0 1 0 32" pin="h">
-<path fill="KITblue">
-0 63.0802 m
-0 92 l
-726 92 l
-731 92 736 87 736 82 c
-736 63.0802 l
-h
-</path>
-<path fill="KITblue15">
-736 63.0802 m
-736 1.28581 l
-10 1.28581 l
-5 1.28581 0 6.28581 0 11.2858 c
-0 63.0802 l
-h
-</path>
-<text transformations="translations" pos="6.00005 85.9999" stroke="white" type="minipage" width="724" height="14.4133" depth="2.1805" valign="top">Theorem</text>
-<text transformations="translations" pos="6.00005 57.0801" stroke="black" type="minipage" width="724" height="31.5903" depth="19.404" valign="top">\textsc{FlexDraw} is NP-complete even for instances of size $n$ with
-      $O(n^\varepsilon)$ inflexible edges with pairwise distance
-      $\Omega(n^{1-\varepsilon})$.
-      </text>
-</group>
-<text layer="alpha" matrix="1 0 0 1 0 -282" pin="h" pos="0 440" stroke="black" type="minipage" width="736" height="16.7972" depth="4.557" valign="top">To modify the slide title, press Ctrl+P.</text>
-<text layer="gamma" matrix="1 0 0 1 507.228 -95.4874" transformations="translations" pos="224 112" stroke="black" type="label" width="315.187" height="13.112" depth="3.784" halign="right" valign="baseline" size="small">box created with the presentation ipelet</text>
-<text matrix="1 0 0 1 507.228 -116.643" transformations="translations" pos="224 112" stroke="black" type="label" width="436.482" height="10.81" depth="3.26" halign="right" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Graph\_Ipelet/\#presentation-ipelet</text>
-<text layer="delta" matrix="1 0 0 1 -223.772 -80.643" transformations="translations" pos="224 112" stroke="black" type="label" width="357.644" height="10.81" depth="3.26" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Pagenumbers\_Ipelet/</text>
-<path stroke="black" pen="heavier" arrow="normal/normal">
--1.78204 49.5567 m
--18.5764 30.261
--12.8592 -27.6261 s
-</path>
-<text layer="beta" matrix="1 0 0 1 8 96" transformations="translations" pos="0 0" stroke="black" type="minipage" width="720" height="31.3404" depth="19.159" valign="top">To (semi-)automatically surround objects with simple KIT boxes use the
-decorator ipelet.  You can even define your own box types.
-</text>
-<text matrix="1 0 0 1 176.228 -94.643" transformations="translations" pos="224 112" stroke="black" type="label" width="331.32" height="10.81" depth="3.26" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Decorator\_Ipelet/</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
-</page>
-<page title="Problemszenario">
+<page title="Motivation">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 -32 -16" transformations="translations" pos="48 400" stroke="black" type="label" width="369.213" height="16.2215" depth="4.998" valign="baseline">Motivation und Problembeschreibung</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="138.748" depth="126.812" valign="top" style="itemize">\item Warum Gruppen in Graphen?
+\begin{itemize}
+\item Zusammenfassen von inhaltlich zusammengehörigen Knoten
+\item Heraustellen wichtiger Strukturen (Argumentationsketten)
+\end{itemize}
+\vspace*{0.5 cm}
+\item Wie Gruppen Layouten?
+\begin{itemize}
+\item Gruppen zusammen und &quot;einklappbar&quot;
+\item Auf- und zuklappen von Gruppen sollte Graphstruktur bzw. relative Positionen nicht allzusehr verändern
+\end{itemize}
+</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 </page>
 <page title="Problemabstraktion">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" transformations="translations" pos="16 400" stroke="black" type="minipage" width="704" height="15.9568" depth="3.7485" valign="top">Keine Kantenfarbe, keine Inhalte in Boxen, ..</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
+<text layer="alpha" transformations="translations" pos="0 432" stroke="black" type="minipage" width="736" height="107.959" depth="95.9665" valign="top" style="itemize">\item Knoten als Rechtecke mit individueller aber fester Größe
+\begin{itemize}
+\item Vernachlässige tatsächlichen Inhalt für das Layout
+\end{itemize}
+\item Kanten zwischen Knoten
+\begin{itemize}
+\item Vernachlässige Kantenrichtung und Kantenfarbe (bei unserem Lösungsansatz)
+\end{itemize}
+\item Gruppenzugehörigkeiten (rechtseindeutig, transitiv)</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
 </page>
 <page title="Ansatz - Uniform Kräftebasierend">
 <layer name="delta"/>
@@ -3009,9 +2345,23 @@ decorator ipelet.  You can even define your own box types.
 <layer name="gamma"/>
 <layer name="epsilon"/>
 <layer name="pagenumbers_page" edit="no"/>
+<layer name="alpha"/>
 <view layers="delta beta pagenumbers_page" active="delta"/>
 <view layers="delta gamma pagenumbers_page" active="gamma"/>
 <view layers="epsilon pagenumbers_page" active="epsilon"/>
+<view layers="epsilon pagenumbers_page alpha" active="alpha"/>
+<path layer="alpha" stroke="black" fill="KITyellow70" pen="heavier">
+673.713 72.4259 m
+49.125 0 0 -49.125 626.108 60.3025 596.134 21.3817 a
+</path>
+<path stroke="black" fill="KITyellow70" pen="heavier">
+668.839 125.504 m
+48.9802 0 0 48.9802 620.299 132.059 592.162 172.151 a
+</path>
+<path stroke="black" fill="KITyellow70" pen="heavier">
+128 96 m
+304 96 l
+</path>
 <path layer="gamma" matrix="1 0 0 1 272 0" stroke="black" fill="KITcyanblue50">
 256 128 m
 320 192 l
@@ -3137,7 +2487,7 @@ decorator ipelet.  You can even define your own box types.
 576 0
 448 0 u
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
 </page>
 <page title="Ansatz - Orthongonal mit Ports">
 <layer name="alpha"/>
@@ -3322,7 +2672,7 @@ h
 \item Potenziell sehr starke vertikale Ausdehnung
 \item Kann Struktur des Graphen gut verdeutlichen
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
 </page>
 <page title="Lösungsansatz: Kräftebasiert mit Kapselung">
 <layer name="alpha"/>
@@ -3350,7 +2700,7 @@ Anker und neue Größenberechnung, ..</text>
 \begin{itemize}
 \item rekursiv wird das übergeordnete Layout neu berechnet (erneut Kräftebasiert, aber unter Einbeziehung der Anker)
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
 </page>
 <page title="Schematischer Ablauf unseres Algorithmus">
 <layer name="Basic_Graph"/>
@@ -3728,7 +3078,7 @@ h
 320 240 m
 336 208 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
 </page>
 <page title="Vergleich unserers Ansatzes">
 <layer name="alpha"/>
@@ -3749,7 +3099,7 @@ h
 \item Kompakteres Layout
 \item Fokus des Layouts liegt mehr auf Gruppenbeziehungen als der Gesamtstruktur
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
 </page>
 <page title="Algorithmus Teil 1 &quot;bottom-up&quot;">
 <layer name="alpha"/>
@@ -4013,7 +3363,7 @@ h
 120 136 m
 120 64 l
 </path>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
 </page>
 <page title="Algorithmus Teil 2 &quot;top-down&quot;">
 <layer name="alpha"/>
@@ -4224,7 +3574,7 @@ h
 </path>
 <text matrix="1 0 0 1 308 104" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.1836" depth="19.012" valign="top" style="center">4. Wiederhole\\ iterativ pro Stufe</text>
 <text layer="beta" matrix="1 0 0 1 60 -148" transformations="translations" pos="0 260" stroke="black" type="minipage" width="252" height="31.4335" depth="19.257" valign="top" style="center">2. Ports für\\ Gruppen festlegen</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
 </page>
 <page title="Layout von Gruppen">
 <layer name="alpha"/>
@@ -4523,7 +3873,7 @@ h
 
 \end{itemize}
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 14}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
 </page>
 <page title="Layoutanpassung bei Interaktion">
 <notes>Öffene Frage:
@@ -4551,7 +3901,7 @@ Wie wird $\gamma$ bestimmt</notes>
 Größe
 
 Portverhalten</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 15}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
 </page>
 <page title="Layoutanpassung bei Interaktion">
 <notes>Öffene Frage:
@@ -4578,19 +3928,19 @@ Portverhalten</text>
 \item Anwendung des kräftebasierten Algorithmus
 \end{enumerate}
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 16}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
 </page>
 <page title="Zusammenfassung">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 17}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
 </page>
 <page title="Backup-Slides">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 18}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 14}</text>
 </page>
 <page title="Algorithmus zum bestimmen von $\beta$">
 <layer name="alpha"/>
@@ -4614,6 +3964,6 @@ Portverhalten</text>
 \end{itemize}
 \end{itemize}
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 19}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 15}</text>
 </page>
 </ipe>
