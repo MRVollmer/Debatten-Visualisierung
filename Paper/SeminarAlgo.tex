@@ -1,7 +1,7 @@
 \documentclass[a4paper, oneside]{scrartcl}
 
 \include{Preambel}
-\author{Christian, Jonathan, Michael, Mira, Sebastian, Sven}
+\author{Christian, Jonathan, Sven, Michael, Sebastian, Mira}
 \date{\today}
 
 % Inhaltabhängig! 
@@ -23,19 +23,49 @@
 
 \section{Einleitung}
 \todo[inline]{Motivation schreiben}
+% Was sind Argumentkarten? Wer verwendet sie und wofür?
+
 % Darstellung von Argumentkarten
-% - Was sind Argumentkarten?
+% - Wie werden sie bis jetzt dargestellt?
 % - Wieso will man sie darstellen?
 
+% Spezielle Anforderungen
 % - Wieso Gruppen?
-
 % - Wieso Layout beibehalten? -> Mentale Karte
+
+% Wie ist diese Ausarbeitung aufgebaut?
+\subsection{Gliederung}
+% 1. Problemstellung und -definition
+% 2. Lösungsvorschlag
+% 3. Detaillierte Erklärung des Algorithmus
+% 4. Vergleich zu anderen Lösungsansätzen
+
 \section{Problemstellung}
 \todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem}
+Wir können für diese Problem ein Layoutproblem definieren.
+
+\begin{description}
+\item[Eingabe] Gegeben ein Graph $G=(V,E)$ mit Knoten $V = \{ \text{achsenparallele Rechtecke}\}$ und  Kanten $E \subseteq V \times V$,
+sowie einen Gruppenzugehörigkeitsbaum 
+
+\item[Zeichenkonvetionen]\\
+	\begin{itemize}
+	\item Geradlinige Kanten
+	\item $\forall x,y\in V, x \neq y: x \cap y = \emptyset$, also Knoten paarweise disjunkt
+	\item $\forall x \in V, (y,z) \in E, y\neq x\neq z: x \cap (y,z) = \emptyset$, also Kanten schneiden nur inzidente Knoten
+	\end{itemize}
+
+\item[Ästhetikkriterien]
+
+\item[Lokale Nebenbedingungen]
+
+\end{description}
+
 % Layoutproblem
-% - Gegeben/Eingabe: 
-	% Graph mit Knoten V, welche Größe besitzen, und gerichteten gefärbten Kanten, 
-	% sowie azyklische hierarchische Struktur von Gruppen von Knoten und Gruppen
+% - Gegeben/Eingabe und Abstraktion
+	% Graph mit Knoten $V = \{ \text{achsenparallele Rechtecke}\}$, und  Kanten $E \subseteq V \times V$
+	% sowie transitive, rechtseindeutige hierarchische Struktur von Gruppen von Knoten und Gruppen
+	% Zustand, welche Gruppen offen/zu
 	% Anfangslayout (!?)
 % - Vorgaben an Layout: 
 	% Zeichenkonventionen, hard constraints:
@@ -136,11 +166,13 @@ $i = 1$\;
 	% schwache Feder mit Faktor $\alpha$
 
 % - Anfangslayout: 
+\subsubsection{Anfangslayout}
 	% a) Knoten mit aus Gruppe ausgehende eingehende Kanten direkt neben Ports positionieren, dann breitensuche oder so weiter
 	% b) random
 	% c) Layout von Größenberechnung spiegeln (nicht, vertikal, horizontal, beides) und Längen der Port-Knoten-Kanten summieren
 
 % - Größe des Kreises definiert durch Radius R
+\subsubsection{Bestimmen des Kreisradius}
 	% Gegeben: Berechnete Größe R' in bottom-up Verfahren
 	% Problem: berechnete Größe ohne Ports, kann zu klein sein, da Platz für Kanten zu Ports geschaffen werden muss (darf nicht durch Knoten)
 	% Ziel: finde Faktor $\beta$ sodass $R = \beta * R'$ groß genug            ( es gillt immer $R \geq R'$)
@@ -177,8 +209,9 @@ $i = 1$\;
 	% Anmerkung: Da in Praxis (Argumentkarten) die Gruppentiefe nicht hoch ist und in Gruppe nicht viele Gruppen sind, 
 			% können hier auch die Größen für alle Fälle berechnet werden
 
+% Postprocessing: Kantenklätung
 
-\section{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
+\subsection{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
 % Removing node intersections when changing the size of a node while keeping the mental map
 % Problemabstraktion: Auflösen von Knotenlabelüberschneidung nach Größenveränderung eines Knotenlabes unter Beibehaltung der mentalen Karte
 \todo[inline]{Problemreduktion beschreiben, Lösungsvorschlag}
