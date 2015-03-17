@@ -1,3 +1,7 @@
+\documentclass[12pt,titlepage,a4paper]{article}
+
+%\documentclass[a4paper, oneside]{scrartcl}
+
 % Zeichensatz und Sprachpaket
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel} 
@@ -70,9 +74,41 @@ headsep=10mm, footskip=12mm}
 \newtheorem*{defi}{Definition}
 \newtheorem*{problem}{Problem}
 
+\newcommand{\blankpage}{\clearpage\mbox{}\clearpage}
+
+\nonfrenchspacing
+
+\makeindex
+\begin{document}  
+
+\include{titlepage}
+
+\listoftodos
+\pagebreak
+\blankpage
+
+\pagenumbering{roman}
+
+\tableofcontents
+
+\pagenumbering{arabic}
+
+\include{preface}
+
+\include{main}
+
+\include{evaluation}
+
+\section{Quellen}
+\bibliography{SeminarAlgoQuellen}
+
+\section*{About}
+Entstanden im Rahmen des Seminars Visualisierung komplexer Argumentation bzw. Algorithmen zur Visualisierung von Debatten 
+am Karlsruher Institut für Technology im Wintersemester 2014-15 unter der Leitung von 
+Jun.-Prof. Gregor Betz, Diplom Inform. Andreas Gemsa und Dr. Ignaz Rutter.
 
 
-
+\end{document}
 
 
 
