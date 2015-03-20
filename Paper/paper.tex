@@ -1,23 +1,18 @@
 \documentclass[12pt,titlepage,a4paper]{article}
 
+\usepackage{algo-paper}
 %\documentclass[a4paper, oneside]{scrartcl}
 
 % Zeichensatz und Sprachpaket
-\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel} 
 \usepackage{arev}
-\usepackage[T1]{fontenc}
-
-% Seite anpassen
-\usepackage{geometry}	
-\geometry{a4paper, top=12mm, left=18mm, right=18mm, bottom=12mm,
-headsep=10mm, footskip=12mm}
 
 % Einrücken eines neues Absatzes auf 0
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}	
+\parindent 0pt
+\parskip 6pt
 \usepackage{titlesec}
-\titlespacing{\section}{0pt}{1em}{0.3em}
+%\titlespacing{\section}{0pt}{1em}{0.3em}
+\setcounter{secnumdepth}{3}
 
 % Unterpunkte in Aufzählungen andere Symbole geben
 %\usepackage{pifont}
@@ -26,12 +21,6 @@ headsep=10mm, footskip=12mm}
 \renewcommand*\labelitemii{$\circ$}
 %\renewcommand{\thesection}{\Alph{section}} 
 
-% Farben
-\usepackage{color}
-\usepackage[usenames,dvipsnames, table]{xcolor}
-
-% Um Bilder einzufügen
-\usepackage{graphicx}
 %\usepackage{tabularx}
 
 % Abstand zwischen Aufzählungen kleiner definieren 
@@ -84,12 +73,14 @@ headsep=10mm, footskip=12mm}
 \include{titlepage}
 
 \listoftodos
-\pagebreak
+\clearpage
 \blankpage
 
 \pagenumbering{roman}
 
+%\setcounter{tocdepth}{3}
 \tableofcontents
+\clearpage
 
 \pagenumbering{arabic}
 

@@ -1,14 +1,25 @@
-\section{Einleitung}
-
 %\begin{center}
 %\vspace{-9cm}
 %\includegraphics[width = 0.3\linewidth]{Pics/KITLogo.jpg}
 %\vspace{6.5cm}
 %\end{center}
-
-
 %
-\todo[inline]{Motivation schreiben}
+\section{Motivation}
+
+Diese Arbeit beschäftigt sich mit der graphischen Darstellung von Debatten. Debatten werden in der Regel in sogenannten Argumentkarten dargestellt. Auf einer solchen Karte werden die Thesen und Schlüsse der Debatte in einzelne Sätze aufgeschlossen. Diese Sätze werden dann in einem Graphen abgebildet. 
+
+Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis von der Debatte. Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.%
+
+Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte auf eine geeignete Weise dargestellt werden.
+
+Es gibt auch schon Werkzeuge mit denen Argumentkarte angelegt werden können un die es ermöglichen ein Layout für die Argumentkarte zu erzeugen. Allerdings muss das Layout der Argumentkarte oftmals von Hand nachbearbeitet werden wenn um eine der oben genannten Hervorhebungen zu erreichen.
+
+In dieser Arbeit geht es um die Darstellung der Gruppierung von Argumenten und damit um eine Möglichkeit die Argumentkarte zu vereinfachen um dem Benutzer einen schnellen und guten Überblick über die Debatte zu ermöglichen.
+
+
+
+
+\todo[inline]{Motivation fertig schreiben}
 % Was sind Argumentkarten? Wer verwendet sie und wofür?
 
 % Darstellung von Argumentkarten
@@ -20,13 +31,21 @@
 % - Wieso Layout beibehalten? -> Mentale Karte
 
 % Wie ist diese Ausarbeitung aufgebaut?
-\subsection{Gliederung}
+%\subsection{Gliederung}
 % 1. Problemstellung und -definition
 % 2. Lösungsvorschlag
 % 3. Detaillierte Erklärung des Algorithmus
 % 4. Vergleich zu anderen Lösungsansätzen
 
 \section{Problemstellung}
+Die graphische Darstellung einer Argumentkarte ist ein mehrteiliges Problem.
+
+Einerseits müssen verschiedene Vorraussetzungen für die Qualität des Layouts erfüllt sein, andererseits muss die algorithmische Erzeugung eines solchen Layouts auch praktikabel sein. Praktikabel bedeutet in diesem Kontext das ein für Graphen realistischer Größe ein Layout in angemessener Zeit zu finden ist.
+
+\subsection{Qualitätsanforderungen}
+
+
+
 \todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem}
 Wir können für diese Problem ein Layoutproblem definieren.
 
@@ -46,6 +65,8 @@ sowie einen Gruppenzugehörigkeitsbaum
 \item[Lokale Nebenbedingungen]
 
 \end{description}
+
+
 
 % Layoutproblem
 % - Gegeben/Eingabe und Abstraktion
