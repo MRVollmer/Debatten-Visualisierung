@@ -25,14 +25,15 @@
 		% berechne iterativ absteigend Layouts in Gruppen mit festgelegten Ports
 
 \begin{algorithm}[H]
+\label{Layoutalgorithmus}
 \SetAlgoLined
 \Ein{Graph $G=(V,E)$ mit Gruppen $S$ } % mit Koten $V$ mit Größe, gerichteten \& gefärbten Kanten $E$, Mengen $S$ von Knoten und Elementen aus $S$
 \Aus{Gruppen-hierarchisches Layout von $G$ } % mit diesen und jenen Eigenschaften, evtl Name einführen für Referenzierung
-$i = $höchste Stufe einer Gruppe \;
+$i = $ höchste Stufe einer Gruppe \;
 \Solange{$i \geq 0$}{ % benötigt, dass oberste Ebene auch Gruppe
   \Fuer{Jede Gruppe $S$ auf Stufe $i$} {
 	berechnete Layout der Gruppe $S$\;
-	berechne benötite Fläche des Gruppenlayouts\;	
+	berechne benötigte Fläche des Gruppenlayouts\;	
   }
   $i= i - 1$\;
 }
@@ -45,6 +46,7 @@ $i = 1$\;
   }
   $i= i + 1$\;
 }
+
 \caption{Layoutalgorithmus}
 \end{algorithm}
 
@@ -59,21 +61,63 @@ $i = 1$\;
 % Äquivalent: Layout eines Graphens mit punktförmigen Knoten auf Kreis und gelabelten Knoten innerhalb des Kreises
 \todo[inline]{Problemreduktion beschreiben, Lösungsvorschlag}
 
+% was betrachten?
+In diesem Abschnitt betrachten wir Zeile 13 des Layoutalgorithmus \ref{Layoutalgorithmus} genauer. 
+% was ist ziel?
+Hier ist das Ziel ein Layout für eine Gruppe mit bereits gegebenen Ports, also mit gegebenen Winkel für Kanten zur Gruppe, zu finden.
+Das heißt, wir suchen nun einen Layout für den durch die Gruppe induzierten Teilgraphen sowie aus der Gruppe herausgehende Kanten.
+Dieses soll, wie oben beschrieben, ein Layout innerhalb eines Kreises sein und die Gruppengrenze-überschreitenden Kanten zu den festgelegten Ports führen.
+% was ist schwierig?
+Eine der Herausforderung hierbei ist, eine geeignete Größe für den Kreis um die Gruppe zu finden. Auch zum finden dieses Layouts benutzen wir wieder einen kräftebasierten Algorithmus.
+
 % Bemerkung: Layout in einer Gruppe ist von Layouts in anderen Stufen und Gruppen unabhängig (außer durch Ports)
 
-% Genau zu spezifizieren:
-% - wie wird es modelliert: Ports als feste Knoten? nur Reihenfolge festlegen und flexibel auf gewissem Radius? ..
-	% Ports bleiben fest. Argument: Sowieso Winkel an Ports, nich wesentliche Winkel-Änderung erwartet bei Veränderung
+		%// Genau zu spezifizieren:
+		%// - wie wird es modelliert: Ports als feste Knoten? nur Reihenfolge festlegen und flexibel auf gewissem Radius? ..
+		%// Ports bleiben fest. Argument: Sowieso Winkel an Ports, nich wesentliche Winkel-Änderung erwartet bei Veränderung
+% was ist gegeben?
+% wie betrachten wir es? wie ist es modeliert?
+Gegeben sei nun also eine Gruppe $H$. Vom Layouts der nächsthöheren Stufe wurden bereits die Ports der Gruppe festgelegt, d.h. wir haben die Winkel an denen Gruppengrenze-überschreitenden Kanten den Kreis schneiden sollen. Diese Ports modellieren wir als feste Knoten auf dem Kreis der Gruppe an ihren jeweiligen Winkeln.
+Des weiteren haben wir bereits ein Layout $\mathcal{L_H}$ der Gruppe $H$ ohne Gruppengrenze-überschreitenden Kanten in Zeile 4 des Layoutalgorithmus \ref{Layoutalgorithmus}  berechnet.
+Aus Zeile 5 haben wir daher auch eine erste Größe für den Kreis der Gruppe, welche durch den Radius beschreiben und durch $R_H$ gegeben sei. 
+% was sind die essentiellen punkte?
+	% anfangslayout, anfangsradius, neuer radius, 
+Der grobe Ablauf des Algorithmus ist in Algorithmus \ref{Gruppenlayoutalgorithmus} beschrieben. Die essentiellen Schritte sind also die Wahl eines Anfangslayouts (Zeile 1), festlegen eines Anfangsradius (2), das Berechnen eines Layouts (4) und finden eines optimalen Radius (3-6).
 
+\begin{algorithm}[H]
+\label{Gruppenlayoutalgorithmus}
+\SetAlgoLined
+\Ein{Gruppe $H$, sowie Ports und Kanten zu Ports} 
+\Aus{Gruppenlayout von $H$ }
+Wähle Anfangslayout\;
+R' = $\beta \cdot R_H$ = Anfangsradius für Kreis\;
+\Wiederh{$R'$ klein genug}{
+Berechne Gruppenlayout mit kräftebasiertem Algorithmus\;
+Passe $R'$ an\;
+}
+\caption{Gruppenlayoutalgorithmus}
+\end{algorithm}
+
+Die Wahl eines Anfangslayouts und das finden eines optimalen Radius beschrieben wir  in den folgenen Abschnitten  genauer. 
 % - Anziehung zu Mittelpunkt
 	% ja, mit Kanter
 	% schwache Feder mit Faktor $\alpha$
+Für die Berechnung eines Gruppenlayouts verweisen wir wieder lediglich auf die oben genannten kräftebasierten Algorithmen, welche mit Knoten von bestimmter Größer umgehen können. 
+Jedoch schlagen wir auch hier wieder das hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll. Dies soll auch verhindern, dass eventuell nicht zusammenhängde Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
 
 % - Anfangslayout: 
 \subsubsection{Anfangslayout}
-	% a) Knoten mit aus Gruppe ausgehende eingehende Kanten direkt neben Ports positionieren, dann breitensuche oder so weiter
-	% b) random
+Für die Wahl eines Anfangslayouts, Zeile 1 in Algorithmus \ref{Gruppenlayoutalgorithmus} schlagen wir folgenden Ansatz vor.
 	% c) Layout von Größenberechnung spiegeln (nicht, vertikal, horizontal, beides) und Längen der Port-Knoten-Kanten summieren
+In Zeile 4 von Algorithmus \ref{Layoutalgorithmus} wurde für $H$ bereits ein Layout berechnet. Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne die Ausrichtung der einzelnen Knoten, welche ja nach den Achsen ausgerichtete Rechtecke sind, verändert wird. Das heißt wir haben vier verschiedene Layouts, nämlich orginal, vertikal oder horizontal gespiegelt sowie vertikal und horizontal gespiegelt. Um möglichst lange Kanten von Knoten zu Ports durch die ganze Gruppe zu vermeiden, wählt man nun jenes Layout, bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. %$\mathcal{L}^g_H$
+
+\todo[inline]{Grafik Anfangslayout}
+
+Natürlich gibt es auch noch weitere Ansätze zum finden eines Anfangslayouts.
+		% b) random
+Einfache Ansätze wären zum Beispiel eine zufällige Platzierung der Knoten oder die Platzierung aller Knoten in die Mitte des Kreises, um dann den Rest dem kräftebasierten Layoutalgorithmus zu überlassen. Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem man das Gruppenlayout ausgehend von den Ports konstruiert.
+	% a) Knoten mit aus Gruppe ausgehende eingehende Kanten direkt neben Ports positionieren, dann breitensuche oder so weiter
+
 
 % - Größe des Kreises definiert durch Radius R
 \subsubsection{Bestimmen des Kreisradius}
