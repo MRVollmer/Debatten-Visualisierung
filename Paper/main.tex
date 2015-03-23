@@ -120,8 +120,8 @@ Einfache Ansätze wären zum Beispiel eine zufällige Platzierung der Knoten ode
 
 % - Größe des Kreises definiert durch Radius R
 \subsubsection{Bestimmen des Kreisradius}
-Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. Dessen Idee ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleiner werden kann. Ist dies der Fall, so wiederhole das Vorgehen. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab.
-Als Anfangsradius kann der Radius $R'_H$ aus Algorithmus \ref{Layoutalgorithmus} Zeile 5 mal einem Faktor $\beta \geq 1$ verwendet werden.
+Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. Dessen Idee ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleiner werden kann. Ist dies der Fall, so wiederhole das Vorgehen. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab. Wichtig ist dabei anzumerken, dass die Gruppen innerhalb dieser Gruppe geöffnet sind.
+Als Anfangsradius kann der Radius $R'_H$ aus Algorithmus \ref{Layoutalgorithmus} Zeile 5 mal einem Faktor $\beta$ verwendet werden.
 Algorithmus \ref{Kreisradiusalgorithmus} spezifiziert also Zeile 2 von Algorithmus  \ref{Gruppenlayoutalgorithmus} und setzt auch dessen Zeile 3 um.
 
 \begin{algorithm}[H]
@@ -176,9 +176,16 @@ Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Gr�
 % Postprocessing: Kantenklätung
 
 \subsection{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
-% Removing node intersections when changing the size of a node while keeping the mental map
-% Problemabstraktion: Auflösen von Knotenlabelüberschneidung nach Größenveränderung eines Knotenlabes unter Beibehaltung der mentalen Karte
-\todo[inline]{Problemreduktion beschreiben, Lösungsvorschlag}
+% was betrachten?
+Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun sicher auch Gruppen öffnen. Das Layout für diese Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, die Abhängig von der Größe im offenen Zustand und der Anzahl der Elemente in der Gruppe kleiner ist. Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung.
+% was ist ziel?
+Wie verändert sich das Layout auf höheren Stufen, wenn eine Gruppe geöffnet oder geschlossen wird? Hierbei wird gefordert, dass die Änderungen im Layout nicht zu stark sind, damit man sich mit seiner mentalen Karte von vor der Änderung auch danach noch zurechtfindet.
+% was ist schwierig?
+
+Der von uns vorgeschlagene Lösungsansatz basiert erneut auf einem kräftebasierten Algorithmus. Auch hier verweisen wir auf die oben referenzierten Algorithmen. Es gibt also zwei Probleme zu lösen. Zum einen, wie groß ist eine Gruppe in ihrem jetzigen Zustand.  Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schließen einer Gruppe nicht zu sehr verändert.
+
+% Ansatz für Größe
+Um die Größe einer Gruppe in ihrem jetzigen Zustand zu berechnen, könnte man verschieden vorgehen. Zum Beispiel könnte man ihn aus den bekannten Radien, für den Zustand alle Untergruppen geöffnet und der Gruppe selbst geschlossen, berechnen. Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entweder im Vorraus oder wenn benötigt zu ermitteln. Wird nun als eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. Da eine geöffnete Gruppe mehr Platz einnimmt, muss natürlich auch die sie beinhaltende Gruppe größer werden. Die Veränderung zieht sich also bis zur obersten Stufe durch.
 
 % Idee für Verhalten: Anker
 % was passiert, wenn Gruppe geöffnet oder geschlossen wird?
@@ -187,7 +194,9 @@ Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Gr�
 	% geöffnete Gruppe stoßt alle Elemente ab, sodass sie genug Platz hat.  Rest auch kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 	% geschlossene Gruppe stoßt nun Elemente weniger ab. Rest wieder kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 % - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach oben, da übergeordnete Gruppen auch mehr Platz brauen oder freigeben
+Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. Diese Anker bezeichnen wir als Grundanker. Wenn nun also eine Gruppe geöffnet oder geschlossen wird und die dadurch verursachten Größenänderungen pro Stufe durchgeführt wurden, wird in jeder veränderten Gruppe sowie der obersten Stufe der Layoutalgorithmus mit den zuvor gesetzten Grundankern gestartet. Dies wird  durch Abbildung TODO veranschaulicht. Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
 
+Genauer zu spezifieren ist, wie stark die Anker sein sollten sowie ob sie von der Gruppen- bzw. Elementgröße abhängig sein sollten. Hierfür sind erneut eine Implementierung sowie Tests nötig. Dies Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
 % Genau zu spezifizieren:
 % - Wann werden Anker gesetzt, wie lange bestehen sie
 	% Grundanker, Stärke muss man testen, evtl so stark wie eine Kante $\cdot \gamma$ mit $\gamma \in [1, irgendwas]$
@@ -199,6 +208,7 @@ Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Gr�
 % - Verhalten von Ports bei Layoutänderung
 	% bleiben fest. keine großen Änderungen zu erwarten.
 
+Ein weitere Punkte bei diesem Lösungsansatz ist, dass falls die Kräfte der Anker zu stark werden sollten, da durch das öffnen vieler Gruppen eine große Veränderung zum Grundlayout zwingend ist, dass dann die Grundanker ignoriert werden und neue Anker vor der letzten Änderung gesetzt werden. Es wird also nur versucht zum letzten Layout wenig Veränderung zu erhalten, nicht jedoch direkt zu den Anfangslayouts. Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
 % Bei zu starker Veränderung also zu viel Kraft auf Ankern: verwerfe Grundanker und setze für diese Runde neue
 % evtl ebenso für Ports, wenn Knick zu groß
 
