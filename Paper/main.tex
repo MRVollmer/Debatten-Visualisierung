@@ -1,4 +1,4 @@
-\section{Algorithmus} % High-level description
+\chapter{Algorithmus} % High-level description
 
 % Idee für Layout: 
 % - Gruppenelemente in Blase passen
@@ -32,7 +32,7 @@ sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen 
 Zunächst widmen wir uns jedoch den Gruppengrößen. 
 
 
-\subsubsection*{Kräftebasierte Algorithmen}
+\subsection*{Kräftebasierte Algorithmen}
 
 % verwendete Kräftebasierte Algorithmen
 \todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
@@ -41,13 +41,13 @@ Zunächst widmen wir uns jedoch den Gruppengrößen.
 
 
 % Größe geschlossener Gruppen
-\subsubsection*{Gruppengrößen}
+\subsection*{Gruppengrößen}
 \todo[inline]{Spezifiziere Gruppengroessen}
 
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
-\subsubsection*{Anker}
+\subsection*{Anker}
 Da wir in der genaueren Beschreibung des Algorithmus öfters sogenannte \textit{Anker} verwenden werden, wollen wir diese kurz definieren. 
 Ein Anker für einen Knoten ist ein Pseudoknoten, ein Ankerpunkt, welcher also nich gerendert wird, sowie eine Kante zu diesem Knoten. 
 Anders als normale Kanten ist die optimale Kantenlänge eines Ankers  0. Außerdem hat sein Ankerpunkt  eine feste Position im Layout. 
@@ -55,7 +55,7 @@ In einem kräftebasierten Algorithmus wirkt der Anker auf seinen Knoten nun wie 
 Die Kraft der Feder kann wie eine normale Kante gehandhabt werden oder bei Bedarf auch anders spezifiziert werden.
 
 
-\subsection{Konzept und Idee}
+\section{Konzept und Idee}
 % Weitere Constraints für Layout
 % Resultat: alle Gruppen geschlossen, jedoch Layout pro Gruppe mit geschlossenen/geöffneten Kind-Gruppen bekannt
 Wenn alle Gruppen beim Öffnen einer Karte geschlossen sind, sollte es auf großen Karten einfach sein direkt einen Überblick gewinnen zu können.
@@ -93,7 +93,7 @@ $i = Anzahl Stufen$\;
 \end{algorithm}
 
 
-\subsubsection{Bottom-up Anteil des Algorithmus}
+\subsection{Bottom-up Anteil des Algorithmus}
 % Layoutberechnung
 		% bottom-up und top-down
 	% (Layoutalgorithmus hierbei egtl frei wählbar, kräftebasiert aber besser in Hinsicht auf Verhalten Algorithmus mit Ankern)
@@ -125,7 +125,7 @@ Außer man möchte die gesamte Karte eventuell in einen keisförmigen Bereich zi
 \end{figure}
 
 
-\subsubsection{Top-down Anteil des Algorithmus}
+\subsection{Top-down Anteil des Algorithmus}
 Der Übergang vom bottom-up zum top-down Anteil erfolgt, wenn auf der obersten Stufe das Layout berechnet wird.
 Wenn zu Beginn, wie bei uns gewählt, alle Gruppen geschlossen sind, dann ist dieses berechnete Layout auch das Layout, dass beim öffnen der Karte zu sehen ist.
 Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, legen wir nun die Ports der Gruppen nächste-niedrigen Stufe fest und berechnen deren Layout.
@@ -153,7 +153,7 @@ Wie ein Layout für eine Guppe berechnet wird und die Ports festgelegt werden, e
 
 
 
-\subsubsection{Layout in Gruppen in Abhängigkeit von Ports}
+\subsection{Layout in Gruppen in Abhängigkeit von Ports}
 % Problem: Layout eines Graphens (mit Labelknoten) innerhalb eines Kreises mit Ports für ausgehende kanten
 % Äquivalent: Layout eines Graphens mit punktförmigen Knoten auf Kreis und gelabelten Knoten innerhalb des Kreises
 
@@ -299,7 +299,7 @@ Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten 
 
 
 %---------------------------------------------------------------------------------------------
-\subsection{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
+\section{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
 % was betrachten?
 Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun sicher auch Gruppen öffnen. 
 Das Layout für diese Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, 

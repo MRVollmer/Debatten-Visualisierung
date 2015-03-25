@@ -1,6 +1,6 @@
-\section{Evaluation und Vergleich zu anderen Lösungsansätzen}
+\chapter{Evaluation und Vergleich zu anderen Lösungsansätzen}
 Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit Ansatz aus Kapitel 3, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen hierarchischen Ansatz (\ref{Hierarch-Ansatz}) und einen alternativen kräftebasierten Ansatz (\ref{UniformK-Ansatz}) vor.
-\subsection{Hierarchisches Layout}
+\section{Hierarchisches Layout}
 \label{Hierarch-Ansatz}
 Häufig auftretende Strukturen in Argumentkarten wie Zyklenfreiheit legen andere Graphenlayouts, insbesondere hierarchische Layouts, nahe.
 
@@ -16,7 +16,7 @@ Ein grobe Skizze zu einem solchen Layout ist in Abbildung \ref{Hierarch-Skizze} 
 \end{center}
 \end{figure}
 
-\subsection{Uniform kräftebasiertes Layout}
+\section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
 Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten repräsentiert werden, wie sie bereits in \cite{gdea_3362} für Berechnungsapproximationen verwendet wurden, und es werden zusätzlich \glqq Anker\grqq\ verwendet.
 
@@ -36,7 +36,7 @@ Dieser Ablauf wird in Abbildung \ref{UniformK-Skizze} skizziert.
 
 % zu vergleichen mit hierarchischem Layout und alles kräftebasiert
 
-\subsection{Vergleich}
+\section{Vergleich}
 Da keiner der Ansätze konkret implementiert wurde und die alternativen Ansätze auch stückweise ausgearbeitet wurden, besteht der Vergleich dieser Ansätze größtenteils aus Abschätzungen und nicht tatsächlichen Messungen. Es werden folgende Abkürzungen verwendet:
 
 \textbf{KBK}: Unser Lösungsansatz, der kräftebasierte Algorithmus mit Kapselung
@@ -79,7 +79,7 @@ Sowohl bei KBK als auch bei HL verliert man durch die Kapselung von Gruppen viel
 
 Das Layout des UKB-Ansatzes führt zu ähnlich kompakten Graphen wie herkömmliche kräftebasierte Algorithmen, da die einzigen zusätzlichen Kräfte, die Anker, an den Positionen der Gruppenknoten gesetzt werden, also in der Hüllkurve des Graphen liegen, und ausschließlich anziehend wirken.
 
-\subsection*{Fazit}
+\section*{Fazit}
 Wie man an den Einzelpunkten erkennt, vereint der Ansatz für den wir uns entschieden haben viele der positiven Eigenschaften der beiden anderen Ansätze bzw. stellt einen Kompromiss zwischen den beiden dar.
 \todo[inline]{Allgemeine Auswertung des Ansatzes/Verfahren schreiben?}
 % gesammelte Argumente
