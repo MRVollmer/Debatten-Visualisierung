@@ -1,6 +1,6 @@
-\documentclass[12pt,titlepage]{article}
+\documentclass{algo-paper}
 
-\usepackage{algo-paper}
+%\usepackage{algo-paper}
 %\documentclass[a4paper, oneside]{scrartcl}
 
 % Zeichensatz und Sprachpaket
@@ -10,7 +10,7 @@
 % Einrücken eines neues Absatzes auf 0
 \parindent 0pt
 \parskip 6pt
-\usepackage{titlesec}
+%\usepackage{titlesec}
 %\titlespacing{\section}{0pt}{1em}{0.3em}
 \setcounter{secnumdepth}{3}
 
@@ -30,12 +30,13 @@
 % Für TODOs
 \usepackage{todonotes}
 
-% Quellen
+% Quellen Einstellung
 %\bibliographystyle{IEEEtranSA}	% english style
-\bibliographystyle{babalpha-fl}	% german style 
 
 % Algorithmen
 \usepackage[german, linesnumbered]{algorithm2e}
+
+
 
 % Formelzeugs
 \usepackage{amsfonts}   
@@ -56,7 +57,7 @@
 \def\Aut{\ensuremath{\text{Aut}}}
 \def\Abb{\ensuremath{\text{Abb}}}
 
-\usepackage{ntheorem}
+\usepackage[hyperref]{ntheorem}
 \theorembodyfont{\normalfont}
 \theoremstyle{changebreak} 
 \newtheorem{theorem}{Theorem}
@@ -66,22 +67,29 @@
 
 \newcommand{\blankpage}{\clearpage\mbox{}\clearpage}
 
+\usepackage{hyperref}
+
 \nonfrenchspacing
 
 \makeindex
 \begin{document}  
 
 \include{titlepage}
+\pagenumbering{roman}
+\cleardoublepage
+
+
 
 \listoftodos
-\clearpage
-\blankpage
+\cleardoublepage
 
 \pagenumbering{roman}
 
 %\setcounter{tocdepth}{3}
 \tableofcontents
-\clearpage
+%\clearpage
+%\pagestyle{empty}
+\cleardoublepage
 
 \pagenumbering{arabic}
 
