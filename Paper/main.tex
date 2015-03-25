@@ -13,33 +13,41 @@ Für das oben definierte Layoutproblem haben wir uns einen Lösungsansatz überl
 Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einen Kreise zu packen und Kanten über Gruppengrenzen nur über feste Ports zu führen.
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beieinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
-Grafik TODOOOO zeigt so ein Layout.
+Grafik \ref{f:Layoutbeispiel} zeigt so ein Layout.
 Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
 Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
 
-\todo[inline]{Grafik Layoutbeispiel}
 
-
-\subsubsection*{Kräftebasierte Algorithmen}
-
-% verwendete Kräftebasierte Algorithmen
-\todo[inline]{Kräftebasierte Algorithmen angeben}
-
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics{Pics/Layoutbeispiel.pdf}
+  \caption{Beispiellayout einer abstrahierten Argumentkarte nach unserem Konzept.}
+  \label{f:Layoutbeispiel}
+\end{center}
+\end{figure}
 
 % welche Schritte?
 Im Folgenden beschreiben wir einen Algorithmus um so ein Layout zu berechnen, 
 sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen gering zu halten.
 Zunächst widmen wir uns jedoch den Gruppengrößen. 
 
+
+\subsubsection*{Kräftebasierte Algorithmen}
+
+% verwendete Kräftebasierte Algorithmen
+\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
+
+
+
+
 % Größe geschlossener Gruppen
-\subparagraph{Gruppengrößen}
-Blabla
+\subsubsection*{Gruppengrößen}
 \todo[inline]{Spezifiziere Gruppengroessen}
 
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
-\subparagraph{Anker}
+\subsubsection*{Anker}
 Da wir in der genaueren Beschreibung des Algorithmus öfters sogenannte \textit{Anker} verwenden werden, wollen wir diese kurz definieren. 
 Ein Anker für einen Knoten ist ein Pseudoknoten, ein Ankerpunkt, welcher also nich gerendert wird, sowie eine Kante zu diesem Knoten. 
 Anders als normale Kanten ist die optimale Kantenlänge eines Ankers  0. Außerdem hat sein Ankerpunkt  eine feste Position im Layout. 
