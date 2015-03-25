@@ -1,5 +1,5 @@
 \ProvidesClass{algo-paper}
-\LoadClass[a4paper,12pt,numbers=noenddot,twoside]{scrreprt}
+\LoadClass[a4paper,12pt,numbers=noenddot,twoside=semi]{scrreprt}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -23,9 +23,9 @@
 %\geometry{a4paper, top=25mm, left=25mm, right=20mm, bottom=25mm, headsep=10mm, footskip=12mm}
 
 \usepackage[headsepline]{scrlayer-scrpage}
+\automark[chapter]{chapter}
 %\renewcommand*{\chapterpagestyle}{empty}
-\automark{chapter}
-\automark*{section}
+%\automark*{section}
 \clearpairofpagestyles
 \ihead{\headmark}
 \ohead{\pagemark}
