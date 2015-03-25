@@ -13,39 +13,46 @@ Für das oben definierte Layoutproblem haben wir uns einen Lösungsansatz überl
 Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einen Kreise zu packen und Kanten über Gruppengrenzen nur über feste Ports zu führen.
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beieinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
-Grafik TODOOOO zeigt so ein Layout.
+Abbildung \ref{f:Layoutbeispiel} zeigt so ein Layout.
 Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
 Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
 
-\todo[inline]{Grafik Layoutbeispiel}
 
-
-\subsubsection*{Kräftebasierte Algorithmen}
-
-% verwendete Kräftebasierte Algorithmen
-\todo[inline]{Kräftebasierte Algorithmen angeben}
-
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics{Pics/Layoutbeispiel.pdf}
+  \caption{Beispiellayout einer abstrahierten Argumentkarte nach unserem Konzept.}
+  \label{f:Layoutbeispiel}
+\end{center}
+\end{figure}
 
 % welche Schritte?
 Im Folgenden beschreiben wir einen Algorithmus um so ein Layout zu berechnen, 
 sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen gering zu halten.
 Zunächst widmen wir uns jedoch den Gruppengrößen. 
 
+
+\subsubsection*{Kräftebasierte Algorithmen}
+
+% verwendete Kräftebasierte Algorithmen
+\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
+
+
+
+
 % Größe geschlossener Gruppen
-\subparagraph{Gruppengrößen}
-Blabla
+\subsubsection*{Gruppengrößen}
 \todo[inline]{Spezifiziere Gruppengroessen}
 
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
-\subparagraph{Anker}
+\subsubsection*{Anker}
 Da wir in der genaueren Beschreibung des Algorithmus öfters sogenannte \textit{Anker} verwenden werden, wollen wir diese kurz definieren. 
 Ein Anker für einen Knoten ist ein Pseudoknoten, ein Ankerpunkt, welcher also nich gerendert wird, sowie eine Kante zu diesem Knoten. 
 Anders als normale Kanten ist die optimale Kantenlänge eines Ankers  0. Außerdem hat sein Ankerpunkt  eine feste Position im Layout. 
 In einem kräftebasierten Algorithmus wirkt der Anker auf seinen Knoten nun wie eine weitere Feder, die ihn zum Ankerpunkt hinzieht.
 Die Kraft der Feder kann wie eine normale Kante gehandhabt werden oder bei Bedarf auch anders spezifiziert werden.
-%\todo[inline]{Grafik Anker (?)}
 
 
 \subsection{Konzept und Idee}
@@ -54,7 +61,7 @@ Die Kraft der Feder kann wie eine normale Kante gehandhabt werden oder bei Bedar
 Wenn alle Gruppen beim Öffnen einer Karte geschlossen sind, sollte es auf großen Karten einfach sein direkt einen Überblick gewinnen zu können.
 Deshalb liefert der folgendes Algorithmus ein Layout bei dem alle Gruppen geschlossen sind.
 
-Unser Layoutalgorithmus, grob beschrieben in Algorithmus \ref{Layoutalgorithmus}, ist in 2 Phasen unterteilt. 
+Unser in Algorithmus \ref{Layoutalgorithmus} grob beschriebene Layoutalgorithmus ist in 2 Phasen unterteilt. 
 In der ersten Phase, Zeilen 1 -8, werden die in einem bottem-up Ansatz die Größen der Gruppen berechnet. 
 Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw obersten Stufe notwendig ist.
 In einem top-down Ansatz wird in der zweiten Phase, Zeilen 9-17, werden nun die Layouts pro Stufe berechnet und die Ports festgelegt. 
@@ -107,11 +114,19 @@ Mit der oben genannten Rechnung für die Größe von geschlossenen Gruppen, kann
 Dies wiederholt sich bis zur obersten Stufe. Hier sind jedoch kein Anker zu einem Mittelpunkt mehr zwingend nötig. 
 Außer man möchte die gesamte Karte eventuell in einen keisförmigen Bereich ziehen.
 
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics[width=0.5\textwidth]{Pics/BottomUp2.pdf}
+  \caption{Bottom-up Anteil des Algorithmus zur Berechnung der benötigten Größen.
+  Nachdem Layouts auf der untersten Stufe berechnet wurden (Zeile 4, Algorithmus \ref{Layoutalgorithmus}) wir in Schritt $a$ die benötigt Größe der Gruppe berechnet (Zeile 5). 
+  Nun kann dieser Prozess mit $b$ und $c$ bis zur obersten Stufe wiederholt werden. }
+  \label{f:BottomUp}
+\end{center}
+\end{figure}
 
-\todo[inline]{Grafik bottom-up und dadurch mehr Details in Text}
 
 \subsubsection{Top-down Anteil des Algorithmus}
-Der Übergang vom bottom-up zum top-down Anteil erfolgt, wenn auf der obersten Stufe das Layout berechnet wird. 
+Der Übergang vom bottom-up zum top-down Anteil erfolgt, wenn auf der obersten Stufe das Layout berechnet wird.
 Wenn zu Beginn, wie bei uns gewählt, alle Gruppen geschlossen sind, dann ist dieses berechnete Layout auch das Layout, dass beim öffnen der Karte zu sehen ist.
 Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, legen wir nun die Ports der Gruppen nächste-niedrigen Stufe fest und berechnen deren Layout.
 Wie ein Layout für eine Guppe berechnet wird und die Ports festgelegt werden, erläutern wir im folgenden genauer. 
@@ -120,7 +135,16 @@ Wie ein Layout für eine Guppe berechnet wird und die Ports festgelegt werden, e
 		% Lege Ports für Gruppen auf oberster Stufe fest
 		
 		% berechne iterativ absteigend Layouts in Gruppen mit festgelegten Ports
-\todo[inline]{Grafik top-down}
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics[width=0.5\textwidth]{Pics/TopDown.pdf}
+  \caption{Top-down Anteil des Algorithmus zur Festlegung der Ports und Berechnung der Layouts.
+  Mit dem Layout der höchsten Stufe können in Schritt $a$ die Ports für die niedrigere Stufe berechnet werden (Zeile 9, Algorithmus \ref{Layoutalgorithmus}).
+  In Schritt $b$ wird dann das Layout der nächsten Stufe mit Ports berechnet (Zeile 13).
+  Dieser Prozess mit $b$ und $c$ bis zur untersten Stufe wiederholt werden. }
+  \label{f:TopDown}
+\end{center}
+\end{figure}
 
 
 
@@ -186,11 +210,19 @@ Für die Wahl eines Anfangslayouts, Zeile 1 in Algorithmus \ref{Gruppenlayoutalg
 	% c) Layout von Größenberechnung spiegeln (nicht, vertikal, horizontal, beides) und Längen der Port-Knoten-Kanten summieren
 In Zeile 4 von Algorithmus \ref{Layoutalgorithmus} wurde für $H$ bereits ein Layout $\L'_H$ berechnet. 
 Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne die Ausrichtung der einzelnen Knoten, welche ja nach den Achsen ausgerichtete Rechtecke sind, verändert wird.
-Das heißt wir haben vier verschiedene Layouts, nämlich orginal, vertikal oder horizontal gespiegelt sowie vertikal und horizontal gespiegelt.
+Das heißt wir haben vier verschiedene Layouts, nämlich das orginal, vertikal oder horizontal gespiegelt sowie vertikal und horizontal gespiegelt.
 Um möglichst lange Kanten von Knoten zu Ports durch die ganze Gruppe zu vermeiden, wählt man nun jenes Layout,
-bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist.  Sei $\mathcal{L}'_H$ nun das gewählte Anfangslayout.
+bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist nun  das gewählte Anfangslayout $\mathcal{L}'_H$.
+Abbildung \ref{f:Anfangslayout} gibt hierfür ein Beispiel.
 
-\todo[inline]{Grafik Anfangslayout}
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics[width=0.8\textwidth]{Pics/Anfangslayout.pdf}
+  \caption{Ansatz zur Wahl des Anfangslayouts. Links das vorberechnete innere Layout und die Elterngruppe mit Ports. Rechts die vier verschiedene Spiegelungen des Layouts sowie die Kanten zu den Ports.
+  In diesem Fall würde das rechte obere, also horizontal gespiegelte, Layout als Anfangslayout gewählt werden, da die Gesamtlänge der Kanten zu den Ports hier am kürzesten ist.}
+  \label{f:Anfangslayout}
+\end{center}
+\end{figure}
 
 Natürlich gibt es auch noch weitere Ansätze zum finden eines Anfangslayouts.
 		% b) random
@@ -236,22 +268,10 @@ oder dass $\alpha$ nicht zu groß ist.
 Dass der Radius $R$ verkleinert werden kann, soll bedeuten, dass bei kleinerem $R$ aber gleichem Layout der Kreis keine Knoten schneidet. 
 Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignte maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
 Das selbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
-	% Gegeben: Berechnete Größe R' in bottom-up Verfahren
-	% Problem: berechnete Größe ohne Ports, kann zu klein sein, da Platz für Kanten zu Ports geschaffen werden muss (darf nicht durch Knoten)
-	% Ziel: finde Faktor $\beta$ sodass $R = \beta * R'$ groß genug            ( es gillt immer $R \geq R'$)
-	
-	% Variante induvidualisiertes $\beta$ für jede Gruppe - anfangs 1. Startlayout  und später 2. für jeden Zustand 
-	  %________________________________________________________________________________________________________________%
-	 	% Algorithmus zum finden von $\beta$
-			% Idee: berechne Layout, teste ob Radius verkleinert werden kann, erhöhe bei bedarf Anziehung zu Mitte ($\alpha$)
-			% Abbruchbedingungen: - Änderung in Größe nach erhöhen von Anziehung zu Mitte zu klein
-			%			         - Anziehung zu Mitte wurde schon stark erhöht und man ist schon nahe an R' 
-	 %_________________________________________________________________________________________________________________%		
 
-
-
+\todo[inline]{Michael? Ausführlicher}
 Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden.
-\todo[inline]{Ausführlicher}
+
 	% Variante festes $\beta$ und mittels Berechnung von erwarteten Größen
 	%_________________________________________________________________________________________________________________%
 		% Idee: Berechne ausreichende Größe anhand von Größen der Kinder
@@ -267,8 +287,16 @@ Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Gr�
 % Postprocessing: Kantenklätung
 
 \subparagraph{Setzen der Ports für Kindgruppen}
+Wenn ein Layout berechnet wird, werden die Kanten zu einer Gruppe so gelayoutet, dass sie eine inzidente Kindgruppe nur radial schneiden.
+Der erhaltene Schnittpunkt legt so die Position für den Port fest, welche einfach durch den Winkel beschrieben werden kann. 
+Dies ist auch in Abbildung  \ref{f:TopDown} dargestellt.
 
-\todo[inline]{Beschreibung wie Ports gesetzt werden}
+Da davon auszugehen ist, dass sich bei Veränderungen im Layout die Winkel nicht zu sehr ändern würden, bleiben die Winkel für jede Gruppengröße fest.
+Dadurch bleibt das Layout in einer Gruppe unabhängig von den Änderungen außerhalb. 
+Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten Algorithmus für die Interaktion beachtet werden.
+
+
+
 
 %---------------------------------------------------------------------------------------------
 \subsection{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
@@ -276,7 +304,7 @@ Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Gr�
 Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun sicher auch Gruppen öffnen. 
 Das Layout für diese Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, 
 die Abhängig von der Größe im offenen Zustand und der Anzahl der Elemente in der Gruppe kleiner ist. 
-Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung.
+Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung:
 % was ist ziel?
 Wie verändert sich das Layout auf höheren Stufen, wenn eine Gruppe geöffnet oder geschlossen wird? 
 Hierbei wird gefordert, dass die Änderungen im Layout nicht zu stark sind, damit man sich mit seiner mentalen Karte von vor der Änderung auch danach noch zurechtfindet.
@@ -308,7 +336,16 @@ an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet.
 Diese Anker bezeichnen wir als Grundanker. 
 Wenn nun also eine Gruppe geöffnet oder geschlossen wird und die dadurch verursachten Größenänderungen pro Stufe durchgeführt wurden, 
 wird in jeder veränderten Gruppe sowie der obersten Stufe der Layoutalgorithmus mit den zuvor gesetzten Grundankern gestartet. 
-Dies wird  durch Abbildung TODO veranschaulicht. Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
+Dies wird  durch Abbildung \ref{f:Interaktion} veranschaulicht. Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
+
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics[width=0.7\textwidth]{Pics/Interaktion.pdf}
+  \caption{Veranschaulichung des Ankerprinzips beim Öffnen einer Gruppe.}
+  \label{f:Interaktion}
+\end{center}
+\end{figure}
+
 
 Genauer zu spezifieren ist, wie stark die Anker sein sollten sowie ob sie von der Gruppen- bzw. Elementgröße abhängig sein sollten. 
 Hierfür sind erneut eine Implementierung sowie Tests nötig. Dies Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
@@ -333,3 +370,4 @@ Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
 
 
 % ------- Vorgehen für Parameterwahl vorschlagen
+\todo[inline]{Vorgehen für Parameterwahl vorschlagen}
