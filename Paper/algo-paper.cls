@@ -25,7 +25,7 @@
 \usepackage[headsepline]{scrlayer-scrpage}
 \automark[chapter]{chapter}
 %\renewcommand*{\chapterpagestyle}{empty}
-%\automark*{section}
+\automark*[section]{section}
 \clearpairofpagestyles
 \ihead{\headmark}
 \ohead{\pagemark}
