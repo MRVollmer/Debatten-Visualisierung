@@ -10,7 +10,7 @@
 % was betrachten? problem wie oben definiert -> hier unser Ansatz
 Für das oben definierte Layoutproblem haben wir uns einen Lösungsansatz überlegt.
 % was für design/layout-entscheidungen?
-Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einen Kreise zu packen und Kanten über Gruppengrenzen nur über feste Ports zu führen.
+Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einer Kugel zu kapseln. Sie wird also innerhalb eines Kreise dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt.
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beieinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 Abbildung \ref{f:Layoutbeispiel} zeigt so ein Layout.
@@ -42,8 +42,28 @@ Zunächst widmen wir uns jedoch den Gruppengrößen.
 
 % Größe geschlossener Gruppen
 \subsection*{Gruppengrößen}
-\todo[inline]{Spezifiziere Gruppengroessen}
+Wie die Größe einer geöffneten Gruppe berechnet werden kann ist in Abschnitt \ref{Radius} genauer beschrieben. 
+Eine jedoch vom beschriebenen Algorithmus unabhängige Designentscheidung ist die Größe von geschlossenen Gruppen.
+Während eine Möglichkeit wäre, jede geschlossen Gruppe mit einem gleich großen Kreis darzustellen, schlagen wir einen anderen Ansatz vor.
 
+Um direkt zu sehen, ob sich hinter einer geschlossenen Gruppe eine große oder kleine Gruppe bzw. eine mit vielen oder wenigen Kindelemente befindet, 
+empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Anzahl der Kindelemente sowie der Größe der Gruppe im offenen Zustand zu setzen.
+empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Größe der Gruppe im offenen Zustand zu setzen.
+Da die Größe einer offenen Gruppe stark mit den Anzahl der Kindelemente korreliert, wird dadurch auch diese Eigenschaft einer Gruppe durch die geschlossene Repräsentation
+wiedergegeben.
+Die Größe der geschlossenen Gruppe könnte also dadurch berechnet werden, dass sie auf einer Skala von einer minimalen bis zu einer maximalen Größe abgebildet wird.
+Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am größten dargstellten Arguments gegeben sein und die maximale Größe durch $\gamma \,\%$ der größten Gruppe.
+
+Da der Unterschied zwischen kleinen Gruppen, wobei zum Beispiel eine 4 Kindelemente Besitzt und einer etwas größere die 5 besitzt, stärker verdeutlicht werden soll, als der zwischen 
+relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in Abbildung \ref{f:Radius} vor.
+\begin{figure}[h!]
+\begin{center} 
+\includegraphics{Pics/Radius.pdf}
+% \includegraphics[width=0.5\textwidth]{Pics/Radius.pdf}
+  \caption{Vorgeschlagene Wahl der Gruppengröße einer geschlossenen Gruppe in Abhängigkeit der Gruppe in geöffnetem Zustand mit $\gamma = 25$. }
+  \label{f:Radius}
+\end{center}
+\end{figure}
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
@@ -232,7 +252,8 @@ Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem 
 
 
 % - Größe des Kreises definiert durch Radius R
-\subparagraph{Bestimmen des Kreisradius}
+\subparagraph{Bestimmen des Kreisradius einer geöffneten Gruppe}
+\label{Radius}
 
 Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. 
 Dessen Idee ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleiner werden kann. 
