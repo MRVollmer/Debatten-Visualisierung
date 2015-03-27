@@ -168,16 +168,9 @@ Wie ein Layout für eine Guppe berechnet wird und die Ports festgelegt werden, e
 \end{figure}
 
 
-
-\todo[inline]{FRAGE: Hier anmerken, dass Prozess wiederholt werden könnte? (hoch runter hoch runter) Oder eher weiter unten?}
-
-
-
-
 \subsection{Layout in Gruppen in Abhängigkeit von Ports}
 % Problem: Layout eines Graphens (mit Labelknoten) innerhalb eines Kreises mit Ports für ausgehende kanten
 % Äquivalent: Layout eines Graphens mit punktförmigen Knoten auf Kreis und gelabelten Knoten innerhalb des Kreises
-
 % was betrachten?
 In diesem Abschnitt betrachten wir Zeile 13 des Layoutalgorithmus \ref{Layoutalgorithmus} genauer. 
 % was ist ziel?
@@ -290,8 +283,9 @@ Dass der Radius $R$ verkleinert werden kann, soll bedeuten, dass bei kleinerem $
 Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignte maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
 Das selbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
 
-\todo[inline]{Michael? Ausführlicher}
-Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden.
+Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden. 
+Falls eine gutes $\beta$ gefunden werden kann, dass für jede Gruppe eine gute Größe approximiert und dabei nie zu klein ist, kann der iterative Prozess auch ausgelassen werden
+und der Radius der Gruppe für jeden Zustand direkt berechnet werden.
 
 	% Variante festes $\beta$ und mittels Berechnung von erwarteten Größen
 	%_________________________________________________________________________________________________________________%
@@ -351,7 +345,7 @@ Die Veränderung zieht sich also bis zur obersten Stufe durch.
 	% geöffnete Gruppe stoßt alle Elemente ab, sodass sie genug Platz hat.  Rest auch kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 	% geschlossene Gruppe stoßt nun Elemente weniger ab. Rest wieder kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 % - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach 
-, da übergeordnete Gruppen auch mehr Platz brauen oder freigeben
+
 Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
 Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
@@ -392,4 +386,4 @@ Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
 
 
 % ------- Vorgehen für Parameterwahl vorschlagen
-\todo[inline]{Vorgehen für Parameterwahl vorschlagen}
+\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
