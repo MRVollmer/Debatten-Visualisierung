@@ -10,7 +10,7 @@
 % was betrachten? problem wie oben definiert -> hier unser Ansatz
 Für das in Abschnitt~\ref{chapter:layoutproblem} definierte Layoutproblem haben wir uns einen Lösungsansatz überlegt.
 % was für design/layout-entscheidungen?
-Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einen Kreise zu packen und Kanten über Gruppengrenzen nur über feste Ports zu führen.
+Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gruppen in einer Kugel zu kapseln. Sie wird also innerhalb eines Kreise dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt.
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beieinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 Abbildung \ref{f:Layoutbeispiel} zeigt so ein Layout.
@@ -32,18 +32,39 @@ sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen 
 Zunächst widmen wir uns jedoch den Gruppengrößen. 
 
 
-\subsection*{Kräftebasierte Algorithmen}
-
+\subsection*{Kräftebasierter Algorithmus}
+Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus, welcher auch die Mächtigkeit besitzt,
+Knoten von bestimmter Größe, repräsentiert durch geometrischer Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
 % verwendete Kräftebasierte Algorithmen
-\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
+%\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
 
 
 
 
 % Größe geschlossener Gruppen
 \subsection*{Gruppengrößen}
-\todo[inline]{Spezifiziere Gruppengroessen}
+Wie die Größe einer geöffneten Gruppe berechnet werden kann ist in Abschnitt \ref{Radius} genauer beschrieben. 
+Eine jedoch vom beschriebenen Algorithmus unabhängige Designentscheidung ist die Größe von geschlossenen Gruppen.
+Während eine Möglichkeit wäre, jede geschlossen Gruppe mit einem gleich großen Kreis darzustellen, schlagen wir einen anderen Ansatz vor.
 
+Um direkt zu sehen, ob sich hinter einer geschlossenen Gruppe eine große oder kleine Gruppe bzw. eine mit vielen oder wenigen Kindelemente befindet, 
+empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Anzahl der Kindelemente sowie der Größe der Gruppe im offenen Zustand zu setzen.
+empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Größe der Gruppe im offenen Zustand zu setzen.
+Da die Größe einer offenen Gruppe stark mit den Anzahl der Kindelemente korreliert, wird dadurch auch diese Eigenschaft einer Gruppe durch die geschlossene Repräsentation
+wiedergegeben.
+Die Größe der geschlossenen Gruppe könnte also dadurch berechnet werden, dass sie auf einer Skala von einer minimalen bis zu einer maximalen Größe abgebildet wird.
+Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am größten dargstellten Arguments gegeben sein und die maximale Größe durch $\gamma \,\%$ der größten Gruppe.
+
+Da der Unterschied zwischen kleinen Gruppen, wobei zum Beispiel eine 4 Kindelemente Besitzt und einer etwas größere die 5 besitzt, stärker verdeutlicht werden soll, als der zwischen 
+relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in Abbildung \ref{f:Radius} vor.
+\begin{figure}[h!]
+\begin{center} 
+\includegraphics{Pics/Radius.pdf}
+% \includegraphics[width=0.5\textwidth]{Pics/Radius.pdf}
+  \caption{Vorgeschlagene Wahl der Gruppengröße einer geschlossenen Gruppe in Abhängigkeit der Gruppe in geöffnetem Zustand mit $\gamma = 25$. }
+  \label{f:Radius}
+\end{center}
+\end{figure}
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
@@ -104,7 +125,7 @@ $i = Anzahl Stufen$\;
 		% Benutze appr. benötigte Fläche für Wiederholung des Schritts auf Stufe höher (bis auf letzte)
 Schauen wir uns den bottom-up Teil des Algorithmus genauer an. Ziel ist es zunächst für jede Gruppe ein benötigte Größe zu approximieren.
 Da für die Gruppen der Positionen die Positionen der Ports jedoch noch nicht bekannt sind, werden die Gruppen zunächst ohne Ports gelayoutet.
-Hierfür kann einer der oben genannten kräftebasierten Algorithmen verwendet werden. 
+Hierfür verwenden wir dann den oben beschrieben benötigten kräftebasierten Algorithmus. 
 Zusätzlich wird jedoch für jeden Knoten noch ein Anker zu einer relativen Mitte der Gruppe gesetzt. 
 Auf Grund der Verwendung eines kräftebasierten Algorithmus hält dies die Gruppe, die nicht zwingend eine Zusammenhangskomponente sein muss, zusammen 
 und konzentriert sie einem eher kreisförmigen Bereich. Anderenfalls könnte sich zum Beispiel eine lange Kette bilden.
@@ -147,16 +168,9 @@ Wie ein Layout für eine Guppe berechnet wird und die Ports festgelegt werden, e
 \end{figure}
 
 
-
-\todo[inline]{FRAGE: Hier anmerken, dass Prozess wiederholt werden könnte? (hoch runter hoch runter) Oder eher weiter unten?}
-
-
-
-
 \subsection{Layout in Gruppen in Abhängigkeit von Ports}
 % Problem: Layout eines Graphens (mit Labelknoten) innerhalb eines Kreises mit Ports für ausgehende kanten
 % Äquivalent: Layout eines Graphens mit punktförmigen Knoten auf Kreis und gelabelten Knoten innerhalb des Kreises
-
 % was betrachten?
 In diesem Abschnitt betrachten wir Zeile 13 des Layoutalgorithmus \ref{Layoutalgorithmus} genauer. 
 % was ist ziel?
@@ -198,7 +212,7 @@ Die Wahl eines Anfangslayouts und das finden eines optimalen Radius beschrieben 
 % - Anziehung zu Mittelpunkt
 	% ja, mit Kanter
 	% schwache Feder mit Faktor $\alpha$
-Für die Berechnung eines Gruppenlayouts verweisen wir wieder lediglich auf die oben genannten kräftebasierten Algorithmen, welche mit Knoten von bestimmter Größer umgehen können. 
+Für die Berechnung eines Gruppenlayouts verwenden wir wieder den oben geforderten kräftebasierten Algorithmus, welcher mit Knoten von bestimmter Größer umgehen kann. 
 Jedoch schlagen wir auch hier wieder das hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll.
  Dies soll auch verhindern, dass eventuell nicht zusammenhängde Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
 
@@ -232,7 +246,8 @@ Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem 
 
 
 % - Größe des Kreises definiert durch Radius R
-\subparagraph{Bestimmen des Kreisradius}
+\subparagraph{Bestimmen des Kreisradius einer geöffneten Gruppe}
+\label{Radius}
 
 Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. 
 Dessen Idee ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleiner werden kann. 
@@ -268,8 +283,9 @@ Dass der Radius $R$ verkleinert werden kann, soll bedeuten, dass bei kleinerem $
 Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignte maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
 Das selbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
 
-\todo[inline]{Michael? Ausführlicher}
-Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden.
+Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden. 
+Falls eine gutes $\beta$ gefunden werden kann, dass für jede Gruppe eine gute Größe approximiert und dabei nie zu klein ist, kann der iterative Prozess auch ausgelassen werden
+und der Radius der Gruppe für jeden Zustand direkt berechnet werden.
 
 	% Variante festes $\beta$ und mittels Berechnung von erwarteten Größen
 	%_________________________________________________________________________________________________________________%
@@ -310,7 +326,7 @@ Hierbei wird gefordert, dass die Änderungen im Layout nicht zu stark sind, dami
 % was ist schwierig?
 
 Der von uns vorgeschlagene Lösungsansatz basiert erneut auf einem kräftebasierten Algorithmus. 
-Auch hier verweisen wir auf die oben referenzierten Algorithmen. Es gibt also zwei Probleme zu lösen. 
+Auch hier verweisen wir auf den oben beschriebenen Algorithmus. Es gibt also zwei Probleme zu lösen. 
 Zum einen, wie groß ist eine Gruppe in ihrem jetzigen Zustand.  
 Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schließen einer Gruppe nicht zu sehr verändert.
 
@@ -328,7 +344,8 @@ Die Veränderung zieht sich also bis zur obersten Stufe durch.
 % - jedes Element auf gleicher Ebene wie veränderte Gruppe bekommt einen Anker an aktueller Position
 	% geöffnete Gruppe stoßt alle Elemente ab, sodass sie genug Platz hat.  Rest auch kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 	% geschlossene Gruppe stoßt nun Elemente weniger ab. Rest wieder kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
-% - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach oben, da übergeordnete Gruppen auch mehr Platz brauen oder freigeben
+% - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach 
+
 Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
 Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
@@ -369,4 +386,4 @@ Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
 
 
 % ------- Vorgehen für Parameterwahl vorschlagen
-\todo[inline]{Vorgehen für Parameterwahl vorschlagen}
+\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
