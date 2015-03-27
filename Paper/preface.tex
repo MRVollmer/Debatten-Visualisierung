@@ -37,42 +37,44 @@ In dieser Arbeit geht es um die Darstellung der Gruppierung von Argumenten und d
 % 3. Detaillierte Erklärung des Algorithmus
 % 4. Vergleich zu anderen Lösungsansätzen
 
+\chapter{Layoutprobelm}
+\label{chapter:layoutproblem}
+Das Zeichnen eines Graphen ist ein algorithmisches Problem, dessen Anforderungen sich hauptsächlich an ästhetischen Anforderungen des Nutzers und gegebenen Laufzeitbeschränkungen orientiert. Dieses Problem wird im folgenden als Layoutproblem beschrieben.
 
-\chapter{Problemstellung}
-Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Graphenlayoutproblem. Allerdings sind die üblichen Lösungsansätze zum Layouten von Graphen nur bedingt für Argumentkarten geeignet.
+Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
+Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
+%In unserem Fall beschränkt sich die semantische Betrachtung auf die Beziehungen von gruppierten Sätze und 
 
-Denn zusätzlich zu den allgemeinen Anforderungen an Layoutalgorithmen kommen noch zusätzlich noch weitere Qualitätsanforderungen um die Benutzerfreundlichkeit der Argumentkarte zu erhöhen.
+Die Anforderungen an ein Layoutalgorithmus für die Darstellung von Argumentkarten mit Gruppen lassen sich demzufolge in allgemeine und in gruppensensitive Anforderungen Teilen.
 
-Zu den allgemeinen Anforderungen gehören beispielsweise:
+\section{Allgemeine Layoutanforderungen}
+Allgemeine Layoutanforderungen sind solche bei denen die Semantik der Argumentkarte keine Rolle spielt.
+Diese Anforderungen sind im einzelnen:
 
 \begin{itemize}
-\item {\bf{Überschneidungsfreiheit von Knoten:}} \newline Knoten dürfen sich nicht überschneiden.
-\item {\bf{Überschneidungsvermeidung von Kanten:}}  \newline Kantenüberschneidungen sollten vermieden werden.
-\item {\bf{Größenminimierung:}} \newline Die Gesamtgröße des Layouts sollte möglichst klein sein.
+\item {\normalfont \bfseries{Überschneidungsfreiheit von Knoten:}} \newline Knoten dürfen sich nicht überschneiden.
+\item {\normalfont \bfseries{Überschneidungsvermeidung von Kanten:}}  \newline Kantenüberschneidungen sollten vermieden werden.
+\item {\normalfont \bfseries{Größenminimierung:}} \newline Die Gesamtgröße des Layouts sollte möglichst klein sein.
 \end{itemize}
 
-Die anderen Qualitätsanforderungen ergeben sich aus dem Anwendungszweck der jeweiligen Argumentkarte.
+\section{Gruppensensitive Anforderungen}
+Die gruppensensitive Anforderungen sind solche, die direkt von der Gruppierung von Aussagen oder Argumenten abhängig.
 
-In dieser Arbeit betrachten wir die Vereinfachung der Argumentkarte durch Gruppierung von Sätzen in Argumenten. Zu diesem Zweck haben wir eine Reihe von Qualitätsanforderungen definiert die einen guten Layoutalgorithmus für Argumentkarten ausmacht.
+\subsection{Verständlichkeit}
+Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses (siehe \cite{miller1956magical, BBS:84441}).
 
-%Einerseits müssen verschiedene Vorraussetzungen für die Qualität des Layouts erfüllt sein, andererseits muss die algorithmische Erzeugung eines solchen Layouts auch praktikabel sein. Praktikabel bedeutet in diesem Kontext das ein für Graphen realistischer Größe ein Layout in angemessener Zeit zu finden ist.
+Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
 
-\section{Qualitätsanforderungen}
-Die folgenden Qualitätsanforderungen muss ein Layoutalgorithmus für Argumentkarten mit Graphen erfüllen, damit einen Mehrwert für den Nutzer gegenüber gemeiner Layoutalgorithmen entsteht.
+\subsection{Nachvollziehbarkeit}
+Zusätzlich zur Verständlichkeit muss das Layout auch Nachvollziehbar sein. Zur Nachvollziehbarkeit gehört sowohl die Nachvollziehbarkeit einer statischen Abbildung der Argumentkarte, wie auch die Nachvollziehbarkeit von Änderungen an dieser Abbildung.
 
-\subsection{Übersichtlichkeit}
-Übersichtlichkeit beschreibt wie gut der Nutzer mit der ihm dargelegten Informationsdichte zurecht kommt.
-Die Übersichtlichkeit eines Zeichnung trennt sich dabei in zwei Bereiche: einerseits die allgemeine Verständlichkeit und andererseits die Nachvollziehbarkeit von Änderungen des Graphen wenn Gruppen auf bzw. Zugeklappt werde.
+Damit eine statische Abbildung nachvollziehbar ist muss diese die von der Gruppe verschleierten Informationen, wie Größe oder Relation der Gruppenmitglieder zum Rest der Argumentkarte durch geeignete Darstellung der Gruppe angedeutet werden.
 
-\subsubsection{Verständlichkeit}
-Ziel der Gruppierung ist die Vereinfachung der Verständlichkeit wobei die Idee der Vereinfach durch Gruppierung hauptsächlich auf der Begrenztheit des menschlichen Kurzzeitgedächtnisses beruht (siehe \cite{miller1956magical, BBS:84441}).
+Eine Notwendige Änderung an einer Abbildung von Argumentkarten die Gruppen enthält ist das Auf- und Zuklappen der Gruppen um eine detailliertere Ansicht bzw. einen besseren Überblick zu ermöglichen.
 
-Zusätzlich müssen für die Verständlichkeit natürlich auch die in allgemeinen Anforderungen an Layoutalgorithmen erfüllt sein.
+Nachvollziehbar ist eine daraus resultierende Änderung des Graphen dann, wenn sie in kleinen Schritten erfolgt. Dies bedeutet in unserem Fall, dass das Auf- und Zuklappen von Gruppen den Graphen die Gesamtstruktur der Zeichnung nur in relativ kleinen Schritten verändern soll.
 
-\subsubsection{Nachvollziehbarkeit}
-Nachvollziehbar ist eine Änderung des Graphen dann wenn sie in kleinen Schritten erfolgt. Dies bedeutet in unserem Fall, das dass Auf- und Zuklappen von Gruppen den Graphen möglichst wenig verändern soll.
-
-Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Startlayout ähnlichen Layout zurückkehrt.
+Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Anfangslayout ähnlichen Layout zurückkehrt.
 
 %\todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem} Wir können für diese Problem ein Layoutproblem definieren.
 
