@@ -32,10 +32,11 @@ sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen 
 Zunächst widmen wir uns jedoch den Gruppengrößen. 
 
 
-\subsection*{Kräftebasierte Algorithmen}
-
+\subsection*{Kräftebasierter Algorithmus}
+Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus, welcher auch die Mächtigkeit besitzt,
+Knoten von bestimmter Größe, repräsentiert durch geometrischer Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
 % verwendete Kräftebasierte Algorithmen
-\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
+%\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
 
 
 
@@ -124,7 +125,7 @@ $i = Anzahl Stufen$\;
 		% Benutze appr. benötigte Fläche für Wiederholung des Schritts auf Stufe höher (bis auf letzte)
 Schauen wir uns den bottom-up Teil des Algorithmus genauer an. Ziel ist es zunächst für jede Gruppe ein benötigte Größe zu approximieren.
 Da für die Gruppen der Positionen die Positionen der Ports jedoch noch nicht bekannt sind, werden die Gruppen zunächst ohne Ports gelayoutet.
-Hierfür kann einer der oben genannten kräftebasierten Algorithmen verwendet werden. 
+Hierfür verwenden wir dann den oben beschrieben benötigten kräftebasierten Algorithmus. 
 Zusätzlich wird jedoch für jeden Knoten noch ein Anker zu einer relativen Mitte der Gruppe gesetzt. 
 Auf Grund der Verwendung eines kräftebasierten Algorithmus hält dies die Gruppe, die nicht zwingend eine Zusammenhangskomponente sein muss, zusammen 
 und konzentriert sie einem eher kreisförmigen Bereich. Anderenfalls könnte sich zum Beispiel eine lange Kette bilden.
@@ -218,7 +219,7 @@ Die Wahl eines Anfangslayouts und das finden eines optimalen Radius beschrieben 
 % - Anziehung zu Mittelpunkt
 	% ja, mit Kanter
 	% schwache Feder mit Faktor $\alpha$
-Für die Berechnung eines Gruppenlayouts verweisen wir wieder lediglich auf die oben genannten kräftebasierten Algorithmen, welche mit Knoten von bestimmter Größer umgehen können. 
+Für die Berechnung eines Gruppenlayouts verwenden wir wieder den oben geforderten kräftebasierten Algorithmus, welcher mit Knoten von bestimmter Größer umgehen kann. 
 Jedoch schlagen wir auch hier wieder das hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll.
  Dies soll auch verhindern, dass eventuell nicht zusammenhängde Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
 
@@ -331,7 +332,7 @@ Hierbei wird gefordert, dass die Änderungen im Layout nicht zu stark sind, dami
 % was ist schwierig?
 
 Der von uns vorgeschlagene Lösungsansatz basiert erneut auf einem kräftebasierten Algorithmus. 
-Auch hier verweisen wir auf die oben referenzierten Algorithmen. Es gibt also zwei Probleme zu lösen. 
+Auch hier verweisen wir auf den oben beschriebenen Algorithmus. Es gibt also zwei Probleme zu lösen. 
 Zum einen, wie groß ist eine Gruppe in ihrem jetzigen Zustand.  
 Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schließen einer Gruppe nicht zu sehr verändert.
 
@@ -349,7 +350,8 @@ Die Veränderung zieht sich also bis zur obersten Stufe durch.
 % - jedes Element auf gleicher Ebene wie veränderte Gruppe bekommt einen Anker an aktueller Position
 	% geöffnete Gruppe stoßt alle Elemente ab, sodass sie genug Platz hat.  Rest auch kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 	% geschlossene Gruppe stoßt nun Elemente weniger ab. Rest wieder kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
-% - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach oben, da übergeordnete Gruppen auch mehr Platz brauen oder freigeben
+% - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach 
+, da übergeordnete Gruppen auch mehr Platz brauen oder freigeben
 Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
 Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
