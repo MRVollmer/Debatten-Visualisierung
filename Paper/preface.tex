@@ -114,29 +114,60 @@ Auch wenn es für Argumentkarten im Allgemeinen wünschenswert ist, haben wir in
 
 Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 
-\subsection{Gruppensensitive Anforderungen}
 
-
-\subsubsection{Verständlichkeit}
-Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses.
+% > was genau willst du damit für das Layout definieren?
+%\subsubsection{Verständlichkeit} 
+%Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem %Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses. % > das stimmt ja wohl nicht. scheiß auf begrenztheit des kurzzeitgedächtnis in diesem fall... :D
 %(siehe \cite{miller1956magical, BBS:84441}).
 
-Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
+%Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
 
 
 \section{Interaktion mit Gruppen}
-\todo[inline]{Abschnitt überabiten und anpassen}
+\todo[inline]{Abschnitt überarbeiten und anpassen}
+% was ist außerdem ein Problem? -> Interkation
+Da Gruppen sowohl geöffnet als auch geschlossen sein können, existieren eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
+Außerdem sollte in einer Implementierung das Wechseln zwischen den verschiedenen Zuständen möglich sein, also das Öffnen und Schließen von Gruppen. 
+Dadurch soll es zum Einen einfach sein sich einen Überblick zu verschaffen und zum Anderen eine detailliertere Ansicht zu haben.
+% welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
+Hierbei ist höchst wünschenswert, dass bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
+Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurchtfinden können.
 
-\subsubsection{Nachvollziehbarkeit}
-Zusätzlich zur Verständlichkeit muss das Layout auch Nachvollziehbar sein. Zur Nachvollziehbarkeit gehört sowohl die Nachvollziehbarkeit einer statischen Abbildung der Argumentkarte, wie auch die Nachvollziehbarkeit von Änderungen an dieser Abbildung.
+Eine weitere wünschenswerte Anforderung ist, dass das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu dem gleichen Anfangslayout oder dazu ähnlichem Layout zurückkehrt.
 
-Damit eine statische Abbildung nachvollziehbar ist muss diese die von der Gruppe verschleierten Informationen, wie Größe oder Relation der Gruppenmitglieder zum Rest der Argumentkarte durch geeignete Darstellung der Gruppe angedeutet werden.
+Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechenten Layouts also weitere Kriterien:
+\begin{itemize}
+\item Relative Positionen von Elementen verändert sich nur so viel wie nötig
+\item Gesamtlayout ändert sich nur so viel wie nötig
+\item Layout eines Zustandes ist auch nach mehreren Interaktionen das gleiche oder sehr ähnlich
+\end{itemize}
+% Verhalten beim Öffnen oder Schließen von Gruppen
+% - Vorgaben an Verhalten: 
+	% Ästhetikkritieren
+	% - relative Positionen von Knoten und Gruppen verändern sich nur wenig
+	% - Stuktur vor Zustandsänderung bleibt ähnlich und wiedererkennbar
 
-Eine Notwendige Änderung an einer Abbildung von Argumentkarten die Gruppen enthält ist das Auf- und Zuklappen der Gruppen um eine detailliertere Ansicht bzw. einen besseren Überblick zu ermöglichen.
 
-Nachvollziehbar ist eine daraus resultierende Änderung des Graphen dann, wenn sie in kleinen Schritten erfolgt. Dies bedeutet in unserem Fall, dass das Auf- und Zuklappen von Gruppen den Graphen die Gesamtstruktur der Zeichnung nur in relativ kleinen Schritten verändern soll.
+Im Folgenden werden die Beziehungen der einzelnen Layouts so auffassen, dass wir ein Layout haben und dieses durch eine Interaktion in einen anderen Zustand wechselt.
 
-Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Anfangslayout ähnlichen Layout zurückkehrt.
+
+% --------- 
+%\subsubsection{Nachvollziehbarkeit}
+%Zusätzlich zur Verständlichkeit muss das Layout auch Nachvollziehbar sein. % > was soll das heißen? wann ist den ein layout nachvollziehbar? O_o
+%Zur Nachvollziehbarkeit gehört sowohl die Nachvollziehbarkeit einer statischen Abbildung der Argumentkarte, 
+% richtig: ... wie auch die Nachvollziehbarkeit von Änderungen an dieser Abbildung.
+
+%Damit eine statische Abbildung nachvollziehbar ist muss diese die von der Gruppe verschleierten Informationen, % > verschleiert :D
+%wie Größe oder Relation der Gruppenmitglieder zum Rest der Argumentkarte durch geeignete Darstellung der Gruppe angedeutet werden.
+
+
+
+% > das ist falsch. änderungen können nicht kleiner vorgenommen werden, als notwendig! 
+% > richtig:  eine änderung hat nur geringen einfluss auf das gesamte layout hat und mentale karte bleibt erhalten
+%Nachvollziehbar ist eine daraus resultierende Änderung des Graphen dann, wenn sie in kleinen Schritten erfolgt. 
+%Dies bedeutet in unserem Fall, dass das Auf- und Zuklappen von Gruppen den Graphen die Gesamtstruktur der Zeichnung nur in relativ kleinen Schritten verändern soll.
+
+%nun oben | Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Anfangslayout ähnlichen Layout zurückkehrt.
 
 
 
@@ -144,12 +175,6 @@ Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- 
 
 
 \todo[inline]{Zusammenhang der Probleme hervorheben. Interkation hat Einfluss auf Wahl des Layouts, etc.}
-
-
-
-
-
-
 
 
 %\todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem} Wir können für diese Problem ein Layoutproblem definieren.
@@ -192,11 +217,7 @@ Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- 
 	% - Nummerierung von Nachbarknoten im Layout repräsentieren
 	
 
-% Verhalten beim Öffnen oder Schließen von Gruppen
-% - Vorgaben an Verhalten: 
-	% Ästhetikkritieren
-	% - relative Positionen von Knoten und Gruppen verändern sich nur wenig
-	% - Stuktur vor Zustandsänderung bleibt ähnlich und wiedererkennbar
+
 	
 % Gewählter Zeichenstil
 % - Argumente als Rechtecke (mit fester Breite?)
