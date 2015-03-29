@@ -36,12 +36,9 @@ Zunächst widmen wir uns jedoch einigen weiteren Aspekten von Relevanz für unse
 \subsection*{Kräftebasierter Algorithmus}
 Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus, welcher auch die Mächtigkeit besitzt,
 Knoten von bestimmter Größe, repräsentiert durch geometrischer Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
-Hiermit hat sich bereits \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
+Mit diesem Problem hat sich zum Beispiel bereits \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
 % verwendete Kräftebasierte Algorithmen
 %\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
-
-
-
 
 % Größe geschlossener Gruppen
 \subsection*{Gruppengrößen}
@@ -131,6 +128,7 @@ Hierfür verwenden wir dann den oben beschrieben benötigten kräftebasierten Al
 Zusätzlich wird jedoch für jeden Knoten noch ein Anker zu einer relativen Mitte der Gruppe gesetzt. 
 Auf Grund der Verwendung eines kräftebasierten Algorithmus hält dies die Gruppe, die nicht zwingend eine Zusammenhangskomponente sein muss, zusammen 
 und konzentriert sie einem eher kreisförmigen Bereich. Anderenfalls könnte sich zum Beispiel eine lange Kette bilden.
+
 Da die Größe von Kindgruppen einer Elterngruppe für deren Layout benötigt wird, beginnt der Algorithmus auf der tiefsten Stufe,
 also bei den Gruppen, die in den meisten Gruppen enthalten sind. Wurde ein Layout berechnet, kann ein Kreis darum gelegt werden und somit die Größe approximiert werden.
 Mit der oben genannten Rechnung für die Größe von geschlossenen Gruppen, kann nun also die Größe für das Layout eine Stufe höher verwendet werden.
@@ -189,7 +187,8 @@ Eine der Herausforderung hierbei ist, eine geeignete Größe für den Kreis um d
 		%// Ports bleiben fest. Argument: Sowieso Winkel an Ports, nich wesentliche Winkel-Änderung erwartet bei Veränderung
 % was ist gegeben?
 % wie betrachten wir es? wie ist es modeliert?
-Gegeben sei nun also eine Gruppe $H$. Vom Layouts der nächsthöheren Stufe wurden bereits die Ports der Gruppe festgelegt, d.h. wir haben die Winkel an denen Gruppengrenze-überschreitenden Kanten den Kreis schneiden sollen. Diese Ports modellieren wir als feste Knoten auf dem Kreis der Gruppe an ihren jeweiligen Winkeln.
+Gegeben sei nun also eine Gruppe $H$. Vom Layouts der nächsthöheren Stufe wurden bereits die Ports der Gruppe festgelegt, d.h. wir haben die Winkel an denen 
+Gruppengrenze-überschreitenden Kanten den Kreis schneiden sollen. Diese Ports modellieren wir als feste Knoten auf dem Kreis der Gruppe an ihren jeweiligen Winkeln.
 Des weiteren haben wir bereits ein Layout $\mathcal{L_H}$ der Gruppe $H$ ohne Gruppengrenze-überschreitenden Kanten in Zeile 4 des Layoutalgorithmus \ref{Layoutalgorithmus}  berechnet.
 Aus Zeile 5 haben wir daher auch eine erste Größe für den Kreis der Gruppe, welche durch den Radius beschreiben und durch $R'_H$ gegeben sei. 
 % was sind die essentiellen punkte?
@@ -216,12 +215,14 @@ Die Wahl eines Anfangslayouts und das finden eines optimalen Radius beschrieben 
 	% schwache Feder mit Faktor $\alpha$
 Für die Berechnung eines Gruppenlayouts verwenden wir wieder den oben geforderten kräftebasierten Algorithmus, welcher mit Knoten von bestimmter Größer umgehen kann. 
 Jedoch schlagen wir auch hier wieder das hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll.
- Dies soll auch verhindern, dass eventuell nicht zusammenhängde Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
+Dies soll auch verhindern, dass eventuell nicht zusammenhängde Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
+Solange der Kreis der Gruppe groß genug ist, sollte es für Knoten auch nicht möglich sein, aus dem Kreis herausgetragen zu werden. 
+Andernfalls müssten man hierfür weitere Kräfte im Algorithmus berücksichtigen.
 
 % - Anfangslayout: 
 \subparagraph{Anfangslayout}
 
-Für die Wahl eines Anfangslayouts, Zeile 1 in Algorithmus \ref{Gruppenlayoutalgorithmus} schlagen wir folgenden Ansatz vor.
+Für die Wahl eines Anfangslayouts, Zeile 1 in Algorithmus \ref{Gruppenlayoutalgorithmus}, schlagen wir folgenden Ansatz vor.
 	% c) Layout von Größenberechnung spiegeln (nicht, vertikal, horizontal, beides) und Längen der Port-Knoten-Kanten summieren
 In Zeile 4 von Algorithmus \ref{Layoutalgorithmus} wurde für $H$ bereits ein Layout $\L'_H$ berechnet. 
 Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne die Ausrichtung der einzelnen Knoten, welche ja nach den Achsen ausgerichtete Rechtecke sind, verändert wird.
@@ -304,11 +305,11 @@ und der Radius der Gruppe für jeden Zustand direkt berechnet werden.
 % Postprocessing: Kantenklätung
 
 \subparagraph{Setzen der Ports für Kindgruppen}
-Wenn ein Layout berechnet wird, werden die Kanten zu einer Gruppe so gelayoutet, dass sie eine inzidente Kindgruppe nur radial schneiden.
+Wenn ein Layout berechnet wird, werden die Kanten zu einer Gruppe so gelayoutet, dass sie eine inzidente Gruppe nur radial schneiden.
 Der erhaltene Schnittpunkt legt so die Position für den Port fest, welche einfach durch den Winkel beschrieben werden kann. 
 Dies ist auch in Abbildung  \ref{f:TopDown} dargestellt.
 
-Da davon auszugehen ist, dass sich bei Veränderungen im Layout die Winkel nicht zu sehr ändern würden, bleiben die Winkel für jede Gruppengröße fest.
+Da davon auszugehen ist, dass sich bei Veränderungen im Layout die Winkel nicht zu sehr ändern werden, bleiben die Winkel für jede Gruppengröße fest.
 Dadurch bleibt das Layout in einer Gruppe unabhängig von den Änderungen außerhalb. 
 Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten Algorithmus für die Interaktion beachtet werden.
 
@@ -318,9 +319,9 @@ Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten 
 %---------------------------------------------------------------------------------------------
 \section{Layout-Anpassung beim Öffnen oder Schließen einer Gruppe}
 % was betrachten?
-Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun sicher auch Gruppen öffnen. 
+Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun auch Gruppen öffnen. 
 Das Layout für diese Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, 
-die Abhängig von der Größe im offenen Zustand und der Anzahl der Elemente in der Gruppe kleiner ist. 
+die Abhängig von der Größe im offenen Zustand kleiner ist. 
 Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung:
 % was ist ziel?
 Wie verändert sich das Layout auf höheren Stufen, wenn eine Gruppe geöffnet oder geschlossen wird? 
@@ -388,4 +389,4 @@ Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
 
 
 % ------- Vorgehen für Parameterwahl vorschlagen
-\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
+%\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
