@@ -1,10 +1,3 @@
-%\begin{center}
-%\vspace{-9cm}
-%\includegraphics[width = 0.3\linewidth]{Pics/KITLogo.jpg}
-%\vspace{6.5cm}
-%\end{center}
-%
-
 \chapter{Motivation}
 % Was sind Argumentkarten? Wer verwendet sie und wofür?
 % Darstellung von Argumentkarten
@@ -32,7 +25,7 @@ Das Hervorheben einzelner Agrumentationsstrukturen durch die Wahl des Layouts is
 %oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
 
 Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
-Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatischzu erzeugt werden kann. 
+Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatisch erzeugt werden kann. 
 Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
 Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
 
@@ -54,9 +47,8 @@ In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welche
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\chapter{Problemstellung}%\chapter{Layoutproblem} % > mehr als Laoyut, betrachte auch Interaktion!
+\chapter{Problemstellung}%\chapter{Layoutproblem} % > mehr als Layout, betrachte auch Interaktion!
 \label{chapter:layoutproblem}
-\todo[inline]{Beschreibe dass Problem aus 2 Problemen besteht}
 
 \section{Layoutproblem}
 % Was ist das grundlegende Problem? -> Layout finden
@@ -64,7 +56,7 @@ Das Zeichnen eines Graphen setzt sich aus dem Finden eines Layouts sowie des Ren
 Für uns von Interesse ist nur ersteres, das Layoutproblem. 
 Ziel heirbei ist es für einen gegebenen Graphen und gegebenfalls weitere Informationen algorithmisch ein Layout zu berechnen,
 welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästethikkriteren optimiert und gegebenfalls weiteren lokalen Nebenbedingungen genügt.
-% dessen Anforderungen sich hauptsächlich an ästhetischen Anforderungen des Nutzers und gegebenen Laufzeitbeschränkungen orientiert. 
+
 
 % Was macht das Problem speziell? -> Gruppen und dass für Argumentkarten
 % Was lässt sich jedoch abstrahieren? -> knoteninhalt, kanten
@@ -79,11 +71,42 @@ Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen,
 welche durch eine transitive, rechtseindeutige hierarchische Struktur von Gruppen von Knoten und Gruppen gegeben sind.
 Bei Gruppen ist außerdem zu beachten, dass sie entweder in einem geöffneten oder geschlossen Zustand sein können.
 
+%Wir erhalten also Eingabe zum einen Graphen  $G = (V, E)$ mit Knoten $V$, Kanten $E \subseteq V \times V$.
+%, Knotenbeschriftungen $\lambda_{v}:V \rightarrow B_v$ und Kantenbeschriftungen $\lambda_{e}: E \rightarrow B_e$.
+
 %Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
 %Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
 %%In unserem Fall beschränkt sich die semantische Betrachtung auf die Beziehungen von gruppierten Sätze und 
 % > Falsche bzw nicht typischer Weg! Wenn dann nur nach Übersetzung von normalem Weg:
 % Die Anforderungen an ein Layoutalgorithmus für die Darstellung von Argumentkarten mit Gruppen lassen sich demzufolge in allgemeine und in gruppensensitive Anforderungen Teilen.
+
+
+%\section{Formale Beschreibung}
+%\label{sec:formaldesc}
+%Eine Argumentkarte lässt sich abbilden auf einen beschrifteten gerichteten Graphen.
+
+%Ein solcher Graph $G = (V, E, \lambda_{v}, \lambda_{e})$ mit Knoten $V$, Kanten $E \subseteq V \times V$, Knotenbeschriftungen $\lambda_{v}:V \rightarrow B_v$ und Kantenbeschriftungen $\lambda_{e}: E \rightarrow B_e$. Dabei sind $B_v$ und $B_e$ die Beschriftungsmengen von Knoten bzw. Kanten.
+
+%Auf einen solchen Graphen lässt sich lässt sich eine Argumentkarte Abbilden wenn die Kantenart als Kantenbeschriftung und der Knotentext als Knotenbeschriftung modelliert wird.
+
+%Gegeben einem solchen beschrifteten gerichteten Graphen kann das Layouten eines Graphen als folgendes Problem modelliert werden:
+
+%\begin{description}
+%	\item[Eingabe] \hfill \\[0.3\baselineskip]
+%			Beschrifteter gerichteter Graph $G = (V, E, \lambda_{v}, \lambda_{e})$ \hfill \\
+			% = \{ \text{achsenparallele Rechtecke}\}
+			%sowie einen Gruppenzugehörigkeitsbaum 
+	
+%	\item[Ausgabe] \hfill \\[0.3\baselineskip]
+%		Zeichnung mit:
+%		\begin{itemize}
+%		\item $\forall x,y\in V, x \neq y: x \cap y = \emptyset$, also Knoten paarweise disjunkt
+%		\item Überschneidungsfreiheit von Knoten: $\forall x, y \in V: x \neq y \Leftrightarrow x \cap y = \emptyset$
+%		\item Überlagerungsfreiheit der Kanten: $\forall x, y \in E: x \neq y \Rightarrow \sigma(x, y) \leq 1$. Wobei $\sigma(x, y): E \times E \rightarrow \mathbb{N}_0$ eine Funktion ist, die für zwei Kanten $x$ und $y$ die Anzahl der Schnittpunkte angibt.
+				%$\forall x \in V, (y,z) \in E, y\neq x\neq z: x \cap (y,z) = \emptyset$, also Kanten schneiden nur inzidente Knoten
+%		\item Sonstige Nebenbedingung (Layoutanforderungen)
+%	\end{itemize}
+%\end{description}
 
 % > Semantik spielt im ganzen Layout keine Rolle! Gruppen sind keine Semantik
 \subsection{Zeichenkonventionen}
@@ -115,13 +138,17 @@ Auch wenn es für Argumentkarten im Allgemeinen wünschenswert ist, haben wir in
 Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 
 
+%\section{Layoutanforderungen}
+%Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
+%Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
+%In unserem Fall beschränkt sich die semantische Betrachtung auf die Beziehungen von gruppierten Sätze und 
+%Zusätzlich zu den in \autoref{sec:formaldesc} beschriebenen Anforderungen muss die Zeichnung noch weitere ästhetische und funktionale Layoutanforderungen erfüllen die wir im %folgenden in allgemeine und Gruppensensitive Layoutanforderungen aufteilen.
 % > was genau willst du damit für das Layout definieren?
 %\subsubsection{Verständlichkeit} 
 %Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem %Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses. % > das stimmt ja wohl nicht. scheiß auf begrenztheit des kurzzeitgedächtnis in diesem fall... :D
 %(siehe \cite{miller1956magical, BBS:84441}).
 
 %Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
-
 
 \section{Interaktion mit Gruppen}
 % was ist außerdem ein Problem? -> Interkation
@@ -169,11 +196,6 @@ Im Folgenden werden die Beziehungen der einzelnen Layouts so auffassen, dass wir
 %Dies bedeutet in unserem Fall, dass das Auf- und Zuklappen von Gruppen den Graphen die Gesamtstruktur der Zeichnung nur in relativ kleinen Schritten verändern soll.
 
 %nun oben | Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Anfangslayout ähnlichen Layout zurückkehrt.
-
-
-
-
-
 
 
 %\todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem} Wir können für diese Problem ein Layoutproblem definieren.
