@@ -25,7 +25,7 @@ Das Hervorheben einzelner Agrumentationsstrukturen durch die Wahl des Layouts is
 %oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
 
 Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
-Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatischzu erzeugt werden kann. 
+Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatisch erzeugt werden kann. 
 Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
 Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
 
@@ -58,45 +58,52 @@ In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welche
 Das Zeichnen eines Graphen ist ein algorithmisches Problem, dessen Anforderungen sich hauptsächlich an ästhetischen Anforderungen des Nutzers und gegebenen Laufzeitbeschränkungen orientiert. Dieses Problem wird im folgenden als Layoutproblem beschrieben.
 
 \section{Formale Beschreibung}
-Die Darstellung einer Argumentkarte die durch einen Graphen Beschrieben wird lässt sich allgemein beschreiben als folgendes Problem.
+\label{sec:formaldesc}
+Eine Argumentkarte lässt sich abbilden auf einen beschrifteten gerichteten Graphen.
+
+Ein solcher Graph $G = (V, E, \lambda_{v}, \lambda_{e})$ mit Knoten $V$, Kanten $E \subseteq V \times V$, Knotenbeschriftungen $\lambda_{v}:V \rightarrow B_v$ und Kantenbeschriftungen $\lambda_{e}: E \rightarrow B_e$. Dabei sind $B_v$ und $B_e$ die Beschriftungsmengen von Knoten bzw. Kanten.
+
+Auf einen solchen Graphen lässt sich lässt sich eine Argumentkarte Abbilden wenn die Kantenart als Kantenbeschriftung und der Knotentext als Knotenbeschriftung modelliert wird.
+
+Gegeben einem solchen beschrifteten gerichteten Graphen kann das Layouten eines Graphen als folgendes Problem modelliert werden:
 
 \begin{description}
 	\item[Eingabe] \hfill \\[0.3\baselineskip]
-			Graph $D=(V,E)$ mit Knoten $V$ und Kanten $E \subseteq V \times V$ \hfill \\
+			Beschrifteter gerichteter Graph $G = (V, E, \lambda_{v}, \lambda_{e})$ \hfill \\
 			% = \{ \text{achsenparallele Rechtecke}\}
-			sowie einen Gruppenzugehörigkeitsbaum 
+			%sowie einen Gruppenzugehörigkeitsbaum 
 	
 	
 	\item[Ausgabe] \hfill \\[0.3\baselineskip]
 		Zeichnung mit:
 		\begin{itemize}
-		\item Geradlinige Kanten
 		\item $\forall x,y\in V, x \neq y: x \cap y = \emptyset$, also Knoten paarweise disjunkt
-		\item $\forall x \in V, (y,z) \in E, y\neq x\neq z: x \cap (y,z) = \emptyset$, also Kanten schneiden nur inzidente Knoten
+		\item Überschneidungsfreiheit von Knoten: $\forall x, y \in V: x \neq y \Leftrightarrow x \cap y = \emptyset$
+		\item Überlagerungsfreiheit der Kanten: $\forall x, y \in E: x \neq y \Rightarrow \sigma(x, y) \leq 1$. Wobei $\sigma(x, y): E \times E \rightarrow \mathbb{N}_0$ eine Funktion ist, die für zwei Kanten $x$ und $y$ die Anzahl der Schnittpunkte angibt.
+				%$\forall x \in V, (y,z) \in E, y\neq x\neq z: x \cap (y,z) = \emptyset$, also Kanten schneiden nur inzidente Knoten
+		\item Sonstige Nebenbedingung (Layoutanforderungen)
 	\end{itemize}
 \end{description}
 
 \section{Layoutanforderungen}
-Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
-Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
+%Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
+%Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
 %In unserem Fall beschränkt sich die semantische Betrachtung auf die Beziehungen von gruppierten Sätze und 
-
-Die Anforderungen an ein Layoutalgorithmus für die Darstellung von Argumentkarten mit Gruppen lassen sich demzufolge in allgemeine und in gruppensensitive Anforderungen Teilen.
+Zusätzlich zu den in \autoref{sec:formaldesc} beschriebenen Anforderungen muss die Zeichnung noch weitere ästhetische und funktionale Layoutanforderungen erfüllen die wir im folgenden in allgemeine und Gruppensensitive Layoutanforderungen aufteilen.
 
 \section{Allgemeine Layoutanforderungen}
 \label{sec:generalreq}
-Allgemeine Layoutanforderungen sind solche bei denen die Semantik der Argumentkarte keine Rolle spielt.
+Allgemeine Layoutanforderungen sind solche, bei denen die Gruppierungen der Argumentkarte keine Rolle spielt.
 Diese Anforderungen sind im einzelnen:
 
 \begin{itemize}
-\item {\normalfont \bfseries{Überschneidungsfreiheit von Knoten:}} \newline Knoten dürfen sich nicht überschneiden.
 \item {\normalfont \bfseries{Überschneidungsvermeidung von Kanten:}}  \newline Kantenüberschneidungen sollten vermieden werden.
-\item {\normalfont \bfseries{Größenminimierung:}} \newline Die Gesamtgröße des Layouts sollte möglichst klein sein.
+\item {\normalfont \bfseries{Größenminimierung:}} \newline Bei gegebener Größe von Knoten und Kanten sollten die Knoten so angeordnet werden das die Gesamtgröße des Layouts minimiert wird.
 \end{itemize}
 
-\section{Gruppensensitive Anforderungen}
+\section{Gruppensensitive Layoutanforderungen}
 \label{sec:groupreq}
-Die gruppensensitive Anforderungen sind solche, die direkt von der Gruppierung von Aussagen oder Argumenten abhängig.
+Die gruppensensitive Layoutanforderungen sind solche, die direkt von der Gruppierung von Aussagen oder Argumenten abhängig.
 
 \subsection{Verständlichkeit}
 Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses (siehe \cite{miller1956magical, BBS:84441}).
