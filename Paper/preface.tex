@@ -6,20 +6,36 @@
 %
 
 \chapter{Motivation}
+Diese Arbeit beschäftigt sich mit Argumentkarten, manchmal auch Argumentationskarten genannt. Diese dienen als graphische Darstellung von Debatten. 
+Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
+Um ihre Zusammenhänge zu verstehen, ist es auch nötig ihre Beziehungen, welche von unterstützenden oder angreifender Natur sein können, ebenfalls zu visualisieren.
+Eine Argumentkarte ist also die Darstellung einer Debatte in Form eines Graphen.
+%Debatten werden in der Regel in sogenannten Argumentkarten, manchmal auch Argumentationskarten, dargestellt. 
+%Auf einer solchen Karte werden die Thesen und Schlüsse der Debatte in einzelne Sätze aufgeschlossen. Diese Sätze werden dann in einem Graphen abgebildet. 
 
-Diese Arbeit beschäftigt sich mit der graphischen Darstellung von Debatten. Debatten werden in der Regel in sogenannten Argumentkarten dargestellt. Auf einer solchen Karte werden die Thesen und Schlüsse der Debatte in einzelne Sätze aufgeschlossen. Diese Sätze werden dann in einem Graphen abgebildet. 
+\todo[inline]{Beispiel einfügen}
 
-Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis von der Debatte. Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.%
+Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis von der Debatte. 
+Über die Visualisierung der Elemente und ihrere Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
+So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
+Auch durch die Option, Gruppen zunächste geschlossen zu visualisieren und Details zu verbergen, könnnen Gruppen einen schnelleren Überblick über die Debatte ermöglichen.
+Das Hervorheben einzelner Agrumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
+%Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. 
+%Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen 
+%oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
 
-Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte auf eine geeignete Weise dargestellt werden.
+Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
+Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatischzu erzeugt werden kann. 
+Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
+Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
 
-Es gibt auch schon Werkzeuge mit denen Argumentkarte angelegt werden können un die es ermöglichen ein Layout für die Argumentkarte zu erzeugen. Allerdings muss das Layout der Argumentkarte oftmals von Hand nachbearbeitet werden wenn um eine der oben genannten Hervorhebungen zu erreichen.
+In dieser Arbeit geht es um die automatisierte Darstellung von Argumentkarten mit Gruppen, sowie die Interaktion mit diesen Gruppen. 
+%und damit um eine Möglichkeit die Argumentkarte zu vereinfachen um dem Benutzer einen schnellen und guten Überblick über die Debatte zu ermöglichen.
+Es geht also um die Frage, wie sich Gruppen und Gruppenhierarchien den Anforderungen an Argumentkarten entsprechend visualisieren lassen 
+und wie das Layout auf das Öffnen und Schließen von Gruppen reagiert. 
+Im nächsten Abschnitt \ref{chapter:layoutproblem}  präzisieren und abstrahieren wir diese Problemstellung. 
+In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir dann in \ref{chapter:vgl} mit alternativen Ansätzen vergleichen und bewerten.
 
-In dieser Arbeit geht es um die Darstellung der Gruppierung von Argumenten und damit um eine Möglichkeit die Argumentkarte zu vereinfachen um dem Benutzer einen schnellen und guten Überblick über die Debatte zu ermöglichen.
-
-
-
-\todo[inline]{Motivation fertig schreiben}
 % Was sind Argumentkarten? Wer verwendet sie und wofür?
 
 % Darstellung von Argumentkarten
@@ -127,13 +143,3 @@ Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- 
 % - Gruppen als Kreise
 % - Kanten als ``glatte'' Kurven (bis zu welchem Grad?)
 % - Kanten in Gruppen rein/aus Gruppe raus zu/von inneren Elementen nur über Ports
-
-
-
-
-
-
-
-%--END--END--END--END--END--END--END--END--END--END--END--
-
-%--END--END--END--END--END--END--END--END--END--END--END--
