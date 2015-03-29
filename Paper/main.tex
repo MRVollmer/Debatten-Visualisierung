@@ -14,8 +14,9 @@ Die wichtigste Designentscheidung und damit Grundiee des Layouts ist es, jede Gr
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beieinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 Abbildung \ref{f:Layoutbeispiel} zeigt so ein Layout.
-Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
-Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
+
+%Am Ende Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
+%Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
 
 
 \begin{figure}[h!]
@@ -29,7 +30,7 @@ Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen e
 % welche Schritte?
 Im Folgenden beschreiben wir einen Algorithmus um so ein Layout zu berechnen, 
 sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen gering zu halten.
-Zunächst widmen wir uns jedoch den Gruppengrößen. 
+Zunächst widmen wir uns jedoch einigen weiteren Aspekten von Relevanz für unseren Algorithmus.
 
 
 \subsection*{Kräftebasierter Algorithmus}

@@ -1,21 +1,7 @@
 \chapter{Evaluation und Vergleich zu anderen Lösungsansätzen}
-\label{chapter:vgl} 
-Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit Ansatz aus Kapitel 3, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen hierarchischen Ansatz (\ref{Hierarch-Ansatz}) und einen alternativen kräftebasierten Ansatz (\ref{UniformK-Ansatz}) vor.
-\section{Hierarchisches Layout}
-\label{Hierarch-Ansatz}
-Häufig auftretende Strukturen in Argumentkarten wie Zyklenfreiheit legen andere Graphenlayouts, insbesondere hierarchische Layouts, nahe.
+\label{chapter:vgl}
 
-Konkret wird es dadurch möglich bei einem hierarchischen Layout alle eingehenden Kanten eines Knotens an der Oberseite des Knotens und alle ausgehenden Kanten an der Unterseite des Knotens zu zeichnen. Dadurch wird ebenfalls das \glqq einpacken \grqq\ der Knoten in eine Box zur Repräsentation bzw. Ordnung der Gruppe einfacher, da auch die Box der Gruppe die ein- und ausgehenden Kanten entsprechend ordnen kann ohne die Komplexität des Layouts innerhalb der Box zu erhöhen, wodurch das innere und äußere Layout von Gruppen getrennt berechnen werden können. 
-
-Ein grobe Skizze zu einem solchen Layout ist in Abbildung \ref{Hierarch-Skizze} dargestellt.
-
-\begin{figure}[h!]
-\begin{center}
-	\includegraphics[width=\textwidth]{Pics/hierarchisch.pdf}
-	\caption{Skizze eines Layouts durch den hierarchischen Ansatz. Links das Gesamtlayout, Mitte und Rechts jeweils das Layout der jeweiligen Gruppe.}
-	\label{Hierarch-Skizze}
-\end{center}
-\end{figure}
+Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit unserem Ansatz aus Kapitel \ref{chapter:algo}, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen alternativen kräftebasierten Ansatz (\ref{UniformK-Ansatz}) und einen hierarchischen Ansatz (\ref{Hierarch-Ansatz}) vor. Ein kurzer Vergleich wird in Abschnitt \ref{Ansatz-Vergleich} gezeigt.
 
 \section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
@@ -37,7 +23,24 @@ Dieser Ablauf wird in Abbildung \ref{UniformK-Skizze} skizziert.
 
 % zu vergleichen mit hierarchischem Layout und alles kräftebasiert
 
+\section{Hierarchisches Layout}
+\label{Hierarch-Ansatz}
+Häufig auftretende Strukturen in Argumentkarten wie Zyklenfreiheit legen andere Graphenlayouts, insbesondere hierarchische Layouts, nahe.
+
+Wenn wir die Richtung der Kanten, entgegen der bisherigen Ansätze, für das Layout beachten wollen, wird es dadurch möglich bei einem hierarchischen Layout alle eingehenden Kanten eines Knotens an der Oberseite des Knotens und alle ausgehenden Kanten an der Unterseite des Knotens zu zeichnen. Dadurch wird ebenfalls das \glqq einpacken \grqq\ der Knoten in eine Box zur Repräsentation bzw. Ordnung der Gruppe einfacher, da auch die Box der Gruppe die ein- und ausgehenden Kanten entsprechend ordnen kann ohne die Komplexität des Layouts innerhalb der Box zu erhöhen, wodurch das innere und äußere Layout von Gruppen getrennt berechnen werden können.
+
+Ein grobe Skizze zu einem solchen Layout ist in Abbildung \ref{Hierarch-Skizze} dargestellt.
+
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[width=\textwidth]{Pics/hierarchisch.pdf}
+	\caption{Skizze eines Layouts durch den hierarchischen Ansatz. Links das Gesamtlayout, Mitte und Rechts jeweils das Layout der jeweiligen Gruppe.}
+	\label{Hierarch-Skizze}
+\end{center}
+\end{figure}
+
 \section{Vergleich}
+\label{Ansatz-Vergleich}
 Da keiner der Ansätze konkret implementiert wurde und die alternativen Ansätze auch stückweise ausgearbeitet wurden, besteht der Vergleich dieser Ansätze größtenteils aus Abschätzungen und nicht tatsächlichen Messungen. Es werden folgende Abkürzungen verwendet:
 
 \textbf{KBK}: Unser Lösungsansatz, der kräftebasierte Algorithmus mit Kapselung
