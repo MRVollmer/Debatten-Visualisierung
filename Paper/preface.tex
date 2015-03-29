@@ -41,6 +41,26 @@ In dieser Arbeit geht es um die Darstellung der Gruppierung von Argumenten und d
 \label{chapter:layoutproblem}
 Das Zeichnen eines Graphen ist ein algorithmisches Problem, dessen Anforderungen sich hauptsächlich an ästhetischen Anforderungen des Nutzers und gegebenen Laufzeitbeschränkungen orientiert. Dieses Problem wird im folgenden als Layoutproblem beschrieben.
 
+\section{Formale Beschreibung}
+Die Darstellung einer Argumentkarte die durch einen Graphen Beschrieben wird lässt sich allgemein beschreiben als folgendes Problem.
+
+\begin{description}
+	\item[Eingabe] \hfill \\[0.3\baselineskip]
+			Graph $D=(V,E)$ mit Knoten $V$ und Kanten $E \subseteq V \times V$ \hfill \\
+			% = \{ \text{achsenparallele Rechtecke}\}
+			sowie einen Gruppenzugehörigkeitsbaum 
+	
+	
+	\item[Ausgabe] \hfill \\[0.3\baselineskip]
+		Zeichnung mit:
+		\begin{itemize}
+		\item Geradlinige Kanten
+		\item $\forall x,y\in V, x \neq y: x \cap y = \emptyset$, also Knoten paarweise disjunkt
+		\item $\forall x \in V, (y,z) \in E, y\neq x\neq z: x \cap (y,z) = \emptyset$, also Kanten schneiden nur inzidente Knoten
+	\end{itemize}
+\end{description}
+
+\section{Layoutanforderungen}
 Da es sich bei Argumentkarten um Graphen handelt ist die Darstellung einer Argumentkarte auch ein Layoutproblem.
 Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graphen in die Zeichnung einfließen.
 %In unserem Fall beschränkt sich die semantische Betrachtung auf die Beziehungen von gruppierten Sätze und 
@@ -48,6 +68,7 @@ Anders als bei gewöhnlichen Graphen muss allerdings auch die Semantik des Graph
 Die Anforderungen an ein Layoutalgorithmus für die Darstellung von Argumentkarten mit Gruppen lassen sich demzufolge in allgemeine und in gruppensensitive Anforderungen Teilen.
 
 \section{Allgemeine Layoutanforderungen}
+\label{sec:generalreq}
 Allgemeine Layoutanforderungen sind solche bei denen die Semantik der Argumentkarte keine Rolle spielt.
 Diese Anforderungen sind im einzelnen:
 
@@ -58,6 +79,7 @@ Diese Anforderungen sind im einzelnen:
 \end{itemize}
 
 \section{Gruppensensitive Anforderungen}
+\label{sec:groupreq}
 Die gruppensensitive Anforderungen sind solche, die direkt von der Gruppierung von Aussagen oder Argumenten abhängig.
 
 \subsection{Verständlichkeit}
@@ -75,6 +97,7 @@ Eine Notwendige Änderung an einer Abbildung von Argumentkarten die Gruppen enth
 Nachvollziehbar ist eine daraus resultierende Änderung des Graphen dann, wenn sie in kleinen Schritten erfolgt. Dies bedeutet in unserem Fall, dass das Auf- und Zuklappen von Gruppen den Graphen die Gesamtstruktur der Zeichnung nur in relativ kleinen Schritten verändern soll.
 
 Zur Nachvollziehbarkeit gehört aber auch das das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu einem dem Anfangslayout ähnlichen Layout zurückkehrt.
+\todo[inline]{Mentale Karte}
 
 %\todo[inline]{Problem definieren, Layoutproblem und Subprobleme, Layoutanspassungsproblem} Wir können für diese Problem ein Layoutproblem definieren.
 
