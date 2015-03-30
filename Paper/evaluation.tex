@@ -1,17 +1,17 @@
 \chapter{Evaluation und Vergleich zu anderen Lösungsansätzen}
 \label{chapter:vgl}
 
-Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit unserem Ansatz aus Kapitel \ref{chapter:algo}, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen alternativen kräftebasierten Ansatz (\ref{UniformK-Ansatz}) und einen hierarchischen Ansatz (\ref{Hierarch-Ansatz}) vor. Ein kurzer Vergleich wird in Abschnitt \ref{Ansatz-Vergleich} gezeigt.
+Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit unserem Ansatz aus \autoref{chapter:algo}, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen alternativen kräftebasierten Ansatz (siehe \autoref{UniformK-Ansatz}) und einen hierarchischen Ansatz (siehe \autoref{Hierarch-Ansatz}) vor. Ein kurzer Vergleich wird in \autoref{Ansatz-Vergleich} gezeigt.
 
 \section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
-Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknotenin diesem Fall, Gruppenknoten, repräsentiert werden und es werden zusätzlich Anker verwendet.
+Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten in diesem Fall, Gruppenknoten, repräsentiert werden und es werden zusätzlich Anker verwendet.
 
 Konkret bedeutet dies, dass Knoten zunächst nur durch ihre zusammengefassten Pseudoknoten darstellt werden und hierfür mit einem einfachen kräftebasierten Verfahren ein Layout bestimmen, wobei die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefassten Elemente skaliert wird.
 
 Wenn nun die Elemente einer oder mehrerer Gruppen konkret dargestellt werden sollen, so werden die Pseudoknoten zunächst ähnlich wie bei der finalen Lösung verankert. Zusätzlich werden die Pseudoknoten deren Elemente dargestellt werden sollen aus dem Layout entfernt und stattdessen die Knoten der Gruppe, die ebenfalls Pseudoknoten für innere Gruppen sein können, eingefügt. Schließlich wird nun noch einmal der kräftebasierte Algorithmus verwendet mit der Besonderheit, dass jeder Knoten eine zusätzliche Anziehung zu seinem Anker bzw. dem Anker des übergeordneten Pseudoknotens.
 
-Dieser Ablauf wird in Abbildung \ref{UniformK-Skizze} skizziert.
+Dieser Ablauf wird in \autoref{UniformK-Skizze} skizziert.
 
 \begin{figure}[h!]
 \begin{center}
@@ -29,7 +29,7 @@ Häufig auftretende Eigenschaften in Argumentkarten wie Zyklenfreiheit legen and
 
 Wenn wir die Richtung der Kanten, entgegen der bisherigen Ansätze, für das Layout beachten wollen, wird es dadurch möglich bei einem hierarchischen Layout alle eingehenden Kanten eines Knotens an der Oberseite des Knotens und alle ausgehenden Kanten an der Unterseite des Knotens zu zeichnen. Dadurch wird ebenfalls das \glqq einpacken \grqq\ der Knoten in eine Box zur Repräsentation bzw. Ordnung der Gruppe einfacher, da auch die Box der Gruppe die ein- und ausgehenden Kanten entsprechend ordnen kann ohne die Komplexität des Layouts innerhalb der Box zu erhöhen, wodurch das innere und äußere Layout von Gruppen getrennt berechnen werden können.
 
-Ein grobe Skizze zu einem solchen Layout ist in Abbildung \ref{Hierarch-Skizze} dargestellt.
+Ein grobe Skizze zu einem solchen Layout ist in \autoref{Hierarch-Skizze} dargestellt.
 
 \begin{figure}[h!]
 \begin{center}
@@ -52,7 +52,7 @@ Da keiner der Ansätze konkret implementiert wurde und die alternativen Ansätze
 \paragraph*{Fokus des Layouts}
 Bei KBK und HL sind die Layouts der einzelnen Gruppenebenen größtenteils unabhängig, daher liegt der Fokus der Darstellung eher auf der Semantik der Gruppen, d.h. das Layout stellt besonders heraus, zu welcher Gruppe ein Knoten gehört.
 
-Das durch UKB erzeugte Layout basiert dagegen größtenteils auf den Knotenzusammenhängen ab. Durch die Anker bleiben Gruppenelemente zwar größtenteils zusammen, aber das Layout wird dennoch über die Kanten der Knoten in und zwischen Gruppen festgelegt. Bei entsprechenden Zusammenhängen können Gruppen auch deformiert oder getrennt werden (siehe Abbildung \ref{Uniform-Trenn-Skizze}).
+Das durch UKB erzeugte Layout basiert dagegen größtenteils auf den Knotenzusammenhängen ab. Durch die Anker bleiben Gruppenelemente zwar größtenteils zusammen, aber das Layout wird dennoch über die Kanten der Knoten in und zwischen Gruppen festgelegt. Bei entsprechenden Zusammenhängen können Gruppen auch deformiert oder getrennt werden (siehe \autoref{Uniform-Trenn-Skizze}).
 
 \begin{figure}[h]
 \begin{center}
