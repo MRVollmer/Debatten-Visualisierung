@@ -5,10 +5,9 @@ Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche
 
 \section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
-Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten repräsentiert werden, wie sie bereits in \cite{gdea_3362} für Berechnungsapproximationen verwendet wurden, und es werden zusätzlich \glqq Anker\grqq\ verwendet.
+Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknotenin diesem Fall, Gruppenknoten, repräsentiert werden und es werden zusätzlich Anker verwendet.
 
 Konkret bedeutet dies, dass Knoten zunächst nur durch ihre zusammengefassten Pseudoknoten darstellt werden und hierfür mit einem einfachen kräftebasierten Verfahren ein Layout bestimmen, wobei die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefassten Elemente skaliert wird.
-%Würde das mit logarithmischen Kräften/Größen schon stehen lassen, sonst müssen wir den ganzen Text ändern um weg von Pseudoknoten und hin zu geschlossenen Gruppen zu gehen.
 
 Wenn nun die Elemente einer oder mehrerer Gruppen konkret dargestellt werden sollen, so werden die Pseudoknoten zunächst ähnlich wie bei der finalen Lösung verankert. Zusätzlich werden die Pseudoknoten deren Elemente dargestellt werden sollen aus dem Layout entfernt und stattdessen die Knoten der Gruppe, die ebenfalls Pseudoknoten für innere Gruppen sein können, eingefügt. Schließlich wird nun noch einmal der kräftebasierte Algorithmus verwendet mit der Besonderheit, dass jeder Knoten eine zusätzliche Anziehung zu seinem Anker bzw. dem Anker des übergeordneten Pseudoknotens.
 
