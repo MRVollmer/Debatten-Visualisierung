@@ -1,5 +1,5 @@
 \ProvidesClass{algo-paper}
-\LoadClass[a4paper,12pt,numbers=noenddot,twoside=semi]{scrreprt}
+\LoadClass[a4paper,12pt,numbers=noenddot]{scrreprt}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
