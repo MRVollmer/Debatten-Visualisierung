@@ -67,14 +67,14 @@ Des Weiteren ignorieren wir bei den Beziehungen zwischen Elementen den Typ sowie
 Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
 Dies wird dann durch eine Kante repräsentiert. 
 
-Unter Einbeziehung von Gruppen stellen wir die Argumentkarte dann als Graphen der Form $G = (V,V_g,E,\lambda,\sigma)$ dar. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
+Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann als der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
 
 \begin{itemize}
 	\item Knoten $V$, Knoten die eine Aussage repräsentieren.
 	\item Gruppenknoten $V_g$,Knoten die eine Gruppe repräsentieren.
-	\item Kanten $E \subseteq V_a \times V_a$, wobei $V_a$ die Menge aller Knoten ($V_a = V \cup V_g$) ist.
-	\item Rechtseindeutige Abbildung $\lambda(v): V \rightarrow B$, Die Knoten auf die Beschriftungsmenge $B$ (den Text der Knoten) abbildet.
-	 \item Rechtseindeutige Abbildung $\sigma(v): V_a \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
+	\item Kanten $E \subseteq \bar{V} \times \bar{V}$, wobei $\bar{V}$ die Menge aller Knoten ($\bar{V} = V \cup V_g$) ist.
+	%\item Rechtseindeutige Abbildung $\lambda(v): V \rightarrow B$, Die Knoten auf die Beschriftungsmenge $B$ (den Text der Knoten) abbildet.
+	 \item Rechtseindeutige Abbildung $\sigma(v): \bar{V} \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
 \end{itemize}
 
 %Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen, 
