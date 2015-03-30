@@ -1,17 +1,17 @@
 \chapter{Evaluation und Vergleich zu anderen Lösungsansätzen}
 \label{chapter:vgl}
 
-Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit unserem Ansatz aus Kapitel \ref{chapter:algo}, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen alternativen kräftebasierten Ansatz (\ref{UniformK-Ansatz}) und einen hierarchischen Ansatz (\ref{Hierarch-Ansatz}) vor. Ein kurzer Vergleich wird in Abschnitt \ref{Ansatz-Vergleich} gezeigt.
+Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche nach Evaluation mit unserem Ansatz aus Kapitel \ref{chapter:algo}, aber nicht weiter ausgearbeitet oder ausgewertet wurden. Für die Vollständigkeit stellen wir nun noch kurz einen alternativen kräftebasierten Ansatz (siehe \autoref{UniformK-Ansatz}) und einen hierarchischen Ansatz (siehe \autoref{Hierarch-Ansatz}) vor. Ein kurzer Vergleich wird in \autoref{Ansatz-Vergleich} gezeigt.
 
 \section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
-Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknotenin diesem Fall, Gruppenknoten, repräsentiert werden und es werden zusätzlich Anker verwendet.
+Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten in diesem Fall, Gruppenknoten, repräsentiert werden und es werden zusätzlich Anker verwendet.
 
 Konkret bedeutet dies, dass Knoten zunächst nur durch ihre zusammengefassten Pseudoknoten darstellt werden und hierfür mit einem einfachen kräftebasierten Verfahren ein Layout bestimmen, wobei die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefassten Elemente skaliert wird.
 
 Wenn nun die Elemente einer oder mehrerer Gruppen konkret dargestellt werden sollen, so werden die Pseudoknoten zunächst ähnlich wie bei der finalen Lösung verankert. Zusätzlich werden die Pseudoknoten deren Elemente dargestellt werden sollen aus dem Layout entfernt und stattdessen die Knoten der Gruppe, die ebenfalls Pseudoknoten für innere Gruppen sein können, eingefügt. Schließlich wird nun noch einmal der kräftebasierte Algorithmus verwendet mit der Besonderheit, dass jeder Knoten eine zusätzliche Anziehung zu seinem Anker bzw. dem Anker des übergeordneten Pseudoknotens.
 
-Dieser Ablauf wird in Abbildung \ref{UniformK-Skizze} skizziert.
+Dieser Ablauf wird in \autoref{UniformK-Skizze} skizziert.
 
 \begin{figure}[h!]
 \begin{center}
