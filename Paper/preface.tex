@@ -16,9 +16,9 @@ Eine Argumentkarte ist also die Darstellung einer Debatte in Form eines Graphen.
 % - Wieso Gruppen?
 % - Wieso Layout beibehalten? -> Mentale Karte
 Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis von der Debatte. 
-Über die Visualisierung der Elemente und ihrere Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
+Über die Visualisierung der Elemente und ihre Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
 So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
-Auch durch die Option, Gruppen zunächste geschlossen zu visualisieren und Details zu verbergen, könnnen Gruppen einen schnelleren Überblick über die Debatte ermöglichen.
+Auch durch die Option, Gruppen zunächst geschlossen zu visualisieren und Details zu verbergen, könnnen Gruppen einen schnelleren Überblick über die Debatte ermöglichen.
 Das Hervorheben einzelner Agrumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
 %Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. 
 %Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen 
@@ -54,21 +54,31 @@ In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welche
 % Was ist das grundlegende Problem? -> Layout finden
 Das Zeichnen eines Graphen setzt sich aus dem Finden eines Layouts sowie des Renders zusammen. 
 Für uns von Interesse ist nur ersteres, das Layoutproblem. 
-Ziel heirbei ist es für einen gegebenen Graphen und gegebenfalls weitere Informationen algorithmisch ein Layout zu berechnen,
-welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästethikkriteren optimiert und gegebenfalls weiteren lokalen Nebenbedingungen genügt.
+Ziel hierbei ist es für einen gegebenen Graphen und gegebenenfalls weitere Informationen algorithmisch ein Layout zu berechnen,
+welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästhetikkriteren optimiert und gegebenenfalls weiteren lokalen Nebenbedingungen genügt.
 
 
 % Was macht das Problem speziell? -> Gruppen und dass für Argumentkarten
 % Was lässt sich jedoch abstrahieren? -> knoteninhalt, kanten
 Im Fall der Argumentkarten abstrahieren wir für das Layoutproblem einige Informationen. 
-So spielen die Texte der einzelen These oder Argumente für uns keine Rolle. 
-Sie werden lediglich durch achsenparallele Rechtecke als Knoten des Graphen respräsentiert.
+So spielen die Texte der einzelnen These oder Argumente für uns keine Rolle. 
+Sie werden lediglich durch achsenparallele Rechtecke als Knoten des Graphen repräsentiert.
 Des Weiteren ignorieren wir bei den Beziehungen zwischen Elementen den Typ sowie die Richtung. 
 Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
 Dies wird dann durch eine Kante repräsentiert. 
 
-Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen, 
-welche durch eine transitive, rechtseindeutige hierarchische Struktur von Gruppen von Knoten und Gruppen gegeben sind.
+Unter Einbeziehung von Gruppen stellen wir die Argumentkarte dann als Graphen der Form $G = (V,V_g,E,\lambda,\sigma)$ dar. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
+
+\begin{itemize}
+	\item Knoten $V$, Knoten die eine Aussage repräsentieren.
+	\item Gruppenknoten $V_g$,Knoten die eine Gruppe repräsentieren.
+	\item Kanten $E \subseteq V_a \times V_a$, wobei $V_a$ die Menge aller Knoten ($V_a = V \cup V_g$) ist.
+	\item Rechtseindeutige Abbildung $\lambda(v): V \rightarrow B$, Die Knoten auf die Beschriftungsmenge $B$ (den Text der Knoten) abbildet.
+	 \item Rechtseindeutige Abbildung $\sigma(v): V_a \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
+\end{itemize}
+
+%Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen, 
+%welche durch eine transitive, rechtseindeutige hierarchische Struktur von Gruppen von Knoten und Gruppen gegeben sind.
 Bei Gruppen ist außerdem zu beachten, dass sie entweder in einem geöffneten oder geschlossen Zustand sein können.
 
 %Wir erhalten also Eingabe zum einen Graphen  $G = (V, E)$ mit Knoten $V$, Kanten $E \subseteq V \times V$.
@@ -157,11 +167,11 @@ Außerdem sollte in einer Implementierung das Wechseln zwischen den verschiedene
 Dadurch soll es zum Einen einfach sein sich einen Überblick zu verschaffen und zum Anderen eine detailliertere Ansicht zu haben.
 % welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
 Hierbei ist höchst wünschenswert, dass bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
-Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurchtfinden können.
+Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können.
 
 Eine weitere wünschenswerte Anforderung ist, dass das Layout nach wiederholten Auf- und Zuklappzyklen immer wieder zu dem gleichen Anfangslayout oder dazu ähnlichem Layout zurückkehrt.
 
-Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechenten Layouts also weitere Kriterien:
+Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten Layouts also weitere Kriterien:
 \begin{itemize}
 \item Relative Positionen von Elementen verändert sich nur so viel wie nötig
 \item Gesamtlayout ändert sich nur so viel wie nötig
