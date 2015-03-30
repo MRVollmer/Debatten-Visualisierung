@@ -28,7 +28,7 @@
 %KOMA Options
 %Titlepage
 \titlehead{\includegraphics[width=.3\textwidth]{Pics/KitLogo}}
-\setkomafont{title}{\huge\sffamily\bfseries}
+\setkomafont{title}{\huge\bfseries}
 \setkomafont{subtitle}{\normalfont\large}
 
 %Headings

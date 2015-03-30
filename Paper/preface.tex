@@ -41,8 +41,8 @@ Es geht also um die Frage, wie sich Gruppen und Gruppenhierarchien den Anforderu
 und wie das Layout auf das Öffnen und Schließen von Gruppen reagiert.
 \todo[inline]{Lösungsanstz in Kurzform}
 
-Im nächsten Abschnitt \ref{chapter:layoutproblem}  präzisieren und abstrahieren wir diese Problemstellung. 
-In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir dann in \ref{chapter:vgl} mit alternativen Ansätzen vergleichen und bewerten.
+Im nächsten \autoref{chapter:layoutproblem}  präzisieren und abstrahieren wir diese Problemstellung. 
+In \autoref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir dann in \autoref{chapter:vgl} mit alternativen Ansätzen vergleichen und bewerten.
 
 
 
@@ -51,6 +51,7 @@ In Abschnitt \ref{chapter:algo} präsentieren wir unseren Lösungsansatz, welche
 \label{chapter:layoutproblem}
 
 \section{Layoutproblem}
+\label{sec:layoutproblem}
 % Was ist das grundlegende Problem? -> Layout finden
 Das Zeichnen eines Graphen setzt sich aus dem Finden eines Layouts sowie des Renders zusammen. 
 Für uns von Interesse ist nur ersteres, das Layoutproblem. 
@@ -164,7 +165,7 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 % was ist außerdem ein Problem? -> Interkation
 Da Gruppen sowohl geöffnet als auch geschlossen sein können, existieren eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Außerdem sollte in einer Implementierung das Wechseln zwischen den verschiedenen Zuständen möglich sein, also das Öffnen und Schließen von Gruppen. 
-Dadurch soll es zum Einen einfach sein sich einen Überblick zu verschaffen und zum Anderen eine detailliertere Ansicht zu haben.
+Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen eine detailliertere Ansicht zu haben.
 % welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
 Hierbei ist höchst wünschenswert, dass bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
 Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können.
@@ -184,11 +185,19 @@ Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten
 	% - Stuktur vor Zustandsänderung bleibt ähnlich und wiedererkennbar
 
 
-Im Folgenden werden die Beziehungen der einzelnen Layouts so auffassen, dass wir ein Layout haben und dieses durch eine Interaktion in einen anderen Zustand wechselt.
+Aus diesen und den in \autoref{sec:layoutproblem} vorgestellten Anforderungen ergibt sich allerdings eine Reihe von Konflikten.
+
+Beispielsweise steht die Größenminimierung der Zeichnung im Konflikt mit der Anforderung, das sich das Gesamtlayout viel wie nötig ändert, da größenminimale Layouts nach dem öffnen bzw. schließen einer Gruppe möglicherweise nur mit einer großen Veränderung des Layouts möglich sind.
+
+Ein weiteres Beispiel sind die Anforderungen an Überschneidungsfreiheit von Knoten mit Kanten und die Kreuzungsminimierung, da eine Möglichkeit die Anzahl der Kreuzungen zu reduzieren die Überlagerung von Knoten mit Kanten wäre.
+
+Die genaue Betrachtung der Probleme und ihrer Lösung findet sich in ... %\autoref{...}
+\todo[inline]{Problembetrachtung schreiben}
+
+Hierbei sei auch angemerkt das im Folgenden die Beziehungen der einzelnen Layouts, also die einzelnen Layouts von verschiednen Konfigurationen von auf- bzw. zugeklappten Gruppen, so aufgefasst werden, dass wir ein einziges Layout haben und dieses durch eine Interaktion in einen anderen Zustand wechselt.
 
 
-
-\todo[inline]{Zusammenhang der Probleme hervorheben. Interkation hat Einfluss auf Wahl des Layouts, etc.}
+%\todo[inline]{Zusammenhang der Probleme hervorheben. Interkation hat Einfluss auf Wahl des Layouts, etc.}
 % --------- 
 %\subsubsection{Nachvollziehbarkeit}
 %Zusätzlich zur Verständlichkeit muss das Layout auch Nachvollziehbar sein. % > was soll das heißen? wann ist den ein layout nachvollziehbar? O_o
