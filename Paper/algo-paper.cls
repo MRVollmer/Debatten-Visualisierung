@@ -13,6 +13,9 @@
 
 \usepackage{makeidx} 
 
+%tikz
+\usepackage{tikz}
+
 %Bib
 \bibliographystyle{babalpha-fl}	% german style 
 \usepackage[fixlanguage]{babelbib}
@@ -22,6 +25,13 @@
 %\usepackage{geometry}	
 %\geometry{a4paper, top=25mm, left=25mm, right=20mm, bottom=25mm, headsep=10mm, footskip=12mm}
 
+%KOMA Options
+%Titlepage
+\titlehead{\includegraphics[width=.3\textwidth]{Pics/KitLogo}}
+\setkomafont{title}{\huge\sffamily\bfseries}
+\setkomafont{subtitle}{\normalfont\large}
+
+%Headings
 \usepackage[headsepline]{scrlayer-scrpage}
 \automark[chapter]{chapter}
 %\renewcommand*{\chapterpagestyle}{empty}
