@@ -17,13 +17,13 @@ Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis von der
 Über die Visualisierung der Elemente und ihre Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
 So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
 Auch durch die Option, Gruppen zunächst geschlossen zu visualisieren und Details zu verbergen, könnnen Gruppen einen schnelleren Überblick über die Debatte ermöglichen.
-Das Hervorheben einzelner Agrumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
+Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
 %Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. 
 %Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen 
 %oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
 
 Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
-Es existieren bereits einige Werkzeuge mit denen Argumentkarte angelegt  und ein Layout automatisch erzeugt werden kann. 
+Es existieren bereits einige Werkzeuge mit denen Argumentkarten angelegt  und ein Layout automatisch erzeugt werden kann. 
 Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
 Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
 
@@ -124,7 +124,7 @@ Zeichenkonventionen beschreiben wie Knoten und Kanten gezeichnet beziehungsweise
 In unserem Fall sind diese Anforderungen im einzelnen:
 
 \begin{itemize}
-\item Knoten werden als achsenparallel Rechtecke dargestellt
+\item Knoten $V$ werden als achsenparallel Rechtecke dargestellt
 \item Überschneidungsfreiheit von Knoten
 \item Überschneidungsfreiheit von Kanten mit Knoten
 \item Eine geschlossene Gruppe enthält keine Knoten
@@ -183,14 +183,14 @@ Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten
 	% - relative Positionen von Knoten und Gruppen verändern sich nur wenig
 	% - Stuktur vor Zustandsänderung bleibt ähnlich und wiedererkennbar
 
-Hierbei sei auch angemerkt das im Folgenden die Beziehungen der einzelnen Layouts, also die einzelnen Layouts von verschiednen Konfigurationen von auf- bzw. zugeklappten Gruppen, so aufgefasst werden, dass wir ein einziges Layout haben und dieses durch eine Interaktion in einen anderen Zustand wechselt.
+Hierbei sei auch angemerkt, dass im Folgenden die Beziehungen der einzelnen Layouts, also die einzelnen Layouts von verschiednen Konfigurationen von auf- bzw. zugeklappten Gruppen, so aufgefasst werden, dass wir ein einziges Layout haben und dieses durch eine Interaktion in einen anderen Zustand wechselt.
 
 
 Aus diesen und den in \autoref{sec:layoutproblem} vorgestellten Anforderungen ergibt sich allerdings eine Reihe von Konflikten.
 Beispielsweise steht die Größenminimierung der Zeichnung im Konflikt mit der Anforderung, dass sich das Gesamtlayout nur so viel wie nötig ändert, 
-da größenminimale Layouts nach dem öffnen bzw. schließen einer Gruppe möglicherweise nur mit einer großen Veränderung des Layouts möglich sind.
+da größenminimale Layouts nach dem Öffnen bzw. Schließen einer Gruppe möglicherweise nur mit einer großen Veränderung des Layouts möglich sind.
 
-Der im Folgenden präsentierte Ansatz gibt jedoch Lösungen zuf den Problemen oder präferiert eine der Optionen.
+Der im Folgenden präsentierte Ansatz gibt schlägt jedoch Problemlösungen vor oder präferiert eine der Optionen.
 %Ein weiteres Beispiel sind die Anforderungen an Überschneidungsfreiheit von Knoten mit Kanten und die Kreuzungsminimierung, da eine Möglichkeit die Anzahl der Kreuzungen zu reduzieren die Überlagerung von Knoten mit Kanten wäre.
 
 %Der im Folgenden vorgestellten Lösungsansatz sowie die Alternativen in \autoref{chapter:vgl}

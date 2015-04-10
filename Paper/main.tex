@@ -10,7 +10,7 @@
 % was betrachten? problem wie oben definiert -> hier unser Ansatz
 Für das in \autoref{chapter:layoutproblem} definierte Layoutproblem haben wir uns einen Lösungsansatz überlegt.
 % was für design/layout-entscheidungen?
-Die wichtigste Designentscheidung und damit Grundidee des Layouts ist es, jede Gruppen in einer Kugel zu kapseln. Sie wird also innerhalb eines Kreise dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt.
+Die wichtigste Designentscheidung und damit Grundidee des Layouts ist es, jede Gruppe in einer Kugel zu kapseln. Sie wird also innerhalb eines Kreises dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt.
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
 Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Gruppen eine Stufe tiefer.  Layouts von niedrigeren Stufen beeinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 \autoref{f:Layoutbeispiel} zeigt so ein Layout.
@@ -35,7 +35,7 @@ Zunächst widmen wir uns jedoch einigen weiteren Aspekten von Relevanz für unse
 
 \subsection*{Kräftebasierter Algorithmus}
 Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus, welcher auch die Mächtigkeit besitzt,
-Knoten von bestimmter Größe, repräsentiert durch geometrischer Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
+Knoten von bestimmter Größe, repräsentiert durch geometrische Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
 Mit diesem Problem hat sich zum Beispiel bereits \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
 % verwendete Kräftebasierte Algorithmen
 %\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
@@ -52,7 +52,8 @@ empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der G
 Da die Größe einer offenen Gruppe stark mit den Anzahl der Kindelemente korreliert, wird dadurch auch diese Eigenschaft einer Gruppe durch die geschlossene Repräsentation
 wiedergegeben.
 Die Größe der geschlossenen Gruppe könnte also dadurch berechnet werden, dass sie auf einer Skala von einer minimalen bis zu einer maximalen Größe abgebildet wird.
-Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am größten dargstellten Arguments gegeben sein und die maximale Größe durch $\gamma \,\%$ der größten Gruppe.
+Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am größten dargstellten Arguments gegeben sein und die maximale Größe durch $\gamma \,\%$ 
+der größten Gruppe im geöffneten Zustand.
 
 Da der Unterschied zwischen kleinen Gruppen, wobei zum Beispiel eine 4 Kindelemente Besitzt und einer etwas größere die 5 besitzt, stärker verdeutlicht werden soll, als der zwischen 
 relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in \autoref{f:Radius} vor.
