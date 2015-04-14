@@ -25,7 +25,7 @@ Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts is
 %Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen 
 %oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
 
-Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
+Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen, muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
 Es existieren bereits einige Werkzeuge mit denen Argumentkarten angelegt  und ein Layout automatisch erzeugt werden kann. 
 Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
 Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
@@ -69,17 +69,17 @@ So spielen die Texte der einzelnen These oder Argumente für uns keine Rolle.
 Sie werden lediglich durch achsenparallele Rechtecke als Knoten des Graphen repräsentiert.
 Des Weiteren ignorieren wir bei den Beziehungen zwischen Elementen den Typ sowie die Richtung. 
 Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
-Dies wird dann durch eine Kante repräsentiert. 
+Dies wird dann durch eine ungerichtete Kante repräsentiert. 
 
-Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann als der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
+Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann in der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
 \todo[inline]{Baumstruktur}
 \todo[inline]{Graph \& Abbildungen getrennt}
 \begin{itemize}
 	\item Knoten $V$, Knoten die eine Aussage repräsentieren.
-	\item Gruppenknoten $V_g$,Knoten die eine Gruppe repräsentieren.
+	\item Gruppenknoten $V_g$, Knoten die eine Gruppe repräsentieren.
 	\item Kanten $E \subseteq \bar{V} \times \bar{V}$, wobei $\bar{V}$ die Menge aller Knoten ($\bar{V} = V \cup V_g$) ist.
 	%\item Rechtseindeutige Abbildung $\lambda(v): V \rightarrow B$, Die Knoten auf die Beschriftungsmenge $B$ (den Text der Knoten) abbildet.
-	 \item Rechtseindeutige Abbildung $\sigma(v): \bar{V} \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
+	 \item Rechtseindeutige Abbildung $\sigma: \bar{V} \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
 \end{itemize}
 
 %Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen, 

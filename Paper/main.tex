@@ -8,7 +8,7 @@
 
 
 % was betrachten? problem wie oben definiert -> hier unser Ansatz
-Für das in \autoref{chapter:layoutproblem} definierte Layoutproblem haben wir uns einen Lösungsansatz überlegt.
+Für das in \autoref{chapter:layoutproblem} definierte Layoutproblem stellen wir hier unseren Lösungsansatz vor.
 % was für design/layout-entscheidungen?
 Die wichtigste Designentscheidung und damit Grundidee des Layouts ist es, jede Gruppe in einem Kreis zu kapseln. Sie wird also innerhalb eines Kreises dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt. Eine Kante von einem Knoten in einer Gruppe geht also zunächst zu einem Port der Gruppe und dann zu einem Knoten außerhalb der Gruppe.\todo[inline]{Port Definition ok so?}
 Dadurch werden die Layouts pro hierarchische Stufe und Gruppe getrennt. 
@@ -36,6 +36,7 @@ Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Alg
 Knoten von bestimmter Größe, repräsentiert durch geometrische Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
 Mit diesem Problem hat sich zum Beispiel bereits \todo[inline]{Name?} \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
 \todo[inline]{Mehr Details. Welche Kräfte und zwischem wem? dazu Anker}
+\todo[inline]{Mehr Verweise, Andreas hat noch Eader et al und Fruchterman + Reingold erwähnt)
 
 %\myparagraph{Anker}
 \todo[inline]{Abschnitt bei Kräfte einbauen}
@@ -54,9 +55,7 @@ Wie die Größe einer geöffneten Gruppe berechnet werden kann ist in einem spä
 Eine jedoch vom beschriebenen Algorithmus unabhängige Designentscheidung ist die Größe von geschlossenen Gruppen.
 Während eine Möglichkeit wäre, jede geschlossen Gruppe mit einem gleich großen Kreis darzustellen, schlagen wir einen anderen Ansatz vor.
 
-Um direkt zu sehen, ob sich hinter einer geschlossenen Gruppe eine große oder kleine Gruppe bzw. eine mit vielen oder wenigen Kindelemente befindet, 
-empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Anzahl der Kindelemente sowie der Größe der Gruppe im offenen Zustand zu setzen.
-empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Größe der Gruppe im offenen Zustand zu setzen.
+Um direkt zu sehen, ob sich hinter einer geschlossenen Gruppe eine große oder kleine Gruppe bzw. eine mit vielen oder wenigen Kindelemente befindet, empfiehlt es sich den Kreisradius der geschlossenen Gruppe in Beziehung zu der Anzahl der Kindelemente sowie der Größe der Gruppe im offenen Zustand zu setzen.
 Da die Größe einer offenen Gruppe stark mit den Anzahl der Kindelemente korreliert, wird dadurch auch diese Eigenschaft einer Gruppe durch die geschlossene Repräsentation
 wiedergegeben.
 Die Größe der geschlossenen Gruppe könnte also dadurch berechnet werden, dass sie auf einer Skala von einer minimalen bis zu einer maximalen Größe abgebildet wird.
@@ -64,7 +63,7 @@ Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am grö�
 der größten Gruppe im geöffneten Zustand.
 
 Da der Unterschied zwischen kleinen Gruppen, wobei zum Beispiel eine 4 Kindelemente Besitzt und einer etwas größere die 5 besitzt, stärker verdeutlicht werden soll, als der zwischen 
-relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in \autoref{f:Radius} vor.
+relativ großen Gruppen, schlagen wir eine logarithmische Abbildung wie in \autoref{f:Radius} vor.
 \begin{figure}[h!]
 \begin{center} 
 \includegraphics{Pics/Radius.pdf}
@@ -80,12 +79,12 @@ relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in \aut
 % Weitere Constraints für Layout
 % Resultat: alle Gruppen geschlossen, jedoch Layout pro Gruppe mit geschlossenen/geöffneten Kind-Gruppen bekannt
 Wenn alle Gruppen beim Öffnen einer Karte geschlossen sind, sollte es auf großen Karten einfach sein direkt einen Überblick gewinnen zu können.
-Deshalb liefert der folgendes Algorithmus ein Layout bei dem alle Gruppen geschlossen sind.
+Deshalb liefert der folgendes Algorithmus ein Layout bei dem initial alle Gruppen geschlossen sind.
 
 Unser in \autoref{Layoutalgorithmus} grob beschriebene Layoutalgorithmus ist in 2 Phasen unterteilt. 
-In der ersten Phase, Zeilen 1 -8, werden die in einem bottem-up Ansatz die Größen der Gruppen berechnet. 
-Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw obersten Stufe notwendig ist.
-In einem top-down Ansatz wird in der zweiten Phase, Zeilen 9-17, werden nun die Layouts pro Stufe berechnet und die Ports festgelegt. 
+In der ersten Phase, Zeilen 1-8, werden die in einem bottem-up Ansatz die Größen der Gruppen berechnet. 
+Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw. obersten Stufe notwendig ist.
+In einem top-down Ansatz werden in der zweiten Phase, Zeilen 9-17, nun die Layouts pro Stufe berechnet und die Ports festgelegt. 
 \todo[inline]{Definition Stufe}
 
 \begin{algorithm}[H]
@@ -125,16 +124,16 @@ $i = Anzahl Stufen$\;
 		% Berechne die approximierte resultierende benötigte Fläche für Gruppe
 		% Benutze appr. benötigte Fläche für Wiederholung des Schritts auf Stufe höher (bis auf letzte)
 Schauen wir uns den bottom-up Teil des Algorithmus genauer an. Ziel ist es zunächst für jede Gruppe ein benötigte Größe zu approximieren.
-Da für die Gruppen der Positionen die Positionen der Ports jedoch noch nicht bekannt sind, werden die Gruppen zunächst ohne Ports gelayoutet.
+Da für die Gruppen die Positionen der Ports jedoch noch nicht bekannt sind, werden die Gruppen zunächst ohne Ports gelayoutet.
 Hierfür verwenden wir dann den oben beschrieben benötigten kräftebasierten Algorithmus. 
 Zusätzlich wird jedoch für jeden Knoten noch ein Anker zu einer relativen Mitte der Gruppe gesetzt. 
 Auf Grund der Verwendung eines kräftebasierten Algorithmus hält dies die Gruppe, die nicht zwingend eine Zusammenhangskomponente sein muss, zusammen 
-und konzentriert sie einem eher kreisförmigen Bereich. Anderenfalls könnte sich zum Beispiel eine lange Kette bilden.
+und konzentriert sie in einem eher kreisförmigen Bereich. Anderenfalls könnte sich zum Beispiel eine lange Kette bilden.
 
 Da die Größe von Kindgruppen einer Elterngruppe für deren Layout benötigt wird, beginnt der Algorithmus auf der tiefsten Stufe,
 also bei den Gruppen, die in den meisten Gruppen enthalten sind. Wurde ein Layout berechnet, kann ein Kreis darum gelegt werden und somit die Größe approximiert werden.
 Mit der oben genannten Rechnung für die Größe von geschlossenen Gruppen, kann nun also die Größe für das Layout eine Stufe höher verwendet werden.
-Dies wiederholt sich bis zur obersten Stufe. Hier sind jedoch kein Anker zu einem Mittelpunkt mehr zwingend nötig. 
+Dies wiederholt sich bis zur obersten Stufe. Hier sind jedoch keine Anker zu einem Mittelpunkt mehr zwingend nötig. 
 Außer man möchte die gesamte Karte eventuell in einen keisförmigen Bereich ziehen.
 
 \begin{figure}[h!]
@@ -150,9 +149,9 @@ Außer man möchte die gesamte Karte eventuell in einen keisförmigen Bereich zi
 
 \subsection{Top-down Anteil des Algorithmus}
 Der Übergang vom bottom-up zum top-down Anteil erfolgt, wenn auf der obersten Stufe das Layout berechnet wird.
-Wenn zu Beginn, wie bei uns gewählt, alle Gruppen geschlossen sind, dann ist dieses berechnete Layout auch das Layout, dass beim öffnen der Karte zu sehen ist.
-Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, legen wir nun die Ports der Gruppen nächste-niedrigen Stufe fest und berechnen deren Layout.
-
+Wenn zu Beginn, wie bei uns gewählt, alle Gruppen geschlossen sind, dann ist dieses berechnete Layout auch das Layout, das beim Öffnen der Karte zu sehen ist.
+Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, legen wir nun die Ports der Gruppen der darunterliegenden Stufe fest und berechnen deren Layouts.
+\todo[inline]{Ignaz hatte noch "nächste-niedrigen Stufe" angestrichen, hoffe das Substitut ist ok}
 	% top-down
 		% berechne Layout auf oberster Stufe
 		% Lege Ports für Gruppen auf oberster Stufe fest
@@ -178,11 +177,11 @@ Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, leg
 Im Folgenden betrachten wir nun die Zeilen 13 und 14 des \hyperref[Layoutalgorithmus]{Layoutalgorithmus~\ref*{Layoutalgorithmus}} genauer. 
 % was ist ziel?
 Hier ist das Ziel ein Layout für eine Gruppe in Abhängigkeit von bereits gegebenen Ports zu finden, sowie daraufhin dessen Kindgruppen Ports zuzuweisen.
-Das heißt, wir suchen nun einen Layout für die Kindknoten einer Gruppe sowie aus der Gruppe herausgehende Kanten.
+Das heißt, wir suchen nun ein Layout für die Kindknoten einer Gruppe sowie aus der Gruppe herausgehende Kanten.
 Dieses soll, wie oben beschrieben, ein Layout innerhalb eines Kreises sein und die Gruppengrenze-überschreitenden Kanten zu den festgelegten Ports führen.
 % was ist schwierig?
 Eine der Herausforderung hierbei ist, eine geeignete Größe für den Kreis um die Gruppe zu finden. 
-Auch zum finden dieses Layouts benutzen wir wieder einen kräftebasierten Algorithmus.
+Auch zum Finden dieses Layouts benutzen wir wieder einen kräftebasierten Algorithmus.
 
 Das bestimmen der Ports ist einfach umzusetzen. 
 Wenn ein Layout berechnet wird, werden die Kanten zu einer Gruppe so gelayoutet, dass sie eine inzidente Gruppe nur radial schneiden.
@@ -223,7 +222,7 @@ Die Wahl eines Anfangslayouts und das Finden eines optimalen Radius beschrieben 
 %\end{algorithm}
 
 Für die Berechnung eines Gruppenlayouts verwenden wir wieder den oben geforderten kräftebasierten Algorithmus, welcher mit Knoten von bestimmter Größer umgehen kann. 
-Jedoch schlagen wir auch hier wieder das hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll.
+Jedoch schlagen wir auch hier wieder das Hinzunehmen eines Ankers vor, welcher alle Elemente zur Mitte des Kreises ziehen soll.
 Dies soll auch verhindern, dass eventuell nicht zusammenhängende Komponenten der Gruppe auseinander driften. Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
 Solange der Kreis der Gruppe groß genug ist, sollte es für Knoten auch nicht möglich sein, aus dem Kreis herausgetragen zu werden. 
 Andernfalls müssten man hierfür weitere Kräfte im Algorithmus berücksichtigen.
@@ -236,7 +235,7 @@ Für die Wahl eines Anfangslayouts schlagen wir folgenden Ansatz vor.
 In Zeile 4 von \autoref{Layoutalgorithmus} wurde für $H$ bereits ein Layout $\L'_H$ berechnet. 
 Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne die Ausrichtung der einzelnen Knoten, welche ja nach den Achsen ausgerichtete Rechtecke sind, verändert wird.
 Das heißt wir haben vier verschiedene Layouts, nämlich das original, vertikal oder horizontal gespiegelt sowie vertikal und horizontal gespiegelt.
-Um möglichst lange Kanten von Knoten zu Ports durch die ganze Gruppe zu vermeiden, wählt man nun jenes Layout,
+Um lange Kanten von Knoten zu Ports durch die ganze Gruppe möglichst zu vermeiden, wählt man nun jenes Layout,
 bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist nun  das gewählte Anfangslayout $\mathcal{L}'_H$.
 \autoref{f:Anfangslayout} gibt hierfür ein Beispiel.
 
@@ -249,7 +248,7 @@ bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist nun
 \end{center}
 \end{figure}
 
-Natürlich gibt es auch noch weitere Ansätze zum finden eines Anfangslayouts.
+Natürlich gibt es auch noch weitere Ansätze zum Finden eines Anfangslayouts.
 Einfache Ansätze wären zum Beispiel eine zufällige Platzierung der Knoten oder die Platzierung aller Knoten in die Mitte des Kreises, 
 um dann den Rest dem kräftebasierten Layoutalgorithmus zu überlassen. 
 Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem man das Gruppenlayout ausgehend von den Ports konstruiert.
@@ -292,11 +291,11 @@ Führe kräftebasiertem Algorithmus auf  $L_H$ aus\;
 Für \autoref{Kreisradiusalgorithmus} muss natürlich noch spezifiziert werden, was es heißt, dass der Radius in Zeile 4 verkleinert werden kann
 oder dass $\alpha$ nicht zu groß ist. 
 Dass der Radius $R$ verkleinert werden kann, soll bedeuten, dass bei kleinerem $R$ aber gleichem Layout der Kreis keine Knoten schneidet. 
-Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignte maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
-Das selbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
+Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignete maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
+Dasselbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
 
 Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden. 
-Falls eine gutes $\beta$ gefunden werden kann, dass für jede Gruppe eine gute Größe approximiert und dabei nie zu klein ist, kann der iterative Prozess auch ausgelassen werden
+Falls ein gutes $\beta$ gefunden werden kann, dass für jede Gruppe eine gute Größe approximiert und dabei nie zu klein ist, kann der iterative Prozess auch ausgelassen werden
 und der Radius der Gruppe für jeden Zustand direkt berechnet werden.			
 
 % Anmerkung: Da in Praxis (Argumentkarten) die Gruppentiefe nicht hoch ist und in Gruppe nicht viele Gruppen sind, 
@@ -309,7 +308,7 @@ und der Radius der Gruppe für jeden Zustand direkt berechnet werden.
 \todo[inline]{Überschrift besser als ``.. beim Öffnen oder Schließen einer Gruppe''?}
 % was betrachten?
 Nachdem ein Anfangslayout für die ganze Argumentkarte gefunden wurde, bei der alle Gruppen geschlossen sind, möchte man nun auch Gruppen öffnen. 
-Das Layout für diese Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, 
+Das Layout für jede Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, wenn eine Gruppe geschlossen ist, hat sie eine Größe, 
 die Abhängig von der Größe im offenen Zustand kleiner ist. 
 Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung:
 % was ist ziel?
@@ -318,7 +317,7 @@ Hierbei wird gefordert, dass die Änderungen im Layout nicht zu stark sind, dami
 % was ist schwierig?
 
 Der von uns vorgeschlagene Lösungsansatz basiert erneut auf einem kräftebasierten Algorithmus. 
-Auch hier verweisen wir auf den oben beschriebenen Algorithmus. Es gibt also zwei Probleme zu lösen. 
+Auch hier verweisen wir auf den oben beschriebenen Algorithmus. Es gibt zwei Probleme zu lösen. 
 Zum einen, wie groß ist eine Gruppe in ihrem jetzigen Zustand.  
 Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schließen einer Gruppe nicht zu sehr verändert.
 
@@ -326,7 +325,7 @@ Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schlie
 Um die Größe einer Gruppe in ihrem jetzigen Zustand zu berechnen, könnte man verschieden vorgehen. 
 Zum Beispiel könnte man ihn aus den bekannten Radien, für den Zustand alle Untergruppen geöffnet und der Gruppe selbst geschlossen, berechnen. 
 Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entweder im Vorraus oder wenn benötigt zu ermitteln. 
-Wird nun als eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. 
+Wird nun eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. 
 Da eine geöffnete Gruppe mehr Platz einnimmt, muss natürlich auch die sie beinhaltende Gruppe größer werden. 
 Die Veränderung zieht sich also bis zur obersten Stufe durch.
 
@@ -338,11 +337,11 @@ Die Veränderung zieht sich also bis zur obersten Stufe durch.
 	% geschlossene Gruppe stoßt nun Elemente weniger ab. Rest wieder kräftebasiert um Ähnlichkeit zu Layout davor zu bewahren
 % - Ist geänderte Gruppe nicht auf oberster Ebene, so wiederholt sich der Prozess iterativ nach 
 
-Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
-Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
+Um das Verhalten beim Öffnen oder Schließen einer Gruppe zu kontrollieren, erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
+Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und-zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
 Diese Anker bezeichnen wir als Grundanker. 
-Wenn nun also eine Gruppe geöffnet oder geschlossen wird und die dadurch verursachten Größenänderungen pro Stufe durchgeführt wurden, 
+Wenn nun eine Gruppe geöffnet oder geschlossen wird und die dadurch verursachten Größenänderungen pro Stufe durchgeführt wurden, 
 wird in jeder veränderten Gruppe sowie der obersten Stufe der Layoutalgorithmus mit den zuvor gesetzten Grundankern gestartet. 
 Dies wird  durch \autoref{f:Interaktion} veranschaulicht. Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
 
@@ -368,8 +367,8 @@ Hierfür sind erneut eine Implementierung sowie Tests nötig. Dies Wahl könnte 
 % - Verhalten von Ports bei Layoutänderung
 	% bleiben fest. keine großen Änderungen zu erwarten.
 
-Ein weitere Punkte bei diesem Lösungsansatz ist, dass falls die Kräfte der Anker zu stark werden sollten, 
-da durch das öffnen vieler Gruppen eine große Veränderung zum Grundlayout zwingend ist, 
+Ein weiterer Punkt bei diesem Lösungsansatz ist, dass falls die Kräfte der Anker zu stark werden sollten, 
+da durch das Öffnen vieler Gruppen eine große Veränderung zum Grundlayout zwingend ist, 
 dass dann die Grundanker ignoriert werden und neue Anker vor der letzten Änderung gesetzt werden. 
 Es wird also nur versucht zum letzten Layout wenig Veränderung zu erhalten, nicht jedoch direkt zu den Anfangslayouts. 
 Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
