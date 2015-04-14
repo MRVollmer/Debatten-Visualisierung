@@ -1,4 +1,5 @@
 \chapter{Motivation}
+\todo[inline]{Beispiel}
 % Was sind Argumentkarten? Wer verwendet sie und wofür?
 % Darstellung von Argumentkarten
 % - Wie werden sie bis jetzt dargestellt?
@@ -6,7 +7,9 @@
 Diese Arbeit beschäftigt sich mit Argumentkarten, manchmal auch Argumentationskarten genannt. Diese dienen als graphische Darstellung von Debatten. 
 Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
 Um ihre Zusammenhänge zu verstehen, ist es auch nötig ihre Beziehungen, welche von unterstützenden oder angreifender Natur sein können, ebenfalls zu visualisieren.
+\todo[inline]{auch / ebenfalls weglassen}
 Eine Argumentkarte ist also die Darstellung einer Debatte in Form eines Graphen.
+\todo[inline]{Satz nach oben ziehen - Schluss weglassen}
 %Debatten werden in der Regel in sogenannten Argumentkarten, manchmal auch Argumentationskarten, dargestellt. 
 %Auf einer solchen Karte werden die Thesen und Schlüsse der Debatte in einzelne Sätze aufgeschlossen. Diese Sätze werden dann in einem Graphen abgebildet. 
 
@@ -47,6 +50,7 @@ In \autoref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Problemstellung}%\chapter{Layoutproblem} % > mehr als Layout, betrachte auch Interaktion!
+\todo[inline]{Beschreibung was kommt}
 \label{chapter:layoutproblem}
 
 \section{Layoutproblem}
@@ -68,7 +72,8 @@ Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
 Dies wird dann durch eine Kante repräsentiert. 
 
 Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann als der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
-
+\todo[inline]{Baumstruktur}
+\todo[inline]{Graph \& Abbildungen getrennt}
 \begin{itemize}
 	\item Knoten $V$, Knoten die eine Aussage repräsentieren.
 	\item Gruppenknoten $V_g$,Knoten die eine Gruppe repräsentieren.
@@ -120,6 +125,7 @@ Bei Gruppen ist außerdem zu beachten, dass sie entweder in einem geöffneten od
 
 % > Semantik spielt im ganzen Layout keine Rolle! Gruppen sind keine Semantik
 \subsection{Zeichenkonventionen}
+\todo[inline]{Überschrifft weglassen}
 Zeichenkonventionen beschreiben wie Knoten und Kanten gezeichnet beziehungsweise gelayoutet werden sollen. Sie müssen erfüllt werden.
 In unserem Fall sind diese Anforderungen im einzelnen:
 
@@ -138,6 +144,7 @@ Für unseren Lösungsansatz haben wir für Gruppen weitere Zeichenkonvention hin
 \end{itemize}
 
 \subsection{Ästhetikriterien}
+\todo[inline]{Überschrift weglassen}
 Ästhetikkriterien sollen vom berechneten Layout optimiert werden. 
 Auch wenn es für Argumentkarten im Allgemeinen wünschenswert ist, haben wir in unserem Lösungsansatz die Kreuzungsminimierung nicht beachtet.
 \begin{itemize}
@@ -159,8 +166,9 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 %(siehe \cite{miller1956magical, BBS:84441}).
 
 %Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
-
+\todo[inline]{Beschreibung wie Zeichnung aussehen soll}
 \section{Interaktion mit Gruppen}
+\todo[inline]{Referenz Layout adjustment and the mental map}
 % was ist außerdem ein Problem? -> Interkation
 Da Gruppen sowohl geöffnet als auch geschlossen sein können, existieren eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Außerdem sollte in einer Implementierung das Wechseln zwischen den verschiedenen Zuständen möglich sein, also das Öffnen und Schließen von Gruppen. 
@@ -191,6 +199,8 @@ Beispielsweise steht die Größenminimierung der Zeichnung im Konflikt mit der A
 da größenminimale Layouts nach dem Öffnen bzw. Schließen einer Gruppe möglicherweise nur mit einer großen Veränderung des Layouts möglich sind.
 
 Der im Folgenden präsentierte Ansatz gibt schlägt jedoch Problemlösungen vor oder präferiert eine der Optionen.
+
+\todo[inline]{Diskussion Consistent Label - Been et al}
 %Ein weiteres Beispiel sind die Anforderungen an Überschneidungsfreiheit von Knoten mit Kanten und die Kreuzungsminimierung, da eine Möglichkeit die Anzahl der Kreuzungen zu reduzieren die Überlagerung von Knoten mit Kanten wäre.
 
 %Der im Folgenden vorgestellten Lösungsansatz sowie die Alternativen in \autoref{chapter:vgl}

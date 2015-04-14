@@ -10,6 +10,8 @@ Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebas
 Konkret bedeutet dies, dass Knoten zunächst nur durch ihre zusammengefassten Pseudoknoten darstellt werden und hierfür mit einem einfachen kräftebasierten Verfahren ein Layout bestimmen, wobei die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefassten Elemente skaliert wird.
 
 Wenn nun die Elemente einer oder mehrerer Gruppen konkret dargestellt werden sollen, so werden die Pseudoknoten zunächst ähnlich wie bei der finalen Lösung verankert. Zusätzlich werden die Pseudoknoten deren Elemente dargestellt werden sollen aus dem Layout entfernt und stattdessen die Knoten der Gruppe, die ebenfalls Pseudoknoten für innere Gruppen sein können, eingefügt. Schließlich wird nun noch einmal der kräftebasierte Algorithmus verwendet mit der Besonderheit, dass jeder Knoten eine zusätzliche Anziehung zu seinem Anker bzw. dem Anker des übergeordneten Pseudoknotens.
+\todo[inline]{Satzlänge}
+\todo[inline]{Verb fehlt}
 
 Dieser Ablauf wird in \autoref{UniformK-Skizze} skizziert.
 
@@ -39,7 +41,7 @@ Ein grobe Skizze zu einem solchen Layout ist in \autoref{Hierarch-Skizze} darges
 \end{center}
 \end{figure}
 
-\section{Vergleich}
+\section{Vergleich} \todo[inline]{Kriterien \& Übersicht}
 \label{Ansatz-Vergleich}
 Da keiner der Ansätze konkret implementiert wurde und die alternativen Ansätze auch stückweise ausgearbeitet wurden, besteht der Vergleich dieser Ansätze größtenteils aus Abschätzungen und nicht tatsächlichen Messungen. Es werden folgende Abkürzungen verwendet:
 
@@ -66,7 +68,8 @@ Das durch UKB erzeugte Layout basiert dagegen größtenteils auf den Knotenzusam
 \paragraph*{Änderungskonstanz}
 Durch die unabhängigen internen und externen Gruppenlayouts bei KBK und HL, sind die Änderungen beim Öffnen und Schließen von Gruppen eher gering: Die Layouts in den Gruppen ist unabhängig davon ob andere Gruppen geöffnet oder geschlossen sind und die relativen Positionen der Gruppen zueinander ändern sich selten.
 
-Da bei UKB die Gruppen nicht \glqq geschirmt \grqq\ sind, ist das Layout geöffneter Gruppen sehr stark vom Zustand anderer Gruppen abhängig. Die relativen Positionen bleiben durch die Anker zwar meist erhalten, aber kleine Gruppen sind durchaus anfällig von großen Gruppen deformiert bzw. verdrängt zu werden.
+Da bei UKB die Gruppen nicht \glqq geschirmt \grqq\ sind, ist das Layout geöffneter Gruppen sehr stark vom Zustand anderer Gruppen abhängig. Die relativen Positionen bleiben durch die Anker zwar meist erhalten, 
+\todo[inline]{meist -> zu erwarten} aber kleine Gruppen sind durchaus anfällig von großen Gruppen deformiert bzw. verdrängt zu werden.
 
 \paragraph*{Komplexität des Algorithmus}
 Wie bereits in Kapitel 3 dargestellt, ist der für KBK nötige Algorithmus recht komplex und enthält einige Parameter, die noch bestimmt werden müssen.

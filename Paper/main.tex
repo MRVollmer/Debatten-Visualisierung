@@ -17,8 +17,8 @@ Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen d
 
 %Am Ende Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
 %Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
-
-
+\todo[inline]{Kugel -> Kreis}
+\todo[inline]{Port Definition}
 \begin{figure}[h!]
 \begin{center} 
   \includegraphics{Pics/Layoutbeispiel.pdf}
@@ -31,18 +31,19 @@ Ist ein Layout einer höhere Stufe berechnet, hat dies nur durch das Festlegen d
 Im Folgenden beschreiben wir einen Algorithmus um so ein Layout zu berechnen, 
 sowie das Konzept um Layoutänderungen beim Öffnen oder Schließen von Gruppen gering zu halten.
 Zunächst widmen wir uns jedoch einigen weiteren Aspekten von Relevanz für unseren Algorithmus.
-
+\todo[inline]{Vorrausblick rest des Kapitels}
 
 \subsection*{Kräftebasierter Algorithmus}
 Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus, welcher auch die Mächtigkeit besitzt,
 Knoten von bestimmter Größe, repräsentiert durch geometrische Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
-Mit diesem Problem hat sich zum Beispiel bereits \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
+Mit diesem Problem hat sich zum Beispiel bereits \todo[inline]{Name?} \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
+\todo[inline]{Mehr Details}
 % verwendete Kräftebasierte Algorithmen
 %\todo[inline]{Kräftebasierte Algorithmen angeben, siehe zB Paper in bibtex}
 
 % Größe geschlossener Gruppen
 \subsection*{Gruppengrößen}
-Wie die Größe einer geöffneten Gruppe berechnet werden kann ist in \autoref{Radius} genauer beschrieben. 
+Wie die Größe einer geöffneten Gruppe berechnet werden kann ist in \todo[inline]{Referenz Fallsch} \autoref{Radius} genauer beschrieben. 
 Eine jedoch vom beschriebenen Algorithmus unabhängige Designentscheidung ist die Größe von geschlossenen Gruppen.
 Während eine Möglichkeit wäre, jede geschlossen Gruppe mit einem gleich großen Kreis darzustellen, schlagen wir einen anderen Ansatz vor.
 
@@ -65,10 +66,12 @@ relativ großen Gruppen, schlagen wir eine logoarithmische Abbildung wie in \aut
   \label{f:Radius}
 \end{center}
 \end{figure}
+\todo[inline]{Gamma Wert weglassen}
 
 % DEFINITION Anker 
 % Pseudoknoten, wird nicht gerendert % hat Kanten zu allen Knoten, welche er Ankert  % optimale Kantenlänge = 0  % Federkraft Fallabhängig und jeweils zu spezifizieren
 \subsection*{Anker}
+\todo[inline]{Abschnit später erst}
 Da wir in der genaueren Beschreibung des Algorithmus öfters sogenannte \textit{Anker} verwenden werden, wollen wir diese kurz definieren. 
 Ein Anker für einen Knoten ist ein Pseudoknoten, ein Ankerpunkt, welcher also nich gerendert wird, sowie eine Kante zu diesem Knoten. 
 Anders als normale Kanten ist die optimale Kantenlänge eines Ankers  0. Außerdem hat sein Ankerpunkt  eine feste Position im Layout. 
@@ -86,7 +89,7 @@ Unser in \autoref{Layoutalgorithmus} grob beschriebene Layoutalgorithmus ist in 
 In der ersten Phase, Zeilen 1 -8, werden die in einem bottem-up Ansatz die Größen der Gruppen berechnet. 
 Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw obersten Stufe notwendig ist.
 In einem top-down Ansatz wird in der zweiten Phase, Zeilen 9-17, werden nun die Layouts pro Stufe berechnet und die Ports festgelegt. 
-
+\todo[inline]{Definition Stufe}
 
 \begin{algorithm}[H]
 \label{Layoutalgorithmus}
@@ -112,9 +115,17 @@ $i = Anzahl Stufen$\;
 }
 \caption{Layoutalgorithmus}
 \end{algorithm}
+\todo[inline]{Algo fixen}
 
 
 \subsection{Bottom-up Anteil des Algorithmus}
+\todo[inline]{3.1.1
+Layout der Gruppen in Abhängigkeit von ports
+3.1.2
+Ports für Eltern finden
+
+Bisheriges 3.1.1 und 3.1.2 verschmelzen}
+
 % Layoutberechnung
 		% bottom-up und top-down
 	% (Layoutalgorithmus hierbei egtl frei wählbar, kräftebasiert aber besser in Hinsicht auf Verhalten Algorithmus mit Ankern)
@@ -209,6 +220,7 @@ Finde Radius $R$ für Kreis\;
 Berechne Gruppenlayout  $\L_H$ mit kräftebasiertem Algorithmus\;
 \caption{Gruppenlayoutalgorithmus}
 \end{algorithm}
+\todo[inline]{Algo Sinnvoll?}
 
 
 
@@ -254,6 +266,7 @@ Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem 
 
 
 % - Größe des Kreises definiert durch Radius R
+\todo[inline]{Wo sind wir?}
 \subparagraph{Bestimmen des Kreisradius einer geöffneten Gruppe}
 \label{Radius}
 
@@ -310,6 +323,7 @@ und der Radius der Gruppe für jeden Zustand direkt berechnet werden.
 % Postprocessing: Kantenklätung
 
 \subparagraph{Setzen der Ports für Kindgruppen}
+\todo[inline]{Weiter oben}
 Wenn ein Layout berechnet wird, werden die Kanten zu einer Gruppe so gelayoutet, dass sie eine inzidente Gruppe nur radial schneiden.
 Der erhaltene Schnittpunkt legt so die Position für den Port fest, welche einfach durch den Winkel beschrieben werden kann. 
 Dies ist auch in Abbildung \autoref{f:TopDown} dargestellt.
@@ -389,6 +403,7 @@ da durch das öffnen vieler Gruppen eine große Veränderung zum Grundlayout zwi
 dass dann die Grundanker ignoriert werden und neue Anker vor der letzten Änderung gesetzt werden. 
 Es wird also nur versucht zum letzten Layout wenig Veränderung zu erhalten, nicht jedoch direkt zu den Anfangslayouts. 
 Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
+\todo[inline]{Satzlänge}
 % Bei zu starker Veränderung also zu viel Kraft auf Ankern: verwerfe Grundanker und setze für diese Runde neue
 % evtl ebenso für Ports, wenn Knick zu groß
 
