@@ -5,7 +5,7 @@
 
 % Zeichensatz und Sprachpaket
 \usepackage[ngerman]{babel} 
-\usepackage{arev}
+%\usepackage{arev}
 
 % Einrücken eines neues Absatzes auf 0
 \parindent 0pt
@@ -43,7 +43,7 @@
 \publishers{
 \normalfont\normalsize Betreut durch: \\[0.5\baselineskip]
 
-\normalfont\large Jun.-Prof. Gregor Betz, Diplom Inform. Andreas Gemsa und Dr. Ignaz Rutter
+\normalfont\large Jun.-Prof. Gregor Betz, Dr. Andreas Gemsa und Dr. Ignaz Rutter
 }
 
 
@@ -88,6 +88,7 @@
 \def\subsubsectionautorefname{Abschnitt}%
 }%
 
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 \nonfrenchspacing
 
