@@ -36,7 +36,7 @@ Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Alg
 Knoten von bestimmter Größe, repräsentiert durch geometrische Formen, überlappungsfrei zu layouten, sowie Knoten-Kanten-Überschneidungen zu verhindern.
 Mit diesem Problem hat sich zum Beispiel bereits \todo[inline]{Name?} \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
 \todo[inline]{Mehr Details. Welche Kräfte und zwischem wem? dazu Anker}
-\todo[inline]{Mehr Verweise, Andreas hat noch Eader et al und Fruchterman + Reingold erwähnt)
+\todo[inline]{Mehr Verweise, Andreas hat noch Eader et al und Fruchterman + Reingold erwähnt}
 
 %\myparagraph{Anker}
 \todo[inline]{Abschnitt bei Kräfte einbauen}
@@ -90,28 +90,29 @@ In einem top-down Ansatz werden in der zweiten Phase, Zeilen 9-17, nun die Layou
 \begin{algorithm}[H]
 \label{Layoutalgorithmus}
 \SetAlgoLined
-\Ein{Graph $G=(V,E)$ mit Gruppen $S$ } % mit Koten $V$ mit Größe, gerichteten \& gefärbten Kanten $E$, Mengen $S$ von Knoten und Elementen aus $S$
+\Ein{Graph $G=(V,E)$ mit Gruppenbaum $S$ } % mit Koten $V$ mit Größe, gerichteten \& gefärbten Kanten $E$, Mengen $S$ von Knoten und Elementen aus $S$
 \Aus{Gruppen-hierarchisches Layout von $G$ } % mit diesen und jenen Eigenschaften, evtl Name einführen für Referenzierung
-$i = $ niedrigste Stufe einer Gruppe \;
-\Solange{$i \geq 0$}{ % benötigt, dass oberste Ebene auch Gruppe
+$d = $ Länge des längsten zusammenhängenden Pfads in $S$\; %niedrigste Stufe einer Gruppe 
+$i = d$\;
+\Solange{$i > 0$}{ %i > 0 da Dummy-Wurzelknoten des Gruppenbaums ausgeschlossen werden muss % benötigt, dass oberste Ebene auch Gruppe
   \Fuer{Jede Gruppe $H$ auf Stufe $i$} {
 	berechnete Layout $\L'_H$ der Gruppe $H$\;
 	berechne benötigte Fläche des Gruppenlayouts\;	
   }
-  $i= i + 1$\;
+  $i= i - 1$\;
 }
 Lege Ports für Gruppen auf Stufe 1 fest\;
-$i = Anzahl Stufen$\;
-\Solange{$i \leq$ Anzahl Stufen}{ % benötigt, dass oberste Ebene auch Gruppe
+$i = 1$\; %1 sollte die Ebene unter der Dummy Wurzel sein
+\Solange{$i \leq$ d}{ %Anzahl Stufen % benötigt, dass oberste Ebene auch Gruppe
   \Fuer{Jede Gruppe $H$ auf Stufe $i$} {
 	berechnete Layout $\L_H$ der Gruppe $H$ unter Berücksichtigung der Ports\;
-	Lege Ports für Gruppen in $H$ auf Stufe $i - 1$ fest;
+	Lege Ports für Gruppen in $H$ auf Stufe $i + 1$ fest;
   }
-  $i= i - 1$\;
+  $i= i + 1$\;
 }
 \caption{Layoutalgorithmus}
 \end{algorithm}
-\todo[inline]{Algo fixen}
+\todo[inline]{Algo ist korrigiert muss aber korrekturgelesen werden}
 
 
 \subsection{Bottom-up Anteil des Algorithmus}
