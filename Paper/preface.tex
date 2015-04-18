@@ -83,6 +83,8 @@ In einem in \autoref{chapter:vgl} alternativen Ansatz werden offenen Gruppen nic
 
 Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. Sie setzt sich als aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$, welcher die Gruppen sowie deren Zustand repräsentieren.
 Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
+Durch die Distanz eines inneren Knotens zur Wurzel weißen wir die Gruppen einzelnen Stufen zu. Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne
+eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
 Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
 Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
 In anderen Worten also direkt über dem Knoten.
@@ -101,8 +103,6 @@ Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad 
 %\end{itemize}
 
 \todo[inline]{Beispielgraph/layout (vorziehen) und Baum und Schnitt hinzufügen?}
-\todo[inline]{Übersicht Rest}
-
 Für diese Eingabe definieren wir im folgenden die Zeichenkonventionen und die Ästhetikkriterien des Layoutproblems.
 
 %\section{Formale Beschreibung}\label{sec:formaldesc}
