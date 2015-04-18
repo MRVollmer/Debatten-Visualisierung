@@ -27,7 +27,7 @@ Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts is
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[width=0.5\textwidth]{Pics/Beispielargumentkarte.png}
-	\caption{Beispielhafte Argumentkarte mit einer These, drei Argumenten und einer Gruppe.}
+	\caption{Beispielhafte Argumentkarte mit einer These, drei Argumenten, zwei davon unterstützend und eine angreifend, sowie einer Gruppe.}
 	\label{Beispielargumentkarte}
 \end{center}
 \end{figure}
@@ -69,7 +69,6 @@ Für uns von Interesse ist nur ersteres, das Layoutproblem.
 Ziel hierbei ist es für einen gegebenen Graphen und gegebenenfalls weitere Informationen algorithmisch ein Layout zu berechnen,
 welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästhetikkriteren optimiert und gegebenenfalls weiteren lokalen Nebenbedingungen genügt.
 
-
 % Was macht das Problem speziell? -> Gruppen und dass für Argumentkarten
 % Was lässt sich jedoch abstrahieren? -> knoteninhalt, kanten
 Im Fall der Argumentkarten abstrahieren wir für das Layoutproblem einige Informationen. 
@@ -79,9 +78,19 @@ Des Weiteren ignorieren wir bei den Beziehungen zwischen Elementen den Typ sowie
 Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
 Dies wird dann durch eine ungerichtete Kante repräsentiert. 
 
-Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann in der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
-\todo[inline]{Baumstruktur}
-\todo[inline]{Graph \& Abbildungen getrennt}
+\todo[inline]{erklären was es in darstellung heißt, dass Gruppe offen oder zu ist -- hier oder weiter oben}
+
+Die Eingabe des Algorithmus setzt sich als aus einem Graphen $G=(V,E)$ und einer Baumstruktur $T$ sowie einem Schnitt $S$ durch $T$, welcher die Gruppen sowie deren Zustand repräsentieren.
+Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
+Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
+Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. In anderen Worten also direkt über dem Knoten.
+Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird.
+
+
+Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann in der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. 
+Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
+\todo[inline]{Baumstruktur, Schnitt}
+\todo[inline]{Bulletpoints entfernen}
 \begin{itemize}
 	\item Knoten $V$, Knoten die eine Aussage repräsentieren.
 	\item Gruppenknoten $V_g$, Knoten die eine Gruppe repräsentieren.
@@ -93,6 +102,9 @@ Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann in der Form
 %Zusätzlich zu dem so erhaltenen Graphen, haben wir Gruppen, 
 %welche durch eine transitive, rechtseindeutige hierarchische Struktur von Gruppen von Knoten und Gruppen gegeben sind.
 Bei Gruppen ist außerdem zu beachten, dass sie entweder in einem geöffneten oder geschlossen Zustand sein können.
+
+\todo[inline]{Beispielgraph/layout (vorziehen) und Baum und Schnitt hinzufügen}
+
 
 %Wir erhalten also Eingabe zum einen Graphen  $G = (V, E)$ mit Knoten $V$, Kanten $E \subseteq V \times V$.
 %, Knotenbeschriftungen $\lambda_{v}:V \rightarrow B_v$ und Kantenbeschriftungen $\lambda_{e}: E \rightarrow B_e$.
@@ -171,8 +183,10 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 %Derzeitig werden sowohl die Gruppen in Argumentkarten von Hand erstellt als auch deren Darstellung im Layout der Argumentkarte. Die Gruppierung dient dabei maßgeblich dem %Verständnis der Argumentkarte und beruht und hilft es die Argumentkarte leichter zu verstehen unter dem Aspekt der Begrenztheit des menschlichen Kurzzeitgedächtnisses. % > das stimmt ja wohl nicht. scheiß auf begrenztheit des kurzzeitgedächtnis in diesem fall... :D
 %(siehe \cite{miller1956magical, BBS:84441}).
 
-%Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
+
 \todo[inline]{Beschreibung wie Zeichnung aussehen soll}
+
+%Ein entsprechender Layoutalgorithmus muss in der Lage sein die Gruppen so darzustellen, das die Beziehung der Gruppe zum Rest der Argumentkarte verständlich bleibt.
 \section{Interaktion mit Gruppen}
 \todo[inline]{Referenz Layout adjustment and the mental map}
 % was ist außerdem ein Problem? -> Interkation

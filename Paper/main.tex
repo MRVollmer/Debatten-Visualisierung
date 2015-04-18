@@ -113,6 +113,7 @@ $i = 1$\; %1 sollte die Ebene unter der Dummy Wurzel sein
 \caption{Layoutalgorithmus}
 \end{algorithm}
 \todo[inline]{Algo ist korrigiert muss aber korrekturgelesen werden}
+\todo[inline]{Algo-Zeilennummern in Texten an Änderungen anpassen}
 
 
 \subsection{Bottom-up Anteil des Algorithmus}
@@ -368,15 +369,12 @@ Hierfür sind erneut eine Implementierung sowie Tests nötig. Dies Wahl könnte 
 % - Verhalten von Ports bei Layoutänderung
 	% bleiben fest. keine großen Änderungen zu erwarten.
 
-Ein weiterer Punkt bei diesem Lösungsansatz ist, dass falls die Kräfte der Anker zu stark werden sollten, 
-da durch das Öffnen vieler Gruppen eine große Veränderung zum Grundlayout zwingend ist, 
-dass dann die Grundanker ignoriert werden und neue Anker vor der letzten Änderung gesetzt werden. 
-Es wird also nur versucht zum letzten Layout wenig Veränderung zu erhalten, nicht jedoch direkt zu den Anfangslayouts. 
-Dies kann natürlich auch pro Stufe unterschiedlich gehandhabt werden.
-\todo[inline]{Satzlänge}
-% Bei zu starker Veränderung also zu viel Kraft auf Ankern: verwerfe Grundanker und setze für diese Runde neue
-% evtl ebenso für Ports, wenn Knick zu groß
-
+Durch das Öffnen vieler Gruppen können große Veränderungen zum Grundlayout zustande kommen.
+Die Kräfte der Anker könnten so im Verhältnis zu anderen Kräften zu stark werden und unschöne Layouts erzeugen.
+Deshalb ist ein weiterer Punkt bei diesem Lösungsansatz, dass in einem solchen Fall die Grundanker ignoriert werden 
+und lediglich temporär neue Anker vor der letzten Änderung gesetzt werden. 
+Es wird also nur versucht zum letzten Layout die Veränderungen gering zu erhalten, nicht jedoch direkt zum Anfangslayouts. 
+Wann dieser Fall eintritt muss noch genauer spezifiert werden und kann pro Stufe unterschiedlich gehandhabt werden.
 
 % ------- Vorgehen für Parameterwahl vorschlagen
 %\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
