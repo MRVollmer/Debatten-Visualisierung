@@ -1,11 +1,5 @@
 \chapter{Algorithmus} % High-level description
 \label{chapter:algo}
-% Idee für Layout: 
-% - Gruppenelemente in Blase passen
-% - festes Layout pro Hierarchiestufe berechnen
-% - Layouts in Gruppen richten sich nach Ports aus Layout von Stufe darüber
-% - Layouts niedrigerer Stufe beeinflussen Layouts höherer Stufe nur durch benötigten Platz
-
 
 % was betrachten? problem wie oben definiert -> hier unser Ansatz
 Für das in \autoref{chapter:layoutproblem} definierte Layoutproblem stellen wir hier unseren Lösungsansatz vor.
@@ -17,9 +11,6 @@ Dadurch werden die Layouts pro Gruppe getrennt. Ist ein Layout einer übergeordn
 hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Kindgruppen eine Stufe tiefer. 
 Layouts von niedrigeren Stufen beeinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 \autoref{f:Layoutbeispiel} zeigt so ein Layout.
-
-%Am Ende Außerdem können Gruppen geöffnet oder geschlossen dargestellt werden. 
-%Hierbei haben wir besonders darauf geachtet, dass beim Öffnen oder Schließen einer Gruppe das Gesamtlayout der Karte nur wenig verändert wird.
 
 \begin{figure}[h!]
 \begin{center} 
