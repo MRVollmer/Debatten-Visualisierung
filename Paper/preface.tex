@@ -46,7 +46,6 @@ Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben.
 % 3. Detaillierte Erklärung des Algorithmus
 % 4. Vergleich zu anderen Lösungsansätzen
 In dieser Arbeit geht es um die automatisierte Darstellung von Argumentkarten mit Gruppen, sowie die Interaktion mit diesen Gruppen. Insbesondere hängen diese Gruppen inhaltlich zusammen und werden daher bereits vor der Layouterzeugung festgelegt. Dies ist ein signifikanter Unterschied zu dem oft behandelten Problem des Graphen-Clusterings, bei dem Gruppen als Teil des Layouts auf Basis der Knotenzusammenhänge erzeugt werden.
-\todo[inline]{Bitte jemand kurz Querprüfen, ob die Clustering-Abgrenzung hier inhaltlich gut passt}
 %und damit um eine Möglichkeit die Argumentkarte zu vereinfachen um dem Benutzer einen schnellen und guten Überblick über die Debatte zu ermöglichen.
 Es geht also um die Frage, wie sich Gruppen und Gruppenhierarchien den Anforderungen an Argumentkarten entsprechend visualisieren lassen 
 und wie das Layout auf das Öffnen und Schließen von Gruppen reagiert.
@@ -83,10 +82,18 @@ Dies kann  z.B. ein Rechteck oder ein Kreis sein.  Die Kindgruppen und Knoten ei
 Falls auch offene Gruppe dargestellt werden, sollten diese ihre Kindknoten umfassen. 
 In einem in \autoref{chapter:vgl} alternativen Ansatz werden offenen Gruppen nicht explizit dargestellt.
 
-Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. Sie setzt sich als aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$, welcher die Gruppen sowie deren Zustand repräsentieren.
+Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. 
+Sie setzt sich aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$ zusammen. 
+Hierbei beschreibt der Gruppenbaum, die Zuteilung von Knoten und Gruppen zu Elterngruppen. 
+Der Schnitt gibt den Zustand von Gruppen an, also ob sie geöffnet oder geschlossen sind. Wir spezifieren nun $T$ und $S$ genauer.
+
 Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
-Durch die Distanz eines inneren Knotens zur Wurzel weißen wir die Gruppen einzelnen Stufen zu. Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne
-eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
+Durch die Distanz eines inneren Knotens zur Wurzel weißen wir die Gruppen einzelnen Stufen zu. 
+Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
+%Der Schnitt $S = (X,V \setminus X)$ legt die Menge der derzeitig angezeigten Baumknoten fest 
+	% stimmt so nicht, zeigt gruppen an und das haben wir oben genannt
+	% außerdem ist V nicht V sondern iwas anderes... geht also nicht so einfach. 
+		%daher anstatt overhead einzuführen können wir uns ja darauf verlassen, dass jeder weiß was ein schnitt ist
 Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
 Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
 In anderen Worten also direkt über dem Knoten.
@@ -147,7 +154,6 @@ Auch wenn es für Argumentkarten im Allgemeinen wünschenswert ist, haben wir in
 Des Weiteren soll sowohl zwischen Knoten als auch Gruppen eine gewisse Mindestdistanz vorhanden sein, sowie Kanten eine gewisse Mindestlänge besitzen.
 
 Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
-\todo[inline]{Beschreibung wie Zeichnung aussehen soll -  Wie soll das gehen? haben wir das nicht?}
 
 
 %-------------------------------------------------------- INTERAKTION -------------------------------------------------------------
