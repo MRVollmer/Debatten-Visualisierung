@@ -82,7 +82,7 @@ sich dann aus dem Layout der obersten Stufe und den Layouts pro Gruppe zusammen.
 \Ein{Graph $G=(V,E)$,  Gruppenbaum $T$ } % mit Koten $V$ mit Größe, gerichteten \& gefärbten Kanten $E$, Mengen $S$ von Knoten und Elementen aus $S$
 \Aus{Gruppen-hierarchisches Layout von $G$ } % mit diesen und jenen Eigenschaften, evtl Name einführen für Referenzierung
 $i =$ niedrigste Stufe einer Gruppe\;
-\Solange{$i < höchste Stufe$}{ 
+\Solange{$i <$ höchste Stufe}{ 
   \Fuer{Jede Gruppe $H$ auf Stufe $i$} {
 	berechnete Layout $\L'_H$ der Gruppe $H$\;
 	berechne benötigte Fläche des Gruppenlayouts\;	
@@ -137,7 +137,7 @@ Auf der obersten Stufe beginnend und durch das berechnete Layout vorgegeben, leg
 
 \begin{figure}[h!]
 \begin{center} 
-  \includegraphics[width=0.5\textwidth]{Pics/TopDown.pdf}
+  \includegraphics[width=0.47\textwidth]{Pics/TopDown.pdf}
   \caption{Top-down Anteil des Algorithmus zur Festlegung der Ports und Berechnung der Layouts.
   Mit dem Layout der höchsten Stufe können in Schritt $a$ die Ports für die niedrigere Stufe berechnet werden (Zeile 9, \autoref{Layoutalgorithmus}).
   In Schritt $b$ wird dann das Layout der nächsten Stufe mit Ports berechnet (Zeile 13).
@@ -206,7 +206,7 @@ Um lange Kanten von Knoten zu Ports durch die ganze Gruppe möglichst zu vermeid
 bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist das gewählte Anfangslayout $\mathcal{L}'_H$.
 \autoref{f:Anfangslayout} gibt hierfür ein Beispiel.
 
-\begin{figure}[h!]
+\begin{figure}[t]%[h!]
 \begin{center} 
   \includegraphics[width=0.8\textwidth]{Pics/Anfangslayout.pdf}
   \caption{Ansatz zur Wahl des Anfangslayouts. Links das vorberechnete innere Layout und die Elterngruppe mit Ports. Rechts die vier verschiedene Spiegelungen des Layouts sowie die Kanten zu den Ports.
@@ -215,12 +215,16 @@ bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist das
 \end{center}
 \end{figure}
 
+
+
 Natürlich gibt es  noch weitere Ansätze zum Finden eines Anfangslayouts.
 Einfache Ansätze wären zum Beispiel eine zufällige Platzierung der Knoten oder die Platzierung aller Knoten in die Mitte des Kreises, 
 um dann den Rest dem kräftebasierten Layoutalgorithmus zu überlassen. 
 Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem man das Gruppenlayout ausgehend von den Ports konstruiert.
 
 Mit gewähltem Anfangslayout können wir nun den optimalen Kreisradius einer Gruppe bestimmen.
+
+
 
 % - Größe des Kreises definiert durch Radius R
 \myparagraph{Bestimmen des Kreisradius einer geöffneten Gruppe}
@@ -229,16 +233,15 @@ Hierbei führen wir die beiden Schritte Finden des Radius und Berechnen des Layo
 Die Idee des iterativen Algorithmus ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleinert werden kann.
 Ist dies der Fall, so wiederhole das Vorgehen. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab. 
 Da hier noch die Anfangsberechnung der Layouts in Gruppen beschreiben wird, ist es wichtig anzumerken, dass die Kindggruppen der behandelten Gruppe 
-geschlossen % wieso?
-sind.
+geöffnet sind.
 Wird der Algorithmus später verwendet, muss dies nicht mehr der Fall sein.
-\todo[inline]{Wieso geöffnet? Nicht geschlossen sinnvoler? Bei Änderung nachschauen ob oben wo so erwähnt.}
 
 Als Anfangsradius des Algorithmus kann der Radius $R'_H$ aus \autoref{Layoutalgorithmus} Zeile 5 mal einem Faktor $\beta$ verwendet werden.
 Die Wahl des Anfangslayouts haben wir im Abschnitt davor beschrieben.
 
+\vspace{1cm}
+
 \begin{algorithm}[H]
-\label{Kreisradiusalgorithmus}
 \SetAlgoLined
 \Ein{Gruppe $H$, Ports, Kanten zu Ports, Anfangslayout $\L'_H$, Radius $R'_H$}
 \Aus{Gruppenlayout $\L_H$ von $H$, Radius $R_H$}
@@ -256,6 +259,7 @@ Führe kräftebasiertem Algorithmus auf  $L_H$ aus\;
 	}
 }
 \caption{Kreisradiusalgorithmus}
+\label{Kreisradiusalgorithmus}
 \end{algorithm}
 
 Für \autoref{Kreisradiusalgorithmus} muss natürlich noch spezifiziert werden, was es heißt, dass der Radius in Zeile 4 verkleinert werden kann

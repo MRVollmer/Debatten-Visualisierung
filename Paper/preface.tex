@@ -7,7 +7,7 @@ Diese Arbeit beschäftigt sich mit Argumentkarten, manchmal auch Argumentationsk
 Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
 Zusätzlich lassen sich auf solche einer Karte Beziehungen zwischen Argumenten, welche von unterstützenden oder angreifender Natur sein können, visualisieren.
 In \autoref{f:Beispielargumentkarte} ist eine kleine Beispielargumentkarte dargestellt. 
-Eine größe Argumentkarte und sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean\cite{ClimateEngineering, betz2012ethical}.
+Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
 
 
 %Debatten werden in der Regel in sogenannten Argumentkarten, manchmal auch Argumentationskarten, dargestellt. 
@@ -98,6 +98,35 @@ Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt z
 Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
 In anderen Worten also direkt über dem Knoten.
 Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
+In \autoref{f:LayoutbeispielKlein} wird so ein Layout nach unserem Designkonzept mit dem dazugehörigen Baum und Schnitt dargestellt.
+
+\begin{figure}[h!]
+\begin{center} 
+  \includegraphics[width=0.6\linewidth]{Pics/LayoutbeispielBaum.pdf}
+  \caption{Beispiellayout einer abstrahierten Argumentkarte mit dem dazugehörigen Gruppenbaum und Schnitt. Nicht dargestellte Teilbäume sind im Baum durch graue Dreiecke repräsentiert.}
+  \label{f:LayoutbeispielKlein}
+\end{center}
+\end{figure}
+
+%Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. Sie setzt sich als aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$. Der Gruppenbaum bildet die Knoten auf ihre Gruppen ab.
+
+%Dabei ist der Pseudoknoten $r$ die Wurzel der Baumstruktur, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe. 
+%Durch die Distanz eines inneren Knotens zur Wurzel weißen wir die Gruppen einzelnen Stufen zu. Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne
+%eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
+
+%Der Schnitt $S = (X,V \setminus X)$ legt die Menge der derzeitig angezeigten Baumknoten fest (Ein Baumknoten ist entweder $r$ ein Gruppe oder ein Knoten aus $G$). Für diese Mengen gilt: $r \in X \setminus V$  und $X \setminus V$ muss ein zusammenhängender Baum sein. Jeder Pfad von $r$ zu einem Wurzelknoten darf also nur einmal geschnitten werden.
+
+%Ein Baumknoten $V^{'}$ wird immer genau dann angezeigt wenn er in $X$ liegt und eine direkte Kante zwischen $V^{'}$ und einem Knoten aus $V \setminus X$ existiert. In anderen Worten: Ein Baumknoten wird immer genau dann angezeigt wenn der Schnitt direkt über dem Knoten verläuft. Falls eine Gruppe in $X$ enthalten ist wird diese durch einen Gruppenknoten abgebildet und ihre Kinder werden nicht angezeigt.
+
+%Dies bedeutet dass ein Knoten oder eine Gruppe nur angezeigt wird wenn er bzw. sie in $S$ enthalten ist.
+%Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
+
+
+%Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
+%Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
+%In anderen Worten also direkt über dem Knoten.
+%Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
+
 
 %Unter Einbeziehung von Gruppen kann die Eingabe des Algorithmus dann in der Form $G = (V,V_g,E,\sigma)$ dargestellt werden. 
 %Die Mengen und Abbildungen dieses Graphen werden im folgenden Beschrieben:
@@ -111,7 +140,7 @@ Eine Gruppe wird geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad 
 %	 \item Rechtseindeutige Abbildung $\sigma: \bar{V} \rightarrow V_g$, Die Knoten auf ihre Gruppe abbildet (Gruppen können weitere Gruppen enthalten).
 %\end{itemize}
 
-\todo[inline]{Beispielgraph/layout (vorziehen) und Baum und Schnitt hinzufügen?}
+
 Für diese Eingabe definieren wir im folgenden die Zeichenkonventionen und die Ästhetikkriterien des Layoutproblems.
 
 %\section{Formale Beschreibung}\label{sec:formaldesc}
@@ -179,11 +208,9 @@ wieder zum Anfangslayout oder einem dazu ähnlichem Layout zurückkehrt.
 
 Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten Layouts also weitere Kriterien:
 \begin{itemize}
-\item Relative Positionen von Elementen verändert sich nur so viel wie nötig
-\item Das Gesamtlayout ändert sich nur so viel wie nötig 
-\item Das Layout zu einem bestimmten Schnitt ist auch nach mehreren Interaktionen das gleiche oder sehr ähnlich
+\item Das Layout ändert sich nur so viel wie nötig, um Anforderungen und Kritierien zu genügen. In anderen Worten: Relative Positionen von Elementen verändern sich nur so viel wie nötig.
+\item Das Layout zu einem bestimmten Schnitt ist auch nach mehreren Interaktionen das gleiche oder sehr ähnlich.
 \end{itemize}
-\todo[inline]{Sind 1 und 2 nicht das gleiche???}
 
 Von nun an fassen wir die einzelnen Layouts für die verschiedenen Schnitte, also von verschiedenen Zuständen von auf- bzw. zugeklappten Gruppen, nicht mehr einzeln
 sondern als ein Layout. Ein Wechsel zwischen den einzelnen Layouts nennen wir eine Layoutänderung bei einer Interaktion.
