@@ -26,11 +26,11 @@ sowie in \autoref{sec:Interaktion} das Konzept um Layoutänderungen bei Interakt
 Zunächst widmen wir uns jedoch kräftebasierten Algorithmen, die wir für unsere Ansätze benutzen, sowie der Größe von geschlossenen Gruppen im Layout.
 
 \myparagraph{Kräftebasierter Algorithmus}
-Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus. Als Kräfte haben wir unter anderemr die Anziehung adjazenter Knoten bzw. Gruppen,
+Grundlage für unseren Algorithmus ist die Verwendung eines kräftebasierten Algorithmus. Als Kräfte haben wir unter anderem die Anziehung adjazenter Knoten bzw. Gruppen,
 die Abstoßung zwischen nicht-adjazenten Knoten bzw. Gruppen, sowie die Abstoßung von Knoten selbst, sodass keine adjazenten Elemente die nicht punktförmigen Knoten oder Gruppen schneiden. Außerdem wird eine Abstoßung zwischen Kanten und nicht-inzidenten Knoten bzw. Gruppen benötigt, um Knoten-Kanten-Überschneidungen zu verhindern.
 Zusätzlich benötigen wir sogenannte Anker, welche einzelnen Knoten oder Gruppen zugeordnet werden. 
-Ein Anker ist ein Pseudoknoten, welcher  nich gerendert wird, sowie eine Kante zu seinem Knoten. 
-Anders als normale Kanten ist die optimale Kantenlänge eines Ankers  0. Außerdem ist die Position des Ankers im Layout fest. 
+Ein Anker ist ein Pseudoknoten, welcher nicht gerendert wird, der eine Kante zu seinem Knoten besitzt. %Nur der Knoten ist _der Anker_, oder?
+Anders als normale Kanten ist die optimale Kantenlänge einer Kante eines Ankers 0. Außerdem ist die Position des Ankers im Layout fest.
 In einem kräftebasierten Algorithmus wirkt der Anker auf seinen Knoten nun wie eine weitere Feder, die ihn zum Ankerpunkt hinzieht.
 Die Kraft der Feder kann wie eine normale Kante gehandhabt werden oder bei Bedarf auch anders spezifiziert werden.
 Als Grundlage für diesen kräftebasieren Algorithmus könnten man zum Beispiel der Algorithmus von Fruchterman und Reingold \cite{SPE:SPE4380211102} verwenden werden.
