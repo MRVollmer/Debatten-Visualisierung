@@ -85,7 +85,7 @@ In einem in \autoref{chapter:vgl} alternativen Ansatz werden offenen Gruppen nic
 Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. 
 Sie setzt sich aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$ zusammen. 
 Hierbei beschreibt der Gruppenbaum, die Zuteilung von Knoten und Gruppen zu Elterngruppen. 
-Der Schnitt gibt den Zustand von Gruppen an, also ob sie geöffnet oder geschlossen sind. Wir spezifieren nun $T$ und $S$ genauer.
+Der Schnitt gibt den Zustand von Gruppen an, also ob sie geöffnet oder geschlossen sind. Wir spezifizieren nun $T$ und $S$ genauer.
 
 Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
 Durch die Distanz eines inneren Knotens zur Wurzel weißen wir die Gruppen einzelnen Stufen zu. 
@@ -166,15 +166,15 @@ Für diese Eingabe definieren wir im folgenden die Zeichenkonventionen und die �
 Zeichenkonventionen beschreiben wie Knoten und Kanten gezeichnet beziehungsweise gelayoutet werden sollen. Sie müssen erfüllt werden.
 Für das Layoutproblem von Argumentkarten mit Gruppenstruktur sind dies im Einzelnen:
 \begin{itemize}
-\item Knoten $V$ werden als achsenparallel Rechtecke dargestellt
+\item Knoten $V$ werden als achsenparallele Rechtecke dargestellt
 \item Überschneidungsfreiheit von Knoten
 \item Überschneidungsfreiheit von Kanten mit Knoten
 \item Überschneidungsfreiheit von Gruppen mit nicht Kindknoten oder -gruppen, sowie Kanten zwischen solchen
 \item Eine geschlossene Gruppe enthält keine Knoten
 \end{itemize}
 
-Für unseren Lösungsansatz kommenr für Gruppen weitere Zeichenkonvention hinzu. Zum Einen legen wir fest, dass Gruppen
-als Kreise dargestellt werden. Zum Anderen fordern wir, dass eine geöffnete Gruppe alle ihre Kindelemente enhält. 
+Für unseren Lösungsansatz kommen für Gruppen weitere Zeichenkonvention hinzu. Zum Einen legen wir fest, dass Gruppen
+als Kreise dargestellt werden. Zum Anderen fordern wir, dass eine geöffnete Gruppe alle ihre Kindelemente enthält. 
 Darüber hinaus spezifizieren wir das Kantenrouting genauer. Dies wird jedoch erst im Lösungsansatz genauer beschrieben.
 
 \myparagraph{Ästhetikriterien}
@@ -191,7 +191,7 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 Da Gruppen sowohl geöffnet als auch geschlossen sein können, existieren eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Jeder gültige Schnitt in $T$ legt eine neue Konfiguration fest und benötigt ein eigenes Layout. 
 Das eine Gruppe geöffnet wird bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
-Das Schließen einer Gruppe wird durch den entgegengesetzten Fall beschrieben. Wir legen zudem Fest, dass immer nur eine Gruppe geöffnet oder geschlossen werden kann. Darüberhinaus bezeichnen wir das Öffnen und Schließen einer Gruppe wir als ein Interaktion.
+Das Schließen einer Gruppe wird durch den entgegengesetzten Fall beschrieben. Wir legen zudem Fest, dass immer nur eine Gruppe geöffnet oder geschlossen werden kann. Darüber hinaus bezeichnen wir das Öffnen und Schließen einer Gruppe wir als ein Interaktion.
 
 In einer Implementierung sollte das Wechseln zwischen den verschiedenen Zuständen möglich sein, also der Wechsel des Schnitts und das man eine Gruppe Öffnen und Schließen kann. 
 Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen die detailliertere Ansicht zu haben.
@@ -208,7 +208,7 @@ wieder zum Anfangslayout oder einem dazu ähnlichem Layout zurückkehrt.
 
 Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten Layouts also weitere Kriterien:
 \begin{itemize}
-\item Das Layout ändert sich nur so viel wie nötig, um Anforderungen und Kritierien zu genügen. In anderen Worten: Relative Positionen von Elementen verändern sich nur so viel wie nötig.
+\item Das Layout ändert sich nur so viel wie nötig, um Anforderungen und Kriterien zu genügen. In anderen Worten: Relative Positionen von Elementen verändern sich nur so viel wie nötig.
 \item Das Layout zu einem bestimmten Schnitt ist auch nach mehreren Interaktionen das gleiche oder sehr ähnlich.
 \end{itemize}
 

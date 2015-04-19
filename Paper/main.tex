@@ -232,7 +232,7 @@ Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen
 Hierbei führen wir die beiden Schritte Finden des Radius und Berechnen des Layouts zusammen aus.
 Die Idee des iterativen Algorithmus ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleinert werden kann.
 Ist dies der Fall, so wiederhole das Vorgehen. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab. 
-Da hier noch die Anfangsberechnung der Layouts in Gruppen beschreiben wird, ist es wichtig anzumerken, dass die Kindggruppen der behandelten Gruppe 
+Da hier noch die Anfangsberechnung der Layouts in Gruppen beschreiben wird, ist es wichtig anzumerken, dass die Kindgruppen der behandelten Gruppe 
 geöffnet sind.
 Wird der Algorithmus später verwendet, muss dies nicht mehr der Fall sein.
 
@@ -266,7 +266,7 @@ Für \autoref{Kreisradiusalgorithmus} muss natürlich noch spezifiziert werden, 
 oder dass $\alpha$ nicht zu groß ist. 
 Dass der Radius $R$ verkleinert werden kann, soll bedeuten, dass bei kleinerem $R$ aber gleichem Layout der Kreis keine Knoten schneidet. 
 Typisch für Parameter bei kräftebasierten Algorithmen, wird um eine geeignete maximale Größe von $\alpha$ zu finden, wohl eine Implementierung und verschiedene Tests benötigt. 
-Dasselbe gilt für $\beta$ um einen geeigeneten Anfangsradius zu finden.
+Dasselbe gilt für $\beta$ um einen geeigneten Anfangsradius zu finden.
 
 Eine weitere Variante zur Berechnung des Kreisradius könnte durch erwartete Größe von Gruppen umgesetzt werden. 
 Falls ein gutes $\beta$ gefunden werden kann, dass für jede Gruppe eine gute Größe approximiert und dabei nie zu klein ist, kann der iterative Prozess auch ausgelassen werden
@@ -288,7 +288,7 @@ Das Layout für jede Gruppe wurde ebenfalls bereits berechnet. Zur Erinnerung, w
 die Abhängig von der Größe im offenen Zustand kleiner ist. 
 Da diese Gruppe im geöffneten Zustand nun jedoch mehr Platz einnimmt ergibt sich folgende Problemstellung:
 % was ist ziel?
-Wie verändert sich das Layout auf darüberligenden Stufen, wenn eine Gruppe geöffnet oder geschlossen wird? 
+Wie verändert sich das Layout auf darüberliegenden Stufen, wenn eine Gruppe geöffnet oder geschlossen wird? 
 Hierbei wird wie spezifiert außerdem gefordert, dass die Änderungen im Layout nicht zu stark sind, 
 damit man sich mit seiner mentalen Karte von vor der Änderung auch danach noch zurechtfindet.
 % was ist schwierig?
@@ -331,7 +331,7 @@ Die Kräfte der Anker könnten so im Verhältnis zu anderen Kräften zu stark we
 Deshalb ist ein weiterer Punkt bei diesem Lösungsansatz, dass in einem solchen Fall die Grundanker ignoriert werden 
 und lediglich temporär neue Anker vor der letzten Änderung gesetzt werden. 
 Es wird also nur versucht zum letzten Layout die Veränderungen gering zu erhalten, nicht jedoch direkt zum Anfangslayouts. 
-Wann dieser Fall eintritt muss noch genauer spezifiert werden und kann pro Stufe unterschiedlich gehandhabt werden.
+Wann dieser Fall eintritt muss noch genauer spezifiziert werden und kann pro Stufe unterschiedlich gehandhabt werden.
 
 % ------- Vorgehen für Parameterwahl vorschlagen
 %\todo[inline]{Vorgehen für Parameterwahl vorschlagen?}
