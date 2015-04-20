@@ -7,7 +7,7 @@ Für das in \autoref{chapter:layoutproblem} definierte Layoutproblem stellen wir
 Die wichtigste Designentscheidung und damit Grundidee des Layouts ist es, jede Gruppe in einem Kreis zu kapseln. 
 Sie wird also innerhalb eines Kreises dargestellt und Kanten über Gruppengrenzen werden nur über feste Ports zugeführt.
 Eine Kante von einem Knoten in einer Gruppe geht also zunächst zu einem Port der Gruppe und dann zu einem Knoten außerhalb der Gruppe.
-Dadurch werden die gruppeninternen Layouts von dem Rest des Layouts getrennt. Ist ein Layout einer übergeordneten Gruppe oder der obersten Stufe berechnet, 
+Dadurch werden die gruppeninternen Layouts jeweils vom Rest des Layouts getrennt. Ist ein Layout einer übergeordneten Gruppe oder der obersten Stufe berechnet, 
 hat dies nur durch das Festlegen der Portpositionen Einfluss auf das Layout von Kindgruppen eine Stufe tiefer. 
 Layouts von niedrigeren Stufen beeinflussen übergeordnete Layouts nur durch ihren benötigten Platz.
 \autoref{f:Layoutbeispiel} zeigt so ein Layout.
