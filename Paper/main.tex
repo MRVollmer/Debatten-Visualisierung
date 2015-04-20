@@ -33,7 +33,7 @@ Ein Anker ist ein Pseudoknoten, welcher nicht gerendert wird, der eine Kante zu 
 Anders als normale Kanten ist die optimale Kantenlänge einer Kante eines Ankers 0. Außerdem ist die Position des Ankers im Layout fest.
 In einem kräftebasierten Algorithmus wirkt der Anker auf seinen Knoten nun wie eine weitere Feder, die ihn zum Ankerpunkt hinzieht.
 Die Kraft der Feder kann wie eine normale Kante gehandhabt werden oder bei Bedarf auch anders spezifiziert werden.
-Als Grundlage für diesen kräftebasieren Algorithmus könnten man zum Beispiel der Algorithmus von Fruchterman und Reingold \cite{SPE:SPE4380211102} verwenden werden.
+Als Grundlage für diesen kräftebasieren Algorithmus könnte zum Beispiel der Algorithmus von Fruchterman und Reingold \cite{SPE:SPE4380211102} verwenden werden.
 Mit nicht punktförmigen Knoten hat sich zum Beispiel bereits Harel und Koren \cite{Harel:2002:DGN:1556262.1556288} beschäftigt.
 
 
@@ -305,7 +305,7 @@ Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entwe
 Wird nun eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. 
 Diese Änderung zieht sich logischer Weise bis zur obersten Stufe durch.
 
-Um das Verhalten bei einer Interkation mit einer Gruppe zu kontrollieren, erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
+Um das Verhalten bei einer Interaktion mit einer Gruppe zu kontrollieren, erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
 Dies geschieht pro Stufe und Gruppe für die ein neues Layout berechnet werden muss.
 Jedes gelayoutet Element, was sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
@@ -323,8 +323,8 @@ Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Pos
 \end{center}
 \end{figure}
 
-Genauer zu spezifizieren ist, wie stark die Anker sein sollten sowie ob sie von der Gruppen- bzw. Elementgröße abhängig sein sollten. 
-Hierfür sind erneut eine Implementierung sowie Tests nötig. Dies Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
+Genauer zu spezifizieren ist, wie stark die Anker sein sollten, sowie ob sie von der Gruppen- bzw. Elementgröße abhängig sein sollten. 
+Hierfür sind erneut eine Implementierung sowie Tests nötig. Diese Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
 
 Durch das Öffnen vieler Gruppen können große Veränderungen zum Grundlayout zustande kommen.
 Die Kräfte der Anker könnten so im Verhältnis zu anderen Kräften zu stark werden und unschöne Layouts erzeugen.
