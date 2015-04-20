@@ -51,7 +51,7 @@ Die Größe der geschlossenen Gruppe könnte also dadurch berechnet werden, dass
 Die minimale Größe könnte hierbei zum Beispiel durch die Größe des am größten dargstellten Arguments gegeben sein und die maximale Größe durch $\gamma \,\%$ 
 der größten Gruppe im geöffneten Zustand.
 
-Da der Unterschied zwischen kleinen Gruppen, wobei zum Beispiel eine 4 Kindelemente Besitzt und einer etwas größere die 5 besitzt, stärker verdeutlicht werden soll, als der zwischen 
+Da der Unterschied zwischen kleinen Gruppen, wie zum Beispiel der Unterschied zwischen zwei Gruppen mit jeweils 4 und 5 Kindelementen, stärker verdeutlicht werden soll, als der zwischen 
 relativ großen Gruppen, schlagen wir eine logarithmische Abbildung wie in \autoref{f:Radius} vor.
 \begin{figure}[h!]
 \begin{center} 
@@ -69,10 +69,10 @@ relativ großen Gruppen, schlagen wir eine logarithmische Abbildung wie in \auto
 % Weitere Constraints für Layout
 % Resultat: alle Gruppen geschlossen, jedoch Layout pro Gruppe mit geschlossenen/geöffneten Kind-Gruppen bekannt
 Wenn alle Gruppen beim Öffnen einer Karte geschlossen sind, sollte es auf großen Karten einfach sein direkt einen Überblick gewinnen zu können.
-Deshalb liefert der folgendes Algorithmus ein Layout bei dem initial alle Gruppen geschlossen sind.
+Deshalb liefert der folgende Algorithmus ein Layout bei dem initial alle Gruppen geschlossen sind.
 
 Unser in \autoref{Layoutalgorithmus} grob beschriebene Layoutalgorithmus ist in 2 Phasen unterteilt. 
-In der ersten Phase, Zeilen 1-9, werden die in einem bottem-up Ansatz die Größen der Gruppen und erste Layout $\L'$ berechnet. 
+In der ersten Phase, Zeilen 1-9, werden in einem bottem-up Ansatz die Größen der Gruppen und erste Layout $\L'$ berechnet. 
 Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw. obersten Stufe notwendig ist.
 
 In einem top-down Ansatz werden in der zweiten Phase, Zeilen 10-18, nun die Layouts pro Stufe und Gruppe $\L_H$ berechnet und die Ports festgelegt. Das gesamte Layout setzt 
@@ -195,14 +195,14 @@ Jedoch schlagen wir auch hier wieder das Hinzunehmen eines Ankers vor, welcher a
 Dies soll auch verhindern, dass eventuell nicht zusammenhängende Komponenten der Gruppe auseinander driften. 
 Die Kraft dieses Ankers sei mit dem Faktor $\alpha$ beschrieben. 
 Solange der Kreis der Gruppe groß genug ist, sollte es für Knoten auch nicht möglich sein, aus dem Kreis herausgetragen zu werden. 
-Andernfalls müssten man hierfür weitere Kräfte im Algorithmus berücksichtigen oder $\alpha$ entsprechend erhöhen.
+Andernfalls müsste man hierfür weitere Kräfte im Algorithmus berücksichtigen oder $\alpha$ entsprechend erhöhen.
 
 % - Anfangslayout: 
 \myparagraph{Anfangslayout}
 Für die Wahl eines Anfangslayouts schlagen wir folgenden Ansatz vor.
 	% c) Layout von Größenberechnung spiegeln (nicht, vertikal, horizontal, beides) und Längen der Port-Knoten-Kanten summieren
 In Zeile 4 von \autoref{Layoutalgorithmus} wurde für $H$ bereits ein Layout $\L'_H$ berechnet. 
-Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne die Ausrichtung der einzelnen Knoten, welche nach den Achsen ausgerichtete Rechtecke sind, verändert wird.
+Dieses lässt sich sowohl horizontal als auch vertikal spiegeln, ohne dass die Ausrichtung der einzelnen Knoten, welche nach den Achsen ausgerichtete Rechtecke sind, verändert wird.
 Das heißt, wir haben vier verschiedene Layouts, nämlich das original, das vertikal oder horizontal gespiegelte sowie das vertikal und horizontal gespiegelte.
 Um lange Kanten von Knoten zu Ports durch die ganze Gruppe möglichst zu vermeiden, wählen wir jenes Layout,
 bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist das gewählte Anfangslayout $\mathcal{L}'_H$.
@@ -211,7 +211,7 @@ bei dem die Summe der Kantenlängen dieser Kanten am kleinsten ist. Dies ist das
 \begin{figure}[t]%[h!]
 \begin{center} 
   \includegraphics[width=0.8\textwidth]{Pics/Anfangslayout.pdf}
-  \caption{Ansatz zur Wahl des Anfangslayouts. Links das vorberechnete innere Layout und die Elterngruppe mit Ports. Rechts die vier verschiedene Spiegelungen des Layouts sowie die Kanten zu den Ports.
+  \caption{Ansatz zur Wahl des Anfangslayouts. Links das vorberechnete innere Layout und die Elterngruppe mit Ports. Rechts die vier verschiedenen Spiegelungen des Layouts sowie die Kanten zu den Ports.
   In diesem Fall würde das rechte obere, also horizontal gespiegelte, Layout als Anfangslayout gewählt werden, da die Gesamtlänge der Kanten zu den Ports hier am kürzesten ist.}
   \label{f:Anfangslayout}
 \end{center}
@@ -303,7 +303,7 @@ Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schlie
 % Ansatz für Größe
 Um die Größe einer Gruppe in ihrem jetzigen Zustand zu berechnen, könnte man verschieden vorgehen. 
 Zum Beispiel könnte man ihn aus den bekannten Radien, für den Zustand alle Untergruppen geöffnet und der Gruppe selbst geschlossen, berechnen. 
-Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entweder im Vorraus oder wenn benötigt zu ermitteln. 
+Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entweder im Voraus oder wenn benötigt zu ermitteln. 
 Wird nun eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. 
 Diese Änderung zieht sich logischer Weise bis zur obersten Stufe durch.
 

@@ -6,7 +6,7 @@
 Diese Arbeit beschäftigt sich mit Argumentkarten, auch Argumentationskarten genannt.
 Diese dienen als graphische Darstellung von Debatten, in Form eines Graphen.
 Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
-Zusätzlich lassen sich auf solche einer Karte Beziehungen zwischen Argumenten, welche von unterstützenden oder angreifender Natur sein können, visualisieren.
+Zusätzlich lassen sich auf solch einer Karte Beziehungen zwischen Argumenten, welche von unterstützenden oder angreifender Natur sein können, visualisieren.
 In \autoref{f:Beispielargumentkarte} ist eine kleine Beispielargumentkarte dargestellt. 
 Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
 
@@ -20,7 +20,7 @@ Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existi
 Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis der Debatte. 
 Über die Visualisierung der Elemente und ihre Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
 So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
-Es besteht außerdem die Möglichkeit, Gruppen geschlossen zu visualisieren, also in ihr enthaltenen Argumente und Untergruppen nicht anzuzeigen, sondern nur durch ein
+Es besteht außerdem die Möglichkeit, Gruppen geschlossen zu visualisieren, also die in ihr enthaltenen Argumente und Untergruppen nicht anzuzeigen, sondern nur durch ein
 Element und den Gruppentitel zu repräsentieren. So kann ein schnellerer  Überblick über die Debatte ermöglicht werden.
 Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
 %Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. 
@@ -60,7 +60,7 @@ In \autoref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir 
 \chapter{Problemstellung}%\chapter{Layoutproblem} % > mehr als Layout, betrachte auch Interaktion!
 \label{chapter:layoutproblem}
 In diesem Kapitel definieren wir das von uns behandelte Layoutproblem für Argumentkarten mit Gruppenstruktur, sowie die Anforderungen für Interaktionen mit dem Layout.
-Wir beschreiben also wie ein das Layout aussehen soll und was beim Öffnen und Schließen einer Gruppe beachtet werden muss.
+Wir beschreiben wie ein das Layout aussehen soll und was beim Öffnen und Schließen einer Gruppe beachtet werden muss.
 
 \section{Layoutproblem}
 \label{sec:layoutproblem}
@@ -193,13 +193,13 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 % was ist außerdem ein Problem? -> Interkation
 Da Gruppen sowohl geöffnet als auch geschlossen sein können, existiert eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Jeder gültige Schnitt in $T$ legt eine neue Konfiguration fest und benötigt ein eigenes Layout. 
-Das eine Gruppe geöffnet wird bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
+Dass eine Gruppe geöffnet wird bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
 Das Schließen einer Gruppe wird durch den entgegengesetzten Fall beschrieben. Wir legen zudem fest, dass immer nur eine Gruppe geöffnet oder geschlossen werden kann. Darüber hinaus bezeichnen wir das Öffnen und Schließen einer Gruppe als eine Interaktion.
 
 In einer Implementierung sollte das Wechseln zwischen den verschiedenen Zuständen, also der Wechsel des Schnitts und dem damit verbundenen Öffnen und Schließen von Gruppen, möglich sein. 
 Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen eine detailliertere Ansicht zu haben.
 % welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
-Hierbei ist es höchst wünschenswert, dass bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
+Hierbei ist es höchst wünschenswert, dass sich bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
 Positionsänderungen von Knoten und Gruppen sollen bei einer Interaktion nur so groß sein, dass das Layout die Konventionen und Kriterien erfüllt.
 Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können. 
 Mit dem Problem, dass bei Veränderungen von Layouts die mentale Karte erhalten bleiben soll, haben sich zum Beispiel schon Eades et. al. \cite{eades1991preserving, Misue1995183}
