@@ -3,11 +3,12 @@
 % Darstellung von Argumentkarten
 % - Wie werden sie bis jetzt dargestellt?
 % - Wieso will man sie darstellen?
-Diese Arbeit beschäftigt sich mit Argumentkarten, manchmal auch Argumentationskarten genannt. Diese dienen als graphische Darstellung von Debatten. Eine Argumentkarte ist die Darstellung einer Debatte in Form eines Graphen.
+Diese Arbeit beschäftigt sich mit Argumentkarten, auch Argumentationskarten genannt.
+Diese dienen als graphische Darstellung von Debatten, in Form eines Graphen.
 Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
 Zusätzlich lassen sich auf solche einer Karte Beziehungen zwischen Argumenten, welche von unterstützenden oder angreifender Natur sein können, visualisieren.
 In \autoref{f:Beispielargumentkarte} ist eine kleine Beispielargumentkarte dargestellt. 
-Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
+Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existiert zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
 
 
 %Debatten werden in der Regel in sogenannten Argumentkarten, manchmal auch Argumentationskarten, dargestellt. 
@@ -94,6 +95,8 @@ Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne eine niedrigere
 	% stimmt so nicht, zeigt gruppen an und das haben wir oben genannt
 	% außerdem ist V nicht V sondern iwas anderes... geht also nicht so einfach. 
 		%daher anstatt overhead einzuführen können wir uns ja darauf verlassen, dass jeder weiß was ein schnitt ist
+		
+		
 Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
 Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
 In anderen Worten der Schnitt als \glqq direkt über\grqq\ dem Knoten verläuft.
@@ -173,8 +176,8 @@ Für das Layoutproblem von Argumentkarten mit Gruppenstruktur sind dies im Einze
 \item Eine geschlossene Gruppe enthält keine Knoten
 \end{itemize}
 
-Für unseren Lösungsansatz kommen für Gruppen weitere Zeichenkonvention hinzu. Zum Einen legen wir fest, dass Gruppen
-als Kreise dargestellt werden. Zum Anderen fordern wir, dass eine geöffnete Gruppe alle ihre Kindelemente enthält. 
+Für unseren Lösungsansatz kommen für Gruppen weitere Zeichenkonvention hinzu. Zum einen legen wir fest, dass Gruppen
+als Kreise dargestellt werden. Zum anderen fordern wir, dass eine geöffnete Gruppe alle ihre Kindelemente enthält. 
 Darüber hinaus spezifizieren wir das Kantenrouting genauer. Dies wird jedoch erst im Lösungsansatz genauer beschrieben.
 
 \myparagraph{Ästhetikriterien}
@@ -188,16 +191,16 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 %-------------------------------------------------------- INTERAKTION -------------------------------------------------------------
 \section{Interaktion mit Gruppen}
 % was ist außerdem ein Problem? -> Interkation
-Da Gruppen sowohl geöffnet als auch geschlossen sein können, existieren eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
+Da Gruppen sowohl geöffnet als auch geschlossen sein können, existiert eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Jeder gültige Schnitt in $T$ legt eine neue Konfiguration fest und benötigt ein eigenes Layout. 
 Das eine Gruppe geöffnet wird bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
 Das Schließen einer Gruppe wird durch den entgegengesetzten Fall beschrieben. Wir legen zudem fest, dass immer nur eine Gruppe geöffnet oder geschlossen werden kann. Darüber hinaus bezeichnen wir das Öffnen und Schließen einer Gruppe als eine Interaktion.
 
-In einer Implementierung sollte das Wechseln zwischen den verschiedenen Zuständen möglich sein, also der Wechsel des Schnitts und das man eine Gruppe öffnen und schließen kann. 
+In einer Implementierung sollte das Wechseln zwischen den verschiedenen Zuständen möglich sein, also der Wechsel des Schnitts und dem damit verbundenen öffnen und schließen von Gruppen. 
 Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen die detailliertere Ansicht zu haben.
 % welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
 Hierbei ist es höchst wünschenswert, dass bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
-Positionsänderungen von Knoten und Gruppen sollen bei einer Interaktion nur so groß sein, dass das Layout die Konventionen und Kriterien erfüllt,
+Positionsänderungen von Knoten und Gruppen sollen bei einer Interaktion nur so groß sein, dass das Layout die Konventionen und Kriterien erfüllt.
 Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können. 
 Mit dem Problem, dass bei Veränderungen von Layouts die mentale Karte erhalten bleiben soll, haben sich zum Beispiel schon Eades et. al. \cite{eades1991preserving, Misue1995183}
 beschäftigt. Die Anforderung lassen sich auch mit den Konsistenzbedingungen bei dynamischen Kartenbeschriftungen von  Been et. al. \cite{Been2010312} vergleichen.
