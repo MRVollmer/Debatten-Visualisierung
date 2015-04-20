@@ -157,7 +157,7 @@ Im Folgenden betrachten wir nun die Zeilen 14 und 15 des \hyperref[Layoutalgorit
 % was ist ziel?
 Hier ist das Ziel ein Layout für eine Gruppe in Abhängigkeit von bereits gegebenen Ports zu finden, sowie daraufhin dessen Kindgruppen Ports zuzuweisen.
 Das heißt, wir suchen nun ein Layout für die Kindknoten einer Gruppe sowie aus der Gruppe herausgehende Kanten.
-Dieses soll, wie oben beschrieben, ein Layout innerhalb eines Kreises sein und Kanten, die die Gruppengrenze überschreitenden, zu den festgelegten Ports führen.
+Dieses soll, wie oben beschrieben, ein Layout innerhalb eines Kreises sein und Kanten, die die Gruppengrenze überschreiten, zu den festgelegten Ports führen.
 % was ist schwierig?
 Eine der Herausforderung hierbei ist, eine geeignete Größe für den Kreis um die Gruppe zu finden. 
 Auch zum Finden dieses Layouts benutzen wir wieder den kräftebasierten Algorithmus.
@@ -172,7 +172,7 @@ Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten 
 
 Für die Layoutberechnung ist eine Gruppe $H$, sowie die vom Layouts der darüberliegenden Stufe bereits festgelegten Ports der Gruppe gegeben.
 Diese Ports modellieren wir als feste Knoten auf dem Kreis der Gruppe an ihren jeweiligen Winkeln.
-Des Weiteren haben wir bereits ein Layout $\mathcal{L_H}$ der Gruppe $H$ ohne Kanten, die die Gruppengrenze überschreitenden, in Zeile 4 des \hyperref[Layoutalgorithmus]{Layoutalgorithmus~\ref*{Layoutalgorithmus}}  berechnet. 
+Des Weiteren haben wir bereits ein Layout $\mathcal{L_H}$ der Gruppe $H$ ohne Kanten, die die Gruppengrenze überschreiten, in Zeile 4 des \hyperref[Layoutalgorithmus]{Layoutalgorithmus~\ref*{Layoutalgorithmus}}  berechnet. 
 Aus Zeile 5 haben wir daher auch eine erste Größe für den Kreis der Gruppe, welche durch den Radius beschreiben und durch $R'_H$ gegeben sei. 
 
 Der grobe Ablauf des Algorithmus setzt sich aus drei Schritten zusammen. Zunächst wird ein Anfangslayouts gewählt.
