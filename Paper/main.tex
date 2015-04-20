@@ -53,7 +53,7 @@ der größten Gruppe im geöffneten Zustand.
 
 Da der Unterschied zwischen kleinen Gruppen, wie zum Beispiel der Unterschied zwischen zwei Gruppen mit jeweils 4 und 5 Kindelementen, stärker verdeutlicht werden soll, als der zwischen 
 relativ großen Gruppen, schlagen wir eine logarithmische Abbildung wie in \autoref{f:Radius} vor.
-\begin{figure}[h!]
+\begin{figure}%[h!]
 \begin{center} 
 \includegraphics{Pics/Radius.pdf}
 % \includegraphics[width=0.5\textwidth]{Pics/Radius.pdf}
@@ -75,7 +75,8 @@ Unser in \autoref{Layoutalgorithmus} grob beschriebene Layoutalgorithmus ist in 
 In der ersten Phase, Zeilen 1-9, werden in einem bottem-up Ansatz die Größen der Gruppen und erste Layout $\L'$ berechnet. 
 Dies beginnt auf der tiefsten Stufe und geht dann iterativ nach oben, da die Größe einer Gruppe jeweils für die Größe der übergordneten Gruppe bzw. obersten Stufe notwendig ist.
 
-In einem top-down Ansatz werden in der zweiten Phase, Zeilen 10-18, nun die Layouts pro Stufe und Gruppe $\L_H$ berechnet und die Ports festgelegt. Das gesamte Layout setzt 
+In einem top-down Ansatz werden in der zweiten Phase, Zeilen 10-18, nun die Layouts pro Stufe und Gruppe $\L_H$ berechnet und die Ports festgelegt. 
+Das gesamte Layout setzt \pagebreak[4]
 sich dann aus dem Layout der obersten Stufe und den Layouts pro Gruppe zusammen.
 
 \begin{algorithm}[H]
