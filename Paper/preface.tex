@@ -8,7 +8,7 @@ Diese dienen als graphische Darstellung von Debatten, in Form eines Graphen.
 Auf einer solchen Karte werden die Thesen und Argumente der Debatte als einzelstehende Elemente herausgestellt. 
 Zusätzlich lassen sich auf solch einer Karte Beziehungen zwischen Argumenten, welche von unterstützenden oder angreifender Natur sein können, visualisieren.
 In \autoref{f:Beispielargumentkarte} ist eine kleine Beispielargumentkarte dargestellt. 
-Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
+Eine größere Argumentkarte sowie ein Buch, welches solche enthält, existieren zum Beispiel von Betz und Cacean \cite{ClimateEngineering, betz2012ethical}.
 
 
 %Debatten werden in der Regel in sogenannten Argumentkarten, manchmal auch Argumentationskarten, dargestellt. 
@@ -17,12 +17,13 @@ Eine größere Argumentkarte und sowie ein Buch, welches solche enthält, existi
 % Spezielle Anforderungen
 % - Wieso Gruppen?
 % - Wieso Layout beibehalten? -> Mentale Karte
-Die Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis der Debatte. 
+Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis der Debatte. 
 Über die Visualisierung der Elemente und ihre Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
 So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
-Es besteht außerdem die Möglichkeit, Gruppen geschlossen zu visualisieren, also die in ihr enthaltenen Argumente und Untergruppen nicht anzuzeigen, sondern nur durch ein
-Element und den Gruppentitel zu repräsentieren. So kann ein schnellerer  Überblick über die Debatte ermöglicht werden.
-Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts ist eine weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
+Es besteht außerdem die Möglichkeit, Gruppen geschlossen zu visualisieren, also nur durch ein
+Element und den Gruppentitel zu repräsentieren und  die in ihr enthaltenen Argumente und Untergruppen nicht anzuzeigen. 
+So kann ein schnellerer  Überblick über die Debatte ermöglicht werden.
+Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts ist ein weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
 %Dabei können verschiedene Aspekte der Debatte in den Vordergrund gerückt werden um diesen besser zu verstehen. 
 %Beispielsweise können thematisch verwandte Knoten Gruppiert werden um einen besseren überblick über die Debatte zu ermöglichen 
 %oder es können einzelne Arugmentationsstränge besonders hervorgehoben werden.
@@ -35,7 +36,8 @@ Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts is
 \end{center}
 \end{figure}
 
-Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen, muss die Argumentkarte folglich auf eine geeignete Weise dargestellt werden.
+Damit sich die von einer Argumentkarte bereitgestellten Informationen sinnvoll verwenden lassen, muss die Argumentkarte %folglich  % keine Schlussfolgerung
+auf eine geeignete Weise dargestellt werden.
 Es existieren bereits einige Werkzeuge mit denen Argumentkarten angelegt  und ein Layout automatisch erzeugt werden kann, wie beispielsweise der Argunet Editor \cite{argunet}. 
 Allerdings müssen die resultierenden Layouts der Argumentkarten oftmals von Hand nachbearbeitet werden, um eine befriedigende Darstellung der Strukturen zu erhalten.
 Darüber hinaus ist eine Unterstützung von Gruppen nicht immer gegeben. 
@@ -59,8 +61,8 @@ In \autoref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Problemstellung}%\chapter{Layoutproblem} % > mehr als Layout, betrachte auch Interaktion!
 \label{chapter:layoutproblem}
-In diesem Kapitel definieren wir das von uns behandelte Layoutproblem für Argumentkarten mit Gruppenstruktur, sowie die Anforderungen für Interaktionen mit dem Layout.
-Wir beschreiben wie ein das Layout aussehen soll und was beim Öffnen und Schließen einer Gruppe beachtet werden muss.
+In diesem Kapitel definieren wir das von uns behandelte Layoutproblem für Argumentkarten mit Gruppenstruktur sowie die Anforderungen für Interaktionen mit dem Layout.
+Wir beschreiben wie ein Layout aussehen soll und was beim Öffnen und Schließen einer Gruppe beachtet werden muss.
 
 \section{Layoutproblem}
 \label{sec:layoutproblem}
@@ -68,24 +70,24 @@ Wir beschreiben wie ein das Layout aussehen soll und was beim Öffnen und Schlie
 Das Zeichnen eines Graphen setzt sich aus dem Finden eines Layouts sowie des Renderns zusammen. 
 Für uns von Interesse ist nur ersteres, das Layoutproblem. 
 Ziel hierbei ist es für einen gegebenen Graphen und gegebenenfalls weitere Informationen algorithmisch ein Layout zu berechnen,
-welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästhetikkriteren optimiert und gegebenenfalls weiteren lokalen Nebenbedingungen genügt.
+welches gewisse Zeichenkonventionen erfüllt, erwünschte Ästhetikkriterien optimiert und möglicherweise weiteren lokalen Nebenbedingungen genügt.
 
 % Was macht das Problem speziell? -> Gruppen und dass für Argumentkarten
 % Was lässt sich jedoch abstrahieren? -> knoteninhalt, kanten
 Im Fall der Argumentkarten abstrahieren wir für das Layoutproblem einige Informationen. 
-So spielen die Texte der einzelnen These oder Argumente für uns keine Rolle. 
-Sie werden lediglich durch achsenparallele Rechtecke als Knoten des Graphen repräsentiert.
+So spielen die Texte der einzelnen Thesen und Argumente für uns keine Rolle. 
+Beide werden lediglich durch achsenparallele Rechtecke als Knoten des Graphen repräsentiert.
 Des Weiteren ignorieren wir bei den Beziehungen zwischen Elementen den Typ sowie die Richtung. 
-Es ist also lediglich von Relevanz ob zwei Elemente in einer Beziehung stehen.
+Es ist also lediglich von Relevanz, ob zwei Elemente in einer Beziehung stehen.
 Dies wird dann durch eine ungerichtete Kante repräsentiert. 
 Eine geschlossene Gruppe wird als Pseudoknoten aufgefasst und durch ein leeres Element repräsentiert.
 Dies kann  z.B. ein Rechteck oder ein Kreis sein.  Die Kindgruppen und Knoten einer geschlossenen Gruppe sind folglich verborgen.
 Falls auch offene Gruppen dargestellt werden, sollten diese ihre Kindknoten umfassen. 
-In einem in \autoref{chapter:vgl} alternativen Ansatz werden offenen Gruppen nicht explizit dargestellt.
+In einem  alternativen Ansatz in \autoref{chapter:vgl} werden offenen Gruppen nicht explizit dargestellt.
 
 Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. 
-Sie setzt sich aus einem Graphen $G=(V,E)$, sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$ zusammen. 
-Hierbei beschreibt der Gruppenbaum, die Zuteilung von Knoten und Gruppen zu Elterngruppen. 
+Sie setzt sich aus einem Graphen $G=(V,E)$ sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$ zusammen. 
+Hierbei beschreibt der Gruppenbaum die Zuteilung von Knoten und Gruppen zu Elterngruppen. 
 Der Schnitt gibt den Zustand von Gruppen an, also ob sie geöffnet oder geschlossen sind. Wir spezifizieren nun $T$ und $S$ genauer.
 
 Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
@@ -98,9 +100,9 @@ Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne eine niedrigere
 		
 		
 Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
-Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu diesem Knoten adjazenten Kante schneidet. 
-In anderen Worten der Schnitt als \glqq direkt über\grqq\ dem Knoten verläuft.
-Eine Gruppe ist geschlossen, also als Pseudoknoten, dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
+Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu ihm adjazenten Kante schneidet. 
+In anderen Worten der Schnitt \glqq direkt über\grqq\ dem Knoten verläuft.
+Eine Gruppe ist geschlossen, also als Pseudoknoten dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
 In \autoref{f:LayoutbeispielKlein} wird so ein Layout nach unserem Designkonzept mit dem dazugehörigen Baum und Schnitt dargestellt.
 
 \begin{figure}[h!]
@@ -144,7 +146,7 @@ In \autoref{f:LayoutbeispielKlein} wird so ein Layout nach unserem Designkonzept
 %\end{itemize}
 
 
-Für diese Eingabe definieren wir im folgenden die Zeichenkonventionen und die Ästhetikkriterien des Layoutproblems.
+Für diese Eingabe definieren wir im Folgenden die Zeichenkonventionen und die Ästhetikkriterien des Layoutproblems.
 
 %\section{Formale Beschreibung}\label{sec:formaldesc}
 %Eine Argumentkarte lässt sich abbilden auf einen beschrifteten gerichteten Graphen.
@@ -172,7 +174,7 @@ Für das Layoutproblem von Argumentkarten mit Gruppenstruktur sind dies im Einze
 \item Knoten $V$ werden als achsenparallele Rechtecke dargestellt
 \item Überschneidungsfreiheit von Knoten
 \item Überschneidungsfreiheit von Kanten mit Knoten
-\item Überschneidungsfreiheit von Gruppen mit nicht Kindknoten oder -gruppen, sowie Kanten zwischen solchen
+\item Überschneidungsfreiheit von Gruppen mit nicht Kindknoten oder -gruppen sowie Kanten zwischen solchen
 \item Eine geschlossene Gruppe enthält keine Knoten
 \end{itemize}
 
@@ -193,13 +195,13 @@ Lokale Nebenbedingungen haben wir für das Layoutproblem nicht definiert.
 % was ist außerdem ein Problem? -> Interkation
 Da Gruppen sowohl geöffnet als auch geschlossen sein können, existiert eine Vielzahl von verschiedenen Layouts für eine Argumenkarte.
 Jeder gültige Schnitt in $T$ legt eine neue Konfiguration fest und benötigt ein eigenes Layout. 
-Dass eine Gruppe geöffnet wird bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
+Dass eine Gruppe geöffnet wird, bedeutet, dass der neue Schnitt den Gruppenbaum nicht mehr über der Gruppe schneidet, sondern alle seine Kanten zu Kindknoten im Baum.
 Das Schließen einer Gruppe wird durch den entgegengesetzten Fall beschrieben. Wir legen zudem fest, dass immer nur eine Gruppe geöffnet oder geschlossen werden kann. Darüber hinaus bezeichnen wir das Öffnen und Schließen einer Gruppe als eine Interaktion.
 
 In einer Implementierung sollte das Wechseln zwischen den verschiedenen Zuständen, also der Wechsel des Schnitts und dem damit verbundenen Öffnen und Schließen von Gruppen, möglich sein. 
-Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen eine detailliertere Ansicht zu haben.
+Dadurch soll es zum einen einfach sein sich einen Überblick zu verschaffen und zum anderen eine detailliertere Ansicht zur Verfügung zu haben.
 % welche Anforderungen haben wir daran? -> nachvollziehbarkeit / beibehalten der mentalen Karte
-Hierbei ist es höchst wünschenswert, dass sich bei einer solchen Interaktion das alte und neue Layout nur so wenig wie möglich und nur so viel wie nötig unterscheiden. 
+Hierbei ist es höchst wünschenswert, dass sich bei einer solchen Interaktion das alte und neue Layout so wenig wie möglich und nur so viel wie nötig unterscheiden. 
 Positionsänderungen von Knoten und Gruppen sollen bei einer Interaktion nur so groß sein, dass das Layout die Konventionen und Kriterien erfüllt.
 Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können. 
 Mit dem Problem, dass bei Veränderungen von Layouts die mentale Karte erhalten bleiben soll, haben sich zum Beispiel schon Eades et. al. \cite{eades1991preserving, Misue1995183}
