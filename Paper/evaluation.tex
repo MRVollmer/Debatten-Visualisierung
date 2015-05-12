@@ -5,9 +5,9 @@ Bei der Entwicklung unserer Lösung sind noch andere Ansätze entstanden, welche
 
 \section{Uniform kräftebasiertes Layout}
 \label{UniformK-Ansatz}
-Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten, in diesem Fall Gruppenknoten, repräsentiert werden und zusätzlich Anker werden verwendet.
+Dieser Lösungsansatz stellt eine einfache Erweiterung zu vorhandenen kräftebasierten Algorithmen dar: Knoten können durch zusammenfassende Pseudoknoten, in diesem Fall Gruppenknoten, repräsentiert werden und zusätzlich werden Anker verwendet.
 
-Konkret bedeutet dies, dass Knoten zunächst nur durch ihre Gruppenknoten dargestellt werden und dann mit einem einfachen kräftebasierten Verfahren ein Layout bestimmt wird, wobei die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefasster Elemente skaliert wird.
+Konkret bedeutet dies, dass Knoten zunächst nur durch ihre Gruppenknoten dargestellt werden und dann mit einem einfachen kräftebasierten Verfahren ein Layout bestimmt wird. Hierbei wird die abstoßende Kraft der Pseudoknoten bzw. die Anziehungskraft zusammengelegter Kanten logarithmisch mit der Anzahl zusammengefasster Elemente skaliert.
 
 Wenn nun die Elemente einer oder mehrerer Gruppen konkret dargestellt werden sollen, werden zunächst alle Gruppenknoten, ähnlich wie bei der finalen Lösung, verankert. 
 Zusätzlich werden die Gruppenknoten, deren Elemente dargestellt werden sollen, aus dem Layout entfernt und stattdessen deren Elemente eingefügt. Diese können ebenfalls Gruppenknoten für innere Gruppen sein. Schließlich wird nun noch einmal der kräftebasierte Algorithmus verwendet mit der Besonderheit, dass jeder Knoten eine zusätzliche Anziehung zu seinem Anker bzw. dem vom übergeordneten Gruppenknoten geerbten Anker hat.
@@ -59,7 +59,7 @@ Es werden folgende Abkürzungen verwendet:
 \textbf{UKB}: Der uniform kräftebasierte Layout-Algorithmus
 
 \myparagraph{Fokus des Layouts}
-Bei KBK und HL sind die Layouts der einzelnen Gruppenebenen größtenteils unabhängig, daher liegt der Fokus der Darstellung eher auf der Semantik der Gruppen, d.h. das Layout stellt besonders heraus, zu welcher Gruppe ein Knoten gehört.
+Bei KBK und HL sind die Layouts der einzelnen Gruppenebenen größtenteils unabhängig. Daher liegt der Fokus der Darstellung eher auf der Semantik der Gruppen, d.h. das Layout stellt besonders heraus, zu welcher Gruppe ein Knoten gehört.
 
 Das durch UKB erzeugte Layout basiert dagegen größtenteils auf den Knotenzusammenhängen. Durch die Anker bleiben Gruppenelemente zwar größtenteils zusammen, aber das Layout wird dennoch über die Kanten der Knoten in und zwischen Gruppen festgelegt. Bei entsprechenden Zusammenhängen können Gruppen auch deformiert oder getrennt werden (siehe \autoref{Uniform-Trenn-Skizze}).
 
@@ -78,12 +78,12 @@ Sowohl bei KBK als auch bei HL verliert man durch die Kapselung von Gruppen viel
 Das Layout des UKB-Ansatzes führt zu ähnlich kompakten Graphen wie herkömmliche kräftebasierte Algorithmen, da die einzigen zusätzlichen Kräfte, die Anker, an den Positionen der Gruppenknoten gesetzt werden, also in der Hüllkurve des Graphen liegen, und ausschließlich anziehend wirken.
 
 \myparagraph{Änderungskonstanz}
-Durch die unabhängigen internen und externen Gruppenlayouts bei KBK und HL, sind die Änderungen beim Öffnen und Schließen von Gruppen eher gering: Die Layouts in den Gruppen sind unabhängig davon, ob andere Gruppen geöffnet oder geschlossen sind, und die relativen Positionen der Gruppen zueinander ändern sich selten.
+Durch die Unabhängigkeit interner und externer Gruppenlayouts bei KBK und HL, sind die Änderungen beim Öffnen und Schließen von Gruppen eher gering: Die Layouts in den Gruppen sind unabhängig davon, ob andere Gruppen geöffnet oder geschlossen sind, und die relativen Positionen der Gruppen zueinander ändern sich selten.
 
 Da bei UKB die Gruppen nicht \glqq abgeschirmt\grqq\ sind, ist das Layout geöffneter Gruppen sehr stark vom Zustand anderer Gruppen abhängig. Es ist zu erwarten, dass die relativen Position durch die Anker erhalten bleiben, aber kleine Gruppen durch große Gruppen deformiert oder verdrängt werden.
 
 \myparagraph{Komplexität des Algorithmus}
-Wie bereits in Kapitel 3 dargestellt, ist der für KBK nötige Algorithmus recht komplex und enthält einige Parameter, die noch bestimmt werden müssen.
+Wie bereits in \autoref{chapter:algo} dargestellt, ist der für KBK nötige Algorithmus recht komplex und enthält einige Parameter, die noch bestimmt werden müssen.
 
 Der für HL benötigt Algorithmus besitzt etwas weniger Komplexität als KBK, da die Ports für Kanten stets fest sind, wodurch die Größe von geöffneten Gruppen einmalig \glqq Bottom-Up \grqq\
 und ohne Approximationen sowie Korrekturen bestimmt werden kann. Allerdings besitzt der zugrundeliegende Algorithmus für hierarchisches Layouts eine höhere Komplexität als kräftebasierende Verfahren.
