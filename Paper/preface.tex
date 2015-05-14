@@ -20,7 +20,7 @@ Eine größere Argumentkarte sowie ein Buch, welches solche enthält, existieren
 Argumentkarten sind vor allem ein Werkzeug zum besseren Verständnis der Debatte. 
 Über die Visualisierung der Elemente und ihre Beziehungen hinaus, existieren weitere Möglichkeiten um das Verstehen der Debatte zu verbessern und zu erleichtern.
 So können beispielsweise thematisch verwandte Knoten gruppiert werden. 
-Es besteht außerdem die Möglichkeit, Gruppen geschlossen zu visualisieren, also nur durch ein
+Es besteht außerdem die Möglichkeit Gruppen geschlossen zu visualisieren, also diese nur durch ein
 Element und den Gruppentitel zu repräsentieren und  die in ihr enthaltenen Argumente und Untergruppen nicht anzuzeigen. 
 So kann ein schnellerer  Überblick über die Debatte ermöglicht werden.
 Das Hervorheben einzelner Argumentationsstrukturen durch die Wahl des Layouts ist ein weiterer wichtiger Aspekt bei der Visualisierung von Debatten.
@@ -54,7 +54,7 @@ Es geht also um die Frage, wie sich Gruppen und Gruppenhierarchien den Anforderu
 und wie das Layout auf das Öffnen und Schließen von Gruppen reagiert.
 %\todo[inline]{Lösungsanstz in Kurzform}
 
-Im nächsten \autoref{chapter:layoutproblem}  präzisieren und abstrahieren wir diese Problemstellung. 
+In \autoref{chapter:layoutproblem}  präzisieren und abstrahieren wir diese Problemstellung. 
 In \autoref{chapter:algo} präsentieren wir unseren Lösungsansatz, welchen wir dann in \autoref{chapter:vgl} mit alternativen Ansätzen vergleichen und bewerten.
 \autoref{ch:zsf} schließt mit einer Zusammenfassung.
 
@@ -83,7 +83,7 @@ Dies wird dann durch eine ungerichtete Kante repräsentiert.
 Eine geschlossene Gruppe wird als Pseudoknoten aufgefasst und durch ein leeres Element repräsentiert.
 Dies kann  z.B. ein Rechteck oder ein Kreis sein.  Die Kindgruppen und Knoten einer geschlossenen Gruppe sind folglich verborgen.
 Falls auch offene Gruppen dargestellt werden, sollten diese ihre Kindknoten umfassen. 
-In einem  alternativen Ansatz in \autoref{chapter:vgl} werden offenen Gruppen nicht explizit dargestellt.
+In einem  alternativen Ansatz in \autoref{chapter:vgl} werden offene Gruppen nicht explizit dargestellt.
 
 Die Eingabe des Algorithmus lässt sich mit diesen Abstraktionen formal beschreiben. 
 Sie setzt sich aus einem Graphen $G=(V,E)$ sowie einem Baum $T$, genannt Gruppenbaum,  und einem Schnitt $S$ durch $T$ zusammen. 
@@ -92,14 +92,14 @@ Der Schnitt gibt den Zustand von Gruppen an, also ob sie geöffnet oder geschlos
 
 Die Wurzel $r$ der Baumstruktur repräsentiert die ganze Karte, jeder Knoten aus $V$ ist ein Blatt in $T$ und jeder innere Knoten steht für eine Gruppe.
 Durch die Distanz eines inneren Knotens zur Wurzel weisen wir die Gruppen einzelnen Stufen zu. 
-Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichne eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
+Da Bäume in der Regel auf dem Kopf gezeichnet werden, bezeichnet eine niedrigere Stufe eine höhere Distanz zur Wurzel. Die oberste Stufe sei die Stufe der Wurzel.
 %Der Schnitt $S = (X,V \setminus X)$ legt die Menge der derzeitig angezeigten Baumknoten fest 
 	% stimmt so nicht, zeigt gruppen an und das haben wir oben genannt
 	% außerdem ist V nicht V sondern iwas anderes... geht also nicht so einfach. 
 		%daher anstatt overhead einzuführen können wir uns ja darauf verlassen, dass jeder weiß was ein schnitt ist
 		
 		
-Für den Schnitt $S$ von $T$ ist gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
+Für den Schnitt $S$ von $T$ sei gefordert, dass er jeden Pfad von einem Blatt zur Wurzel genau einmal schneidet.
 Ein Knoten wird nur angezeigt, wenn der Schnitt den Pfad zur Wurzel von diesem Knoten in der zu ihm adjazenten Kante schneidet. 
 In anderen Worten der Schnitt \glqq direkt über\grqq\ dem Knoten verläuft.
 Eine Gruppe ist geschlossen, also als Pseudoknoten dargestellt, wenn der Pfad zur Wurzel in der adjazenten Kante geschnitten wird und offen, wenn der Pfad zur Wurzel nicht geschnitten wird. In allen anderen Fällen sind die Knoten oder Gruppen hinter einer geschlossenen Gruppe verborgen und werden nicht angezeigt.
@@ -182,7 +182,7 @@ Für unseren Lösungsansatz kommen für Gruppen weitere Zeichenkonvention hinzu.
 als Kreise dargestellt werden. Zum anderen fordern wir, dass eine geöffnete Gruppe alle ihre Kindelemente enthält. 
 Darüber hinaus spezifizieren wir das Kantenrouting genauer. Dies wird jedoch erst im Lösungsansatz genauer beschrieben.
 
-\myparagraph{Ästhetikriterien}
+\myparagraph{Ästhetikkriterien}
 Ästhetikkriterien sollen vom berechneten Layout optimiert werden. Hauptkriterien sind hier die Größen- und die Kreuzungsminimierung.
 Auch wenn es für Argumentkarten im Allgemeinen wünschenswert ist, haben wir in unserem Lösungsansatz die Kreuzungsminimierung nicht beachtet.
 Des Weiteren soll sowohl zwischen Knoten als auch Gruppen eine gewisse Mindestdistanz vorhanden sein, sowie Kanten eine gewisse Mindestlänge besitzen.
@@ -205,11 +205,11 @@ Hierbei ist es höchst wünschenswert, dass sich bei einer solchen Interaktion d
 Positionsänderungen von Knoten und Gruppen sollen bei einer Interaktion nur so groß sein, dass das Layout die Konventionen und Kriterien erfüllt.
 Der Nutzer soll sich mit seiner mentalen Karte der Argumentkarte auch nach der Interaktion zurechtfinden können. 
 Mit dem Problem, dass bei Veränderungen von Layouts die mentale Karte erhalten bleiben soll, haben sich zum Beispiel schon Eades et. al. \cite{eades1991preserving, Misue1995183}
-beschäftigt. Die Anforderung lassen sich auch mit den Konsistenzbedingungen bei dynamischen Kartenbeschriftungen von  Been et. al. \cite{Been2010312} vergleichen.
+beschäftigt. Die Anforderungen lassen sich auch mit den Konsistenzbedingungen bei dynamischen Kartenbeschriftungen von  Been et. al. \cite{Been2010312} vergleichen.
 
 Eine weitere wünschenswerte Anforderung ist, dass das Layout nach  Auf- und Zuklappzyklen 
 wieder zum Anfangslayout oder einem dazu ähnlichem Layout zurückkehrt. 
-Ähnlichkeit ist hier so gemeint, dass die Positionsänderungen von Knoten und Gruppen gering sind.
+Ähnlichkeit ist in diesem Fall so gemeint, dass die Positionsänderungen von Knoten und Gruppen gering sind.
 
 Wir erhalten für eine Interaktion und das Verhältnis der einzelnen berechneten Layouts also weitere Kriterien:
 \begin{itemize}

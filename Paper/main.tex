@@ -122,7 +122,7 @@ und konzentriert sie in einem eher kreisförmigen Bereich. Anderenfalls könnte 
 
 Da die Größe von Kindgruppen einer Elterngruppe für deren Layout benötigt wird, beginnt der Algorithmus auf der tiefsten Stufe,
 also bei den Gruppen, die in den meisten Gruppen enthalten sind. Wurde ein Layout berechnet, kann ein Kreis darum gelegt werden und somit die Größe approximiert werden.
-Mit der oben genannten Rechnung für die Größe von geschlossenen Gruppen, kann nun also die Größe für das Layout eine Stufe höher verwendet werden.
+Mit der oben genannten Rechnung für die Größe von geschlossenen Gruppen, kann die Größe für das Layout eine Stufe höher verwendet werden.
 Dies wiederholt sich bis zur obersten Stufe. Hier sind jedoch keine Anker zu einem Mittelpunkt mehr zwingend nötig.
 Dies ist nur der Fall, wenn man die gesamte Karte  in einen keisförmigen Bereich ziehen möchte.
 
@@ -238,7 +238,7 @@ Mit gewähltem Anfangslayout können wir nun den optimalen Kreisradius einer Gru
 Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. \label{Radius}
 Hierbei führen wir die beiden Schritte \glqq Finden des Radius\grqq\ und \glqq Berechnen des Layouts\grqq\ zusammen aus.
 Die Idee des iterativen Algorithmus ist es, für einen gegeben Radius ein Layout zu berechnen und dann zu testen, ob der Radius verkleinert werden kann.
-Ist dies der Fall, so wiederhole das Vorgehen. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab. 
+Ist dies der Fall, so wird das Vorgehen wiederholt. Ansonsten erhöhe entweder den Faktor $\alpha$ für die Kraft des Ankers zum Mittelpunkt oder breche ab. 
 Da hier noch die Anfangsberechnung der Layouts in Gruppen beschreiben wird, ist es wichtig anzumerken, dass die Kindgruppen der behandelten Gruppe 
 geöffnet sind.
 Wird der Algorithmus später verwendet, muss dies nicht mehr der Fall sein.
@@ -307,20 +307,20 @@ Zum anderen, wie man dafür sorgt, dass sich das Layout nach Öffnen oder Schlie
 
 % Ansatz für Größe
 Um die Größe einer Gruppe in ihrem jetzigen Zustand zu berechnen, könnte man verschieden vorgehen. 
-Zum Beispiel könnte man ihn aus den bekannten Radien, für den Zustand alle Untergruppen geöffnet und der Gruppe selbst geschlossen, berechnen. 
-Oder aber man benutzt den Algorithmus aus dem vorherigen Abschnitt, um ihn entweder im Voraus oder wenn benötigt zu ermitteln. 
+Zum Beispiel könnte diese aus den bekannten Radien, für den Zustand alle Untergruppen geöffnet und der Gruppe selbst geschlossen, berechnet werden. 
+Alternativ kann der Algorithmus aus dem vorherigen Abschnitt benutzt werden, um ihn entweder im Voraus oder wenn benötigt zu ermitteln. 
 Wird nun eine Gruppe geöffnet oder geschlossen, wird diese durch eine größere bzw. kleinere ersetzt. 
-Diese Änderung zieht sich logischer Weise bis zur obersten Stufe durch.
+Diese Änderung zieht sich dann bis zur obersten Stufe durch.
 
 Um das Verhalten bei einer Interaktion mit einer Gruppe zu kontrollieren, erweitern wir den verwendeten kräftebasierten Layoutalgorithmus um mehrere Anker. 
 Dies geschieht pro Stufe und Gruppe für die ein neues Layout berechnet werden muss.
-Jedes gelayoutet Element, das sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
+Jedes gelayoutete Element, das sich also nicht in einer geschlossenen Gruppe befindet, bekommt einen Anker gesetzt und zwar an der Position, 
 an der es sich im Anfangslayout der Gruppe bzw. obersten Stufe befindet. 
 Diese Anker bezeichnen wir als Grundanker. 
 Wenn nun eine Gruppe geöffnet oder geschlossen wird und die dadurch verursachten Größenänderungen pro Stufe durchgeführt wurden, 
 wird in jeder veränderten Gruppe sowie der obersten Stufe der Layoutalgorithmus mit den zuvor gesetzten Grundankern gestartet. 
 Dies wird  durch \autoref{f:Interaktion} veranschaulicht. 
-Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
+Die Grundanker sorgen ausschließlich dafür, dass die Elemente nicht zu stark von ihrer Position vor der Veränderung verschoben werden.
 
 \begin{figure}[h!]
 \begin{center} 
@@ -331,7 +331,7 @@ Die Grundanker sorgen nur dafür, dass die Elemente nicht zu stark von ihrer Pos
 \end{figure}
 
 Genauer zu spezifizieren ist, wie stark die Anker sein sollten, sowie ob sie von der Gruppen- bzw. Elementgröße abhängig sein sollten. 
-Hierfür sind erneut eine Implementierung sowie Tests nötig. Diese Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
+Hierfür sind erneut eine Implementierung sowie Tests notwenidg. Diese Wahl könnte natürlich auch sehr von der Argumentkartenstruktur sowie der eigenen Vorliebe abhängen.
 
 Durch das Öffnen vieler Gruppen können große Veränderungen zum Grundlayout zustande kommen.
 Die Kräfte der Anker könnten so im Verhältnis zu anderen Kräften zu stark werden und unschöne Layouts erzeugen.
