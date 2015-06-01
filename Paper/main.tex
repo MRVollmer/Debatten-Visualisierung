@@ -175,6 +175,7 @@ Da davon auszugehen ist, dass sich bei Veränderungen im Layout die Winkel nicht
 Dadurch bleibt das Layout in einer Gruppe unabhängig von den Änderungen außerhalb. 
 Jedoch müssen die verschiedenen Ansätze für das Kantenrouting im verwendeten Algorithmus für die Interaktion beachtet werden.
 
+\pagebreak[4]
 Für die Layoutberechnung ist eine Gruppe $H$ sowie die vom Layout der darüberliegenden Stufe bereits festgelegten Ports der Gruppe gegeben.
 Diese Ports modellieren wir als feste Knoten auf dem Kreis der Gruppe an ihren jeweiligen Winkeln.
 Des Weiteren haben wir bereits ein Layout $\mathcal{L}_H'$ der Gruppe $H$ ohne Kanten, die die Gruppengrenze überschreiten, in Zeile 4 des \hyperref[Layoutalgorithmus]{Layoutalgorithmus~\ref*{Layoutalgorithmus}}  berechnet. 
@@ -231,9 +232,8 @@ Man könnte sich jedoch auch einen anspruchsvolleren Ansatz überlegen, bei dem 
 
 Mit gewähltem Anfangslayout können wir nun den optimalen Kreisradius einer Gruppe bestimmen.
 
-
-
 % - Größe des Kreises definiert durch Radius R
+\pagebreak[4]
 \myparagraph{Bestimmen des Kreisradius einer geöffneten Gruppe}
 Für die Berechnung eines angemessenen Kreisradius schlagen wir einen iterativen Algorithmus vor. \label{Radius}
 Hierbei führen wir die beiden Schritte \glqq Finden des Radius\grqq\ und \glqq Berechnen des Layouts\grqq\ zusammen aus.
